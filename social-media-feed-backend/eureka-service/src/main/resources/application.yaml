@@ -1,0 +1,20 @@
+
+server:
+  port: 8761
+
+spring:
+  application:
+    name: "eureka-server"
+
+logging:
+  level:
+    org:
+      springframework: ${LOGGING_LEVEL:DEBUG}
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  instance:
+    prefer-ip-address: true
+    hostname: localhost

@@ -11,6 +11,7 @@
     <modules>
         <module>account-service</module>
         <module>common</module>
+        <module>eureka-service</module>
     </modules>
 
     <parent>
@@ -24,6 +25,9 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <spring.cloud.api.gateway.version>4.0.6</spring.cloud.api.gateway.version>
+        <spring.cloud.eureka.version>4.0.2</spring.cloud.eureka.version>
     </properties>
 
     <dependencies>
@@ -41,6 +45,22 @@
                 <groupId>com.social.media.feed</groupId>
                 <artifactId>common-domain</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+                <version>${spring.cloud.eureka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <version>${spring.cloud.eureka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
+                <version>${spring.cloud.api.gateway.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
