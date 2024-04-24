@@ -1,0 +1,25 @@
+
+# Application config
+server:
+  port: 8181
+
+logging:
+  level:
+    org:
+      springframework: ${LOGGING_LEVEL:INFO}
+
+spring:
+  application:
+    name: account-service
+  datasource:
+    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/postgres
+    username: ${DATABASE_USER:user}
+    password: ${DATABASE_PASSWORD:admin}
+    driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+      schema-locations: classpath:init-schema.sql
+      platform: postgres
+      mode: always
+  jpa:
+    open-in-view: false
