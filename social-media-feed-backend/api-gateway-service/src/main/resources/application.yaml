@@ -1,0 +1,21 @@
+
+# Application config
+server:
+  port: 8080
+
+logging:
+  level:
+    org:
+      springframework: ${LOGGING_LEVEL:INFO}
+
+# Service registry config
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_HOST:http://localhost}:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: api-gateway-service

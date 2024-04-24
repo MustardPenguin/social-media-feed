@@ -12,6 +12,8 @@
         <module>account-service</module>
         <module>common</module>
         <module>eureka-service</module>
+        <module>api-gateway</module>
+        <module>api-gateway-service</module>
     </modules>
 
     <parent>
