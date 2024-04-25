@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.HashMap;
 
 @Component
 public class JwtTokenUtil {
@@ -15,9 +16,10 @@ public class JwtTokenUtil {
     @Value("${jwtSecret}")
     private String JWT_SECRET;
 
-    public String generateToken(String username) {
+    public String generateToken(String username, HashMap<String, String> claims) {
         return Jwts.builder()
                 .setSubject(username)
+                .setClaims(claims)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + JWT_EXPIRATION))
                 .signWith(Keys.hmacShaKeyFor(Decoders.BASE64.decode(JWT_SECRET)))

@@ -27,6 +27,9 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Account createAccount(Account account) {
         log.info("Creating account for username {} at service layer", account.getUsername());
+        if (accountRepository.findAccountByUsername(account.getUsername()) != null) {
+            throw new AccountDomainException("Account already exists with username " + account.getUsername());
+        }
         account.setPassword(passwordEncoder.encode(account.getPassword()));
         return accountRepository.save(account);
     }

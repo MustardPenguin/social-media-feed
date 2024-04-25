@@ -8,6 +8,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class GatewayRouteConfig {
 
+    private final AuthenticationFilter authenticationFilter;
+
+    public GatewayRouteConfig(AuthenticationFilter authenticationFilter) {
+        this.authenticationFilter = authenticationFilter;
+    }
+
     @Bean
     public RouteLocator routeLocator(RouteLocatorBuilder routeLocatorBuilder) {
         return routeLocatorBuilder.routes()
@@ -17,6 +23,10 @@ public class GatewayRouteConfig {
                 .route("authenticate-account", route -> route
                         .path("/api/authenticate")
                         .uri("lb://account-service"))
+                .route("create-post", route -> route
+                        .path("/api/post")
+                        .filters(filter -> filter.filter(authenticationFilter))
+                        .uri("lb://post-service"))
                 .build();
     }
 }

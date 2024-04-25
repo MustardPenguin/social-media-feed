@@ -4,13 +4,16 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.UUID;
 
 public class AccountDetails implements UserDetails {
 
+    private final UUID accountId;
     private final String username;
     private final String password;
 
-    public AccountDetails(String username, String password) {
+    public AccountDetails(UUID accountId, String username, String password) {
+        this.accountId = accountId;
         this.username = username;
         this.password = password;
     }
@@ -28,6 +31,10 @@ public class AccountDetails implements UserDetails {
     @Override
     public String getUsername() {
         return username;
+    }
+
+    public UUID getAccountId() {
+        return accountId;
     }
 
     @Override

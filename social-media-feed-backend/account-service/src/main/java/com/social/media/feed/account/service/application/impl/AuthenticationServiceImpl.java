@@ -10,6 +10,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
 
@@ -32,6 +34,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             throw new AccountDomainException(e.getMessage());
         }
         AccountDetails accountDetails = (AccountDetails) authentication.getPrincipal();
-        return jwtTokenUtil.generateToken(accountDetails.getUsername());
+        HashMap<String, String> claims = new HashMap<>();
+        claims.put("accountId", accountDetails.getAccountId().toString());
+        return jwtTokenUtil.generateToken(accountDetails.getUsername(), claims);
     }
 }
