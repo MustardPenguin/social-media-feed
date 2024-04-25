@@ -3,6 +3,8 @@
 server:
   port: 8080
 
+jwtSecret: ${JWT_SECRET:d3f9879cc6c9715e77513d984e2533467516801f7b49b261bb6b02ab88c1974c}
+
 logging:
   level:
     org:

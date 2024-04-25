@@ -1,7 +1,7 @@
 package com.social.media.feed.account.service.application.rest.controller;
 
 import com.social.media.feed.account.service.application.mapper.AccountServiceMapper;
-import com.social.media.feed.account.service.application.port.AccountService;
+import com.social.media.feed.account.service.application.port.service.AccountService;
 import com.social.media.feed.account.service.application.rest.model.RegisterAccountRequestBody;
 import com.social.media.feed.account.service.domain.entity.Account;
 import org.springframework.http.ResponseEntity;

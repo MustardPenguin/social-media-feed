@@ -1,10 +1,12 @@
 package com.social.media.feed.account.service.infrastructure.repository.account;
 
-import com.social.media.feed.account.service.application.port.AccountRepository;
+import com.social.media.feed.account.service.application.port.repository.AccountRepository;
 import com.social.media.feed.account.service.domain.entity.Account;
 import com.social.media.feed.account.service.domain.exception.AccountDomainException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 
 @Slf4j
 @Component
@@ -29,5 +31,11 @@ public class AccountRepositoryImpl implements AccountRepository {
             throw new AccountDomainException("Error while saving account for user " + account.getUsername()
                     + ", error: " + e.getMessage(), e);
         }
+    }
+
+    @Override
+    public Account findAccountByUsername(String username) {
+        Optional<AccountEntity> accountEntity = accountJpaRepository.findAccountEntityByUsername(username);
+        return accountEntity.map(accountRepositoryMapper::accountEntityToAccount).orElse(null);
     }
 }

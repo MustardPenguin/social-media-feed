@@ -14,6 +14,9 @@ public class GatewayRouteConfig {
                 .route("register-account", route -> route
                         .path("/api/account")
                         .uri("lb://account-service"))
+                .route("authenticate-account", route -> route
+                        .path("/api/authenticate")
+                        .uri("lb://account-service"))
                 .build();
     }
 }

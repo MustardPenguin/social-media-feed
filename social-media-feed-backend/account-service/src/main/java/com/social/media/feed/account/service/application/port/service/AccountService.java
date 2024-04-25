@@ -1,4 +1,4 @@
-package com.social.media.feed.account.service.application.port;
+package com.social.media.feed.account.service.application.port.service;
 
 import com.social.media.feed.account.service.domain.entity.Account;
 

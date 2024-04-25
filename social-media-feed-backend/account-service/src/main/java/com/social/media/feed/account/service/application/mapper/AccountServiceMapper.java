@@ -1,5 +1,6 @@
 package com.social.media.feed.account.service.application.mapper;
 
+import com.social.media.feed.account.service.application.rest.model.LoginAccountRequestBody;
 import com.social.media.feed.account.service.application.rest.model.RegisterAccountRequestBody;
 import com.social.media.feed.account.service.domain.entity.Account;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,13 @@ public class AccountServiceMapper {
                 .accountId(UUID.randomUUID())
                 .username(registerAccountRequestBody.getUsername())
                 .password(registerAccountRequestBody.getPassword())
+                .build();
+    }
+
+    public Account loginAccountRequestBodyToAccount(LoginAccountRequestBody loginAccountRequestBody) {
+        return Account.builder()
+                .username(loginAccountRequestBody.getUsername())
+                .password(loginAccountRequestBody.getPassword())
                 .build();
     }
 }

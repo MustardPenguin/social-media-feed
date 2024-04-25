@@ -11,7 +11,7 @@ import java.util.UUID;
 public class Account extends AggregateRoot<AccountId> {
 
     private final String username;
-    private final String password;
+    private String password;
 
     private Account(Builder builder) {
         super.setId(new AccountId(builder.accountId));
@@ -25,6 +25,10 @@ public class Account extends AggregateRoot<AccountId> {
 
     public void setId(UUID id) {
         super.setId(new AccountId(id));
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public static final class Builder {
