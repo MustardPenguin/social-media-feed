@@ -1,9 +1,10 @@
 package com.social.media.feed.post.service.application.rest.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.social.media.feed.post.service.application.mapper.PostServiceMapper;
+import com.social.media.feed.post.service.application.rest.model.CreatePostRequestBody;
+import com.social.media.feed.post.service.domain.entity.Post;
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -11,8 +12,18 @@ import java.util.UUID;
 @RequestMapping("/api/post")
 public class PostController {
 
+    private final PostServiceMapper postServiceMapper;
+
+    public PostController(PostServiceMapper postServiceMapper) {
+        this.postServiceMapper = postServiceMapper;
+    }
+
     @PostMapping
-    public void createPost(@RequestHeader("accountId") UUID accountId) {
-        System.out.println("Creating post for account id " + accountId);
+    public void createPost(
+            @RequestBody @Valid CreatePostRequestBody createPostRequestBody,
+            @RequestHeader("accountId") UUID accountId) {
+        Post post = postServiceMapper.createPostRequestBodyToPost(createPostRequestBody);
+        post.setAccountId(accountId);
+
     }
 }

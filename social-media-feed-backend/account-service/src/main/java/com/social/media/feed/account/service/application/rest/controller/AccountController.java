@@ -4,6 +4,7 @@ import com.social.media.feed.account.service.application.mapper.AccountServiceMa
 import com.social.media.feed.account.service.application.port.service.AccountService;
 import com.social.media.feed.account.service.application.rest.model.RegisterAccountRequestBody;
 import com.social.media.feed.account.service.domain.entity.Account;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +24,7 @@ public class AccountController {
     }
 
     @PostMapping
-    public ResponseEntity<String> registerAccount(@RequestBody RegisterAccountRequestBody registerAccountRequestBody) {
+    public ResponseEntity<String> registerAccount(@RequestBody @Valid RegisterAccountRequestBody registerAccountRequestBody) {
         Account account = accountService.createAccount(accountServiceMapper.registerAccountRequestBodyToAccount(registerAccountRequestBody));
         return ResponseEntity.ok("Account created successfully with id " + account.getId().getValue() + " and username " + account.getUsername() + "!");
     }
