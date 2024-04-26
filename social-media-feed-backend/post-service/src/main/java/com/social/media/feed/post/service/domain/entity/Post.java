@@ -18,6 +18,18 @@ public class Post extends AggregateRoot<PostId> {
         description = builder.description;
     }
 
+    public UUID getAccountId() {
+        return accountId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
     public void setAccountId(UUID accountId) {
         this.accountId = accountId;
     }

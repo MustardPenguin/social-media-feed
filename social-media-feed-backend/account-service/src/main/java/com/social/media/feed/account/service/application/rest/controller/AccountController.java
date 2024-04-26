@@ -6,10 +6,9 @@ import com.social.media.feed.account.service.application.rest.model.RegisterAcco
 import com.social.media.feed.account.service.domain.entity.Account;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/account")
@@ -27,5 +26,14 @@ public class AccountController {
     public ResponseEntity<String> registerAccount(@RequestBody @Valid RegisterAccountRequestBody registerAccountRequestBody) {
         Account account = accountService.createAccount(accountServiceMapper.registerAccountRequestBodyToAccount(registerAccountRequestBody));
         return ResponseEntity.ok("Account created successfully with id " + account.getId().getValue() + " and username " + account.getUsername() + "!");
+    }
+
+    @GetMapping("/{accountId}")
+    public ResponseEntity<String> getAccount(@PathVariable UUID accountId) {
+        Account account = accountService.getAccountByAccountId(accountId);
+        if(account == null) {
+            return ResponseEntity.ok("Account not found with id " + accountId + "!");
+        }
+        return ResponseEntity.ok(accountId.toString());
     }
 }

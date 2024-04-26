@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Slf4j
 @Component
@@ -27,7 +28,7 @@ public class AccountRepositoryImpl implements AccountRepository {
             accountEntity = accountJpaRepository.save(accountEntity);
             return accountRepositoryMapper.accountEntityToAccount(accountEntity);
         } catch (Exception e) {
-            log.error("Error: {}", e.getMessage());
+            log.error("Error while saving account for user {}, error: {}", account.getUsername(), e.getMessage());
             throw new AccountDomainException("Error while saving account for user " + account.getUsername()
                     + ", error: " + e.getMessage(), e);
         }
@@ -36,6 +37,12 @@ public class AccountRepositoryImpl implements AccountRepository {
     @Override
     public Account findAccountByUsername(String username) {
         Optional<AccountEntity> accountEntity = accountJpaRepository.findAccountEntityByUsername(username);
+        return accountEntity.map(accountRepositoryMapper::accountEntityToAccount).orElse(null);
+    }
+
+    @Override
+    public Account findAccountByAccountId(UUID accountId) {
+        Optional<AccountEntity> accountEntity = accountJpaRepository.findAccountEntityByAccountId(accountId);
         return accountEntity.map(accountRepositoryMapper::accountEntityToAccount).orElse(null);
     }
 }

@@ -12,6 +12,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Slf4j
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -32,5 +34,10 @@ public class AccountServiceImpl implements AccountService {
         }
         account.setPassword(passwordEncoder.encode(account.getPassword()));
         return accountRepository.save(account);
+    }
+
+    @Override
+    public Account getAccountByAccountId(UUID accountId) {
+        return accountRepository.findAccountByAccountId(accountId);
     }
 }
