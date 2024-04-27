@@ -29,7 +29,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <spring.cloud.api.gateway.version>4.0.6</spring.cloud.api.gateway.version>
+        <spring.cloud.openfeign.version>4.0.2</spring.cloud.openfeign.version>
         <spring.cloud.eureka.version>4.0.2</spring.cloud.eureka.version>
+
         <jjwt.version>0.11.5</jjwt.version>
     </properties>
 
@@ -53,6 +55,29 @@
                 <groupId>com.social.media.feed</groupId>
                 <artifactId>common-config</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-dependencies</artifactId>-->
+<!--                <version>2023.0.1</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-openfeign-dependencies</artifactId>-->
+<!--                <version>${spring.cloud.openfeign.version}</version>-->
+<!--            </dependency>-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-openfeign-core</artifactId>
+                <version>${spring.cloud.openfeign.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${spring.cloud.openfeign.version}</version>
             </dependency>
 
             <dependency>

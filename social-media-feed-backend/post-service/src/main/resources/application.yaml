@@ -23,7 +23,7 @@ spring:
   application:
     name: post-service
   datasource:
-    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/postgres
+    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/postgres?stringtype=unspecified&currentSchema=post
     username: ${DATABASE_USER:user}
     password: ${DATABASE_PASSWORD:admin}
     driver-class-name: org.postgresql.Driver

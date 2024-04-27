@@ -34,6 +34,6 @@ public class AccountController {
         if(account == null) {
             return ResponseEntity.ok("Account not found with id " + accountId + "!");
         }
-        return ResponseEntity.ok(accountId.toString());
+        return ResponseEntity.ok(account.getUsername());
     }
 }
