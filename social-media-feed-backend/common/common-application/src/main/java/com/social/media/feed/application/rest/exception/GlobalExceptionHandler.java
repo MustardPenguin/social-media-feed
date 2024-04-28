@@ -1,4 +1,4 @@
-package com.social.media.feed.config.rest.exception;
+package com.social.media.feed.application.rest.exception;
 
 import com.social.media.feed.domain.exception.DomainException;
 import org.apache.coyote.Response;

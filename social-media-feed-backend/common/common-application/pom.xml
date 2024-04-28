@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>common-config</artifactId>
+    <artifactId>common-application</artifactId>
 
     <dependencies>
         <dependency>

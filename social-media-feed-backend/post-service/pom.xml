@@ -41,7 +41,7 @@
 
         <dependency>
             <groupId>com.social.media.feed</groupId>
-            <artifactId>common-config</artifactId>
+            <artifactId>common-application</artifactId>
         </dependency>
         <dependency>
             <groupId>com.social.media.feed</groupId>

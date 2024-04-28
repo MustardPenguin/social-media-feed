@@ -29,11 +29,12 @@ public class AccountController {
     }
 
     @GetMapping("/{accountId}")
-    public ResponseEntity<String> getAccount(@PathVariable UUID accountId) {
+    public ResponseEntity<Account> getAccount(@PathVariable UUID accountId) {
         Account account = accountService.getAccountByAccountId(accountId);
         if(account == null) {
-            return ResponseEntity.ok("Account not found with id " + accountId + "!");
+//            return ResponseEntity.ok("Account not found with id " + accountId + "!");
+            return null;
         }
-        return ResponseEntity.ok(account.getUsername());
+        return ResponseEntity.ok(account);
     }
 }
