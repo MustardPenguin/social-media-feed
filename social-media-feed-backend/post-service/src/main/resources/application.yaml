@@ -9,6 +9,9 @@ logging:
       springframework: ${LOGGING_LEVEL:INFO}
 
 apiGatewayHost: ${API_GATEWAY_HOST:http://localhost}:8080
+redisHostName: ${REDIS_HOST:localhost}
+redisPort: ${REDIS_PORT:6379}
+redisPassword: ${REDIS_PASSWORD:admin}
 
 # Service registry config
 eureka:

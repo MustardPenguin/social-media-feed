@@ -25,7 +25,7 @@ public class PostServiceImpl implements PostService {
     public Post createPost(Post post) {
         log.info("Creating post for account id {} at service layer", post.getAccountId());
         post.setPostId(UUID.randomUUID());
-        postServiceUtil.validateAccount(post.getAccountId());
+        postServiceUtil.getAccountResponseByAccountIdFromAccountService(post.getAccountId());
         return postRepository.save(post);
     }
 }

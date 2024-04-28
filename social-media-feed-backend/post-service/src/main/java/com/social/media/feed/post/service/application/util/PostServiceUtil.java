@@ -2,6 +2,7 @@ package com.social.media.feed.post.service.application.util;
 
 import com.social.media.feed.application.rest.model.AccountResponse;
 import com.social.media.feed.application.rest.util.ObjectMapperUtil;
+import com.social.media.feed.post.service.application.port.repository.AccountCache;
 import com.social.media.feed.post.service.domain.exception.PostDomainException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,24 +14,24 @@ import java.util.UUID;
 @Component
 public class PostServiceUtil {
 
-    @Value("${apiGatewayHost}")
-    private String apiGatewayHost;
-
     private final ObjectMapperUtil objectMapperUtil;
     private final PostFeignClient postFeignClient;
+    private final AccountCache accountCache;
 
-    public PostServiceUtil(ObjectMapperUtil objectMapperUtil, PostFeignClient postFeignClient) {
+    public PostServiceUtil(ObjectMapperUtil objectMapperUtil, PostFeignClient postFeignClient, AccountCache accountCache) {
         this.objectMapperUtil = objectMapperUtil;
         this.postFeignClient = postFeignClient;
+        this.accountCache = accountCache;
     }
 
-    public void validateAccount(UUID accountId) {
+    public AccountResponse getAccountResponseByAccountIdFromAccountService(UUID accountId) {
         String response = postFeignClient.getAccountByAccountId(accountId);
         log.info("Found account of username " + response + " for account id " + accountId + "!");
         if(response == null || response.isEmpty()) {
             throw new PostDomainException("Account not found for account id " + accountId + " in account service!");
         }
         AccountResponse accountResponse = objectMapperUtil.convertStringToObject(response, AccountResponse.class);
-        
+        accountCache.saveAccount(accountResponse);
+        return accountResponse;
     }
 }
