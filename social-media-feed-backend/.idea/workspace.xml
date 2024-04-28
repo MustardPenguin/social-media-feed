@@ -5,26 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/common/common-application/src/main/java/com/social/media/feed/application/rest/model/AccountResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-application/src/main/java/com/social/media/feed/application/rest/util/ObjectMapperUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/infrastructure.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/application/configuration/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/redis/account/AccountEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/mapper/AccountServiceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/mapper/AccountServiceMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common-config/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-application/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common-config/src/main/java/com/social/media/feed/config/rest/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-application/src/main/java/com/social/media/feed/application/rest/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/resources/init-data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/resources/init-data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-application/src/main/java/com/social/media/feed/application/rest/model/AccountResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-application/src/main/java/com/social/media/feed/application/rest/model/AccountResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/post-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/PostApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/PostApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/application/port/service/WebClientService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/application/util/PostServiceUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/application/util/PostServiceUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -45,16 +54,26 @@
   "associatedIndex": 6
 }]]></component>
   <component name="ProjectId" id="2fhxY8l917w8KoJErjgTGMVFmMB" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.AccountApplicationService.executor": "Run",
     "Spring Boot.ApiGatewayServiceApplication.executor": "Run",
     "Spring Boot.EurekaServerApplication.executor": "Run",
+    "Spring Boot.PostApplicationService.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -62,9 +81,25 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql",
+      "redis"
+    ]
   }
 }]]></component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
   <component name="RunManager" selected="Spring Boot.PostApplicationService">
     <configuration name="AccountApplicationService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="account-service" />
@@ -142,7 +177,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1714267157060</updated>
-      <workItem from="1714267161132" duration="1052000" />
+      <workItem from="1714267161132" duration="5294000" />
     </task>
     <servers />
   </component>

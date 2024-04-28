@@ -1,0 +1,33 @@
+
+version: '3.7'
+
+networks:
+  social_media_feed:
+    driver: bridge
+
+services:
+  redis:
+    image: redis:7.2
+    container_name: redis
+    hostname: redis
+    ports:
+      - "6379:6379"
+    environment:
+      REDIS_PASSWORD: admin
+  postgres_cdc:
+    image: debezium/postgres:16
+    container_name: postgres_cdc
+    hostname: postgres_cdc
+    ports:
+      - "5432:5432"
+    command:
+      - "postgres"
+      - "-c"
+      - "max_connections=200"
+      - "-c"
+      - "max_replication_slots=10"
+      - "-c"
+      - "max_wal_senders=10"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: admin

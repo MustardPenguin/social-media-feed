@@ -4,6 +4,7 @@ import com.social.media.feed.account.service.application.mapper.AccountServiceMa
 import com.social.media.feed.account.service.application.port.service.AccountService;
 import com.social.media.feed.account.service.application.rest.model.RegisterAccountRequestBody;
 import com.social.media.feed.account.service.domain.entity.Account;
+import com.social.media.feed.application.rest.model.AccountResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,12 +30,12 @@ public class AccountController {
     }
 
     @GetMapping("/{accountId}")
-    public ResponseEntity<Account> getAccount(@PathVariable UUID accountId) {
+    public ResponseEntity<AccountResponse> getAccount(@PathVariable UUID accountId) {
         Account account = accountService.getAccountByAccountId(accountId);
         if(account == null) {
-//            return ResponseEntity.ok("Account not found with id " + accountId + "!");
             return null;
         }
-        return ResponseEntity.ok(account);
+        AccountResponse accountResponse = accountServiceMapper.accountToAccountResponse(account);
+        return ResponseEntity.ok(accountResponse);
     }
 }
