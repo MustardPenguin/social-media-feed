@@ -26,11 +26,12 @@ services:
       - kafka-broker-1
       - kafka-broker-2
       - kafka-broker-3
+      - zookeeper
     ports:
       - "8081:8081"
     environment:
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
-      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: 'zookeeper:2181'
+      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: zookeeper:2181
       SCHEMA_REGISTRY_LISTENERS: http://schema-registry:8081
       SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: kafka-broker-1:9092,kafka-broker-2:9092,kafka-broker-3:9092
       SCHEMA_REGISTRY_DEBUG: 'true'
@@ -90,6 +91,31 @@ services:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka-broker-1:9092,kafka-broker-2:9092,kafka-broker-3:9092
       KAFKA_CLUSTERS_0_SCHEMA_REGISTRY: http://schema-registry:8081
+  debezium:
+    image: debezium/connect:2.5
+    ports:
+      - "8083:8083"
+    depends_on:
+      - kafka-broker-1
+      - kafka-broker-2
+      - kafka-broker-3
+      - schema-registry
+      - postgres-cdc
+    volumes:
+      - "./debezium-dependencies:/kafka/connect/debezium-connector-schemaregistry"
+    environment:
+      # General config
+      GROUP_ID: 1
+      CONFIG_STORAGE_TOPIC: "connect-config"
+      OFFSET_STORAGE_TOPIC: "connect-offsets"
+      STATUS_STORAGE_TOPIC: "connect-status"
+      BOOTSTRAP_SERVERS: kafka-broker-1:9092,kafka-broker-2:9092,kafka-broker-3:9092
+      LOGGING_LEVEL: "DEBUG"
+      CONNECT_SCHEMA_NAME_ADJUSTMENT_MODE: avro
+      KEY_CONVERTER: io.confluent.connect.avro.AvroConverter
+      VALUE_CONVERTER: io.confluent.connect.avro.AvroConverter
+      CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+      CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
   # Database
   redis:
     image: redis:7.2
@@ -99,10 +125,10 @@ services:
       - "6379:6379"
     environment:
       REDIS_PASSWORD: admin
-  postgres_cdc:
+  postgres-cdc:
     image: debezium/postgres:16
-    container_name: postgres_cdc
-    hostname: postgres_cdc
+    container_name: postgres-cdc
+    hostname: postgres-cdc
     ports:
       - "5432:5432"
     command:
