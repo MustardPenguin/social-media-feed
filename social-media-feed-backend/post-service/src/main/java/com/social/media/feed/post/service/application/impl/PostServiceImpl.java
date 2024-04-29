@@ -3,6 +3,7 @@ package com.social.media.feed.post.service.application.impl;
 import com.social.media.feed.post.service.application.port.repository.PostRepository;
 import com.social.media.feed.post.service.application.port.service.PostService;
 import com.social.media.feed.post.service.application.util.PostServiceUtil;
+import com.social.media.feed.post.service.domain.entity.Account;
 import com.social.media.feed.post.service.domain.entity.Post;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,8 @@ public class PostServiceImpl implements PostService {
     public Post createPost(Post post) {
         log.info("Creating post for account id {} at service layer", post.getAccountId());
         post.setPostId(UUID.randomUUID());
-        postServiceUtil.getAccountResponseByAccountIdFromAccountService(post.getAccountId());
+        Account account = postServiceUtil.getAccountByAccountId(post.getAccountId());
+        log.info("Account found of id {} and username {}!", account.getAccountId(), account.getUsername());
         return postRepository.save(post);
     }
 }

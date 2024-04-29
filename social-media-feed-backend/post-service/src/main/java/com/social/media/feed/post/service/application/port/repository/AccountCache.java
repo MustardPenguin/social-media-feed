@@ -1,10 +1,11 @@
 package com.social.media.feed.post.service.application.port.repository;
 
 import com.social.media.feed.application.rest.model.AccountResponse;
+import com.social.media.feed.post.service.domain.entity.Account;
 
 public interface AccountCache {
 
-    void saveAccount(AccountResponse accountResponse);
+    void saveAccount(Account account);
 
-    String getAccount(String accountId);
+    Account getAccountByAccountUUID(String accountId);
 }

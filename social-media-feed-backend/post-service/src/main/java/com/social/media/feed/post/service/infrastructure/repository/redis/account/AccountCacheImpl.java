@@ -2,6 +2,7 @@ package com.social.media.feed.post.service.infrastructure.repository.redis.accou
 
 import com.social.media.feed.application.rest.model.AccountResponse;
 import com.social.media.feed.post.service.application.port.repository.AccountCache;
+import com.social.media.feed.post.service.domain.entity.Account;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
@@ -14,18 +15,15 @@ public class AccountCacheImpl implements AccountCache {
         this.redisTemplate = redisTemplate;
     }
 
-
     @Override
-    public void saveAccount(AccountResponse accountResponse) {
-        AccountEntity accountEntity = AccountEntity.builder()
-                .accountId(accountResponse.getAccountId())
-                .username(accountResponse.getUsername())
-                .build();
-        redisTemplate.opsForValue().set(accountResponse.getAccountId().toString(), accountEntity);
+    public void saveAccount(Account account) {
+        String key = account.getAccountId().toString();
+        redisTemplate.opsForValue().set(key, account);
+        redisTemplate.expire(key, 300, java.util.concurrent.TimeUnit.SECONDS);
     }
 
     @Override
-    public String getAccount(String accountId) {
-        return null;
+    public Account getAccountByAccountUUID(String accountId) {
+        return (Account) redisTemplate.opsForValue().get(accountId);
     }
 }

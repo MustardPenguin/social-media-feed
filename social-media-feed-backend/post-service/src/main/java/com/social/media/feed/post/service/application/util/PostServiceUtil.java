@@ -3,9 +3,9 @@ package com.social.media.feed.post.service.application.util;
 import com.social.media.feed.application.rest.model.AccountResponse;
 import com.social.media.feed.application.rest.util.ObjectMapperUtil;
 import com.social.media.feed.post.service.application.port.repository.AccountCache;
+import com.social.media.feed.post.service.domain.entity.Account;
 import com.social.media.feed.post.service.domain.exception.PostDomainException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -24,14 +24,31 @@ public class PostServiceUtil {
         this.accountCache = accountCache;
     }
 
-    public AccountResponse getAccountResponseByAccountIdFromAccountService(UUID accountId) {
+    public Account getAccountByAccountId(UUID accountId) {
+        Account account = getCachedAccountByAccountId(accountId);
+        if(account == null) {
+            account = getAccountResponseByAccountIdFromAccountService(accountId);
+            accountCache.saveAccount(account);
+            log.info("Account info not found in cache, fetched from account service and saved to cache!");
+        }
+        return account;
+    }
+
+    private Account getCachedAccountByAccountId(UUID accountId) {
+        log.info("Retrieving account info from cache!");
+        return accountCache.getAccountByAccountUUID(accountId.toString());
+    }
+
+    private Account getAccountResponseByAccountIdFromAccountService(UUID accountId) {
         String response = postFeignClient.getAccountByAccountId(accountId);
         log.info("Found account of username " + response + " for account id " + accountId + "!");
         if(response == null || response.isEmpty()) {
             throw new PostDomainException("Account not found for account id " + accountId + " in account service!");
         }
         AccountResponse accountResponse = objectMapperUtil.convertStringToObject(response, AccountResponse.class);
-        accountCache.saveAccount(accountResponse);
-        return accountResponse;
+        return Account.builder()
+                .accountId(accountResponse.getAccountId())
+                .username(accountResponse.getUsername())
+                .build();
     }
 }

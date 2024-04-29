@@ -22,7 +22,8 @@
     <schema id="15" parent="1" name="7"/>
     <schema id="16" parent="1" name="8"/>
     <schema id="17" parent="1" name="9"/>
-    <string id="18" parent="2" name="��&#xffef;￠&#x5;t&#xffef;￠$771855c8-3ef2-44cb-92b5-46c576dc2e67"/>
-    <string id="19" parent="2" name="��&#xffef;￠&#x5;t&#xffef;￠$956c253b-0d4f-457e-a96d-31cce7639eaa"/>
+    <string id="18" parent="2" name="��&#xffef;￠&#x5;t&#xffef;￠$28160192-6fbd-4435-9c16-6a85b5d86697"/>
+    <string id="19" parent="2" name="��&#xffef;￠&#x5;t&#xffef;￠$771855c8-3ef2-44cb-92b5-46c576dc2e67"/>
+    <string id="20" parent="2" name="��&#xffef;￠&#x5;t&#xffef;￠$956c253b-0d4f-457e-a96d-31cce7639eaa"/>
   </database-model>
 </dataSource>
