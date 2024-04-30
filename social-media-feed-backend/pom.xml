@@ -48,6 +48,11 @@
         <dependencies>
             <dependency>
                 <groupId>com.social.media.feed</groupId>
+                <artifactId>common-infrastructure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.social.media.feed</groupId>
                 <artifactId>common-domain</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -98,6 +103,11 @@
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt-jackson</artifactId>
                 <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.avro</groupId>
+                <artifactId>avro</artifactId>
+                <version>1.11.3</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
