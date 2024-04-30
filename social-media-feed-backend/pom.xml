@@ -14,6 +14,7 @@
         <module>eureka-service</module>
         <module>api-gateway-service</module>
         <module>post-service</module>
+        <module>feed-service</module>
     </modules>
 
     <parent>
@@ -32,7 +33,9 @@
         <spring.cloud.openfeign.version>4.0.2</spring.cloud.openfeign.version>
         <spring.cloud.eureka.version>4.0.2</spring.cloud.eureka.version>
 
+        <kafka.serializer.version>7.6.0</kafka.serializer.version>
         <jjwt.version>0.11.5</jjwt.version>
+        <avro.version>1.11.0</avro.version>
     </properties>
 
     <dependencies>
@@ -103,11 +106,6 @@
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt-jackson</artifactId>
                 <version>${jjwt.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.avro</groupId>
-                <artifactId>avro</artifactId>
-                <version>1.11.3</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

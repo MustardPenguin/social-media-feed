@@ -39,17 +39,3 @@ spring:
       host: ${REDIS_HOST:localhost}
       port: ${REDIS_PORT:6379}
       password: ${REDIS_PASSWORD:admin}
-
-
-# Kafka config
-kafka-config-data:
-  bootstrap-server: ${KAFKA_BROKER_1_HOST:localhost}:9092, ${KAFKA_BROKER_2_HOST:localhost}:9092, ${KAFKA_BROKER_3_HOST:localhost}:9092
-  schema-registry-url: ${SCHEMA_REGISTRY_HOST:http://localhost}:8081
-  schema-registry-url-key: schema.registry.url
-  key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-  value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
-  specific-avro-reader-key: specific.avro.reader
-  specific-avro-reader: true
-
-kafka-consumer-topics:
-  post-created-event: post_created.post.posts

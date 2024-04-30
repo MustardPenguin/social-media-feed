@@ -5,20 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/common/common-infrastructure/src/main/java/com/social/media/feed/infrastructure/message/config/KafkaConsumerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-infrastructure/src/main/java/com/social/media/feed/infrastructure/message/config/KafkaDataConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-infrastructure/src/main/resources/avro/post_created.avsc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/docker-compose/init-connectors.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/739dff82-06a2-4655-8211-699615db51b6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/739dff82-06a2-4655-8211-699615db51b6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ef746a34-1dca-4c9f-983a-ec7bfcef2dc5.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/FollowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/follow/FollowEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feed-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/FeedApplicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/message/post/PostCreatedKafkaListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feed-service/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/common-infrastructure/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-infrastructure/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-infrastructure/src/main/java/com/social/media/feed/infrastructure/message/config/KafkaDataConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-infrastructure/src/main/java/com/social/media/feed/infrastructure/message/config/KafkaDataConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/post-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,9 +68,10 @@
     "Spring Boot.AccountApplicationService.executor": "Run",
     "Spring Boot.ApiGatewayServiceApplication.executor": "Run",
     "Spring Boot.EurekaServerApplication.executor": "Run",
+    "Spring Boot.FeedApplicationService.executor": "Run",
     "Spring Boot.PostApplicationService.executor": "Run",
     "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "20",
+    "jdk.selected.JAVA_MODULE": "17",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/mustardpenguin/repos/social-media-feed/social-media-feed-backend/deployment/docker-compose",
     "node.js.detected.package.eslint": "true",
@@ -108,7 +106,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.PostApplicationService">
+  <component name="RunManager" selected="Spring Boot.FeedApplicationService">
     <configuration name="AccountApplicationService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="account-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.social.media.feed.account.service.AccountApplicationService" />
@@ -148,6 +146,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FeedApplicationService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="feed-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.social.media.feed.feed.service.FeedApplicationService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.social.media.feed.feed.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PostApplicationService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="post-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.social.media.feed.post.service.PostApplicationService" />
@@ -163,6 +174,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.FeedApplicationService" />
         <item itemvalue="Spring Boot.PostApplicationService" />
         <item itemvalue="Spring Boot.EurekaServerApplication" />
         <item itemvalue="Spring Boot.ApiGatewayServiceApplication" />
@@ -173,6 +185,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-220112af" />
         <option value="jdk-20.0.2-azul-20.0.2-f644763e9732-6e1472a1" />
       </set>
     </attachedChunks>
@@ -187,7 +200,7 @@
       <updated>1714267157060</updated>
       <workItem from="1714267161132" duration="5458000" />
       <workItem from="1714341860725" duration="16096000" />
-      <workItem from="1714419161604" duration="11924000" />
+      <workItem from="1714419161604" duration="17351000" />
     </task>
     <servers />
   </component>
