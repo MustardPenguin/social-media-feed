@@ -3,6 +3,7 @@ package com.social.media.feed.post.service.domain.entity;
 import com.social.media.feed.domain.entity.AggregateRoot;
 import com.social.media.feed.post.service.domain.valueobject.PostId;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Post extends AggregateRoot<PostId> {
@@ -10,12 +11,14 @@ public class Post extends AggregateRoot<PostId> {
     private UUID accountId;
     private String title;
     private String description;
+    private LocalDateTime createdAt;
 
     private Post(Builder builder) {
         super.setId(new PostId(builder.postId));
         accountId = builder.accountId;
         title = builder.title;
         description = builder.description;
+        createdAt = builder.createdAt;
     }
 
     public UUID getAccountId() {
@@ -30,12 +33,19 @@ public class Post extends AggregateRoot<PostId> {
         return description;
     }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
     public void setAccountId(UUID accountId) {
         this.accountId = accountId;
     }
 
     public void setPostId(UUID postId) {
         super.setId(new PostId(postId));
+    }
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     public static Builder builder() {
@@ -47,6 +57,7 @@ public class Post extends AggregateRoot<PostId> {
         private UUID accountId;
         private String title;
         private String description;
+        private LocalDateTime createdAt;
 
         private Builder() {
         }
@@ -68,6 +79,11 @@ public class Post extends AggregateRoot<PostId> {
 
         public Builder description(String val) {
             description = val;
+            return this;
+        }
+
+        public Builder createdAt(LocalDateTime val) {
+            createdAt = val;
             return this;
         }
 

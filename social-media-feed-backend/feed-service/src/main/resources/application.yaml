@@ -52,4 +52,4 @@ kafka-config-data:
   specific-avro-reader: true
 
 kafka-consumer-topics:
-  post-created-event: post_created.post.posts
+  post-created-event: post_created.post.post_created_events

@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package post_created.post.posts;
+package post_created.post.post_created_events;
 
 import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Envelope extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -923823478299994405L;
+  private static final long serialVersionUID = -2105750972647341181L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Envelope\",\"namespace\":\"post_created.post.posts\",\"fields\":[{\"name\":\"before\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Value\",\"fields\":[{\"name\":\"post_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\",\"connect.version\":1,\"connect.name\":\"io.debezium.data.Uuid\"}},{\"name\":\"account_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\",\"connect.version\":1,\"connect.name\":\"io.debezium.data.Uuid\"}},{\"name\":\"title\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}],\"connect.name\":\"post_created.post.posts.Value\"}],\"default\":null},{\"name\":\"after\",\"type\":[\"null\",\"Value\"],\"default\":null},{\"name\":\"source\",\"type\":{\"type\":\"record\",\"name\":\"Source\",\"namespace\":\"io.debezium.connector.postgresql\",\"fields\":[{\"name\":\"version\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"connector\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ts_ms\",\"type\":\"long\"},{\"name\":\"snapshot\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\",\"connect.version\":1,\"connect.parameters\":{\"allowed\":\"true,last,false,incremental\"},\"connect.default\":\"false\",\"connect.name\":\"io.debezium.data.Enum\"},\"null\"],\"default\":\"false\"},{\"name\":\"db\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"sequence\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"schema\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"table\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"txId\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"lsn\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"xmin\",\"type\":[\"null\",\"long\"],\"default\":null}],\"connect.name\":\"io.debezium.connector.postgresql.Source\"}},{\"name\":\"op\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ts_ms\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"transaction\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"block\",\"namespace\":\"event\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"total_order\",\"type\":\"long\"},{\"name\":\"data_collection_order\",\"type\":\"long\"}],\"connect.version\":1,\"connect.name\":\"event.block\"}],\"default\":null}],\"connect.version\":1,\"connect.name\":\"post_created.post.posts.Envelope\"}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Envelope\",\"namespace\":\"post_created.post.post_created_events\",\"fields\":[{\"name\":\"before\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Value\",\"fields\":[{\"name\":\"event_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\",\"connect.version\":1,\"connect.name\":\"io.debezium.data.Uuid\"}},{\"name\":\"account_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\",\"connect.version\":1,\"connect.name\":\"io.debezium.data.Uuid\"}},{\"name\":\"post_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\",\"connect.version\":1,\"connect.name\":\"io.debezium.data.Uuid\"}}],\"connect.name\":\"post_created.post.post_created_events.Value\"}],\"default\":null},{\"name\":\"after\",\"type\":[\"null\",\"Value\"],\"default\":null},{\"name\":\"source\",\"type\":{\"type\":\"record\",\"name\":\"Source\",\"namespace\":\"io.debezium.connector.postgresql\",\"fields\":[{\"name\":\"version\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"connector\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ts_ms\",\"type\":\"long\"},{\"name\":\"snapshot\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\",\"connect.version\":1,\"connect.parameters\":{\"allowed\":\"true,last,false,incremental\"},\"connect.default\":\"false\",\"connect.name\":\"io.debezium.data.Enum\"},\"null\"],\"default\":\"false\"},{\"name\":\"db\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"sequence\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"schema\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"table\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"txId\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"lsn\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"xmin\",\"type\":[\"null\",\"long\"],\"default\":null}],\"connect.name\":\"io.debezium.connector.postgresql.Source\"}},{\"name\":\"op\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ts_ms\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"transaction\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"block\",\"namespace\":\"event\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"total_order\",\"type\":\"long\"},{\"name\":\"data_collection_order\",\"type\":\"long\"}],\"connect.version\":1,\"connect.name\":\"event.block\"}],\"default\":null}],\"connect.version\":1,\"connect.name\":\"post_created.post.post_created_events.Envelope\"}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -73,8 +73,8 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
     return DECODER.decode(b);
   }
 
-  private post_created.post.posts.Value before;
-  private post_created.post.posts.Value after;
+  private post_created.post.post_created_events.Value before;
+  private post_created.post.post_created_events.Value after;
   private io.debezium.connector.postgresql.Source source;
   private java.lang.String op;
   private java.lang.Long ts_ms;
@@ -96,7 +96,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
    * @param ts_ms The new value for ts_ms
    * @param transaction The new value for transaction
    */
-  public Envelope(post_created.post.posts.Value before, post_created.post.posts.Value after, io.debezium.connector.postgresql.Source source, java.lang.String op, java.lang.Long ts_ms, event.block transaction) {
+  public Envelope(post_created.post.post_created_events.Value before, post_created.post.post_created_events.Value after, io.debezium.connector.postgresql.Source source, java.lang.String op, java.lang.Long ts_ms, event.block transaction) {
     this.before = before;
     this.after = after;
     this.source = source;
@@ -124,8 +124,8 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: before = (post_created.post.posts.Value)value$; break;
-    case 1: after = (post_created.post.posts.Value)value$; break;
+    case 0: before = (post_created.post.post_created_events.Value)value$; break;
+    case 1: after = (post_created.post.post_created_events.Value)value$; break;
     case 2: source = (io.debezium.connector.postgresql.Source)value$; break;
     case 3: op = value$ != null ? value$.toString() : null; break;
     case 4: ts_ms = (java.lang.Long)value$; break;
@@ -138,7 +138,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'before' field.
    * @return The value of the 'before' field.
    */
-  public post_created.post.posts.Value getBefore() {
+  public post_created.post.post_created_events.Value getBefore() {
     return before;
   }
 
@@ -147,7 +147,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'before' field.
    * @param value the value to set.
    */
-  public void setBefore(post_created.post.posts.Value value) {
+  public void setBefore(post_created.post.post_created_events.Value value) {
     this.before = value;
   }
 
@@ -155,7 +155,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'after' field.
    * @return The value of the 'after' field.
    */
-  public post_created.post.posts.Value getAfter() {
+  public post_created.post.post_created_events.Value getAfter() {
     return after;
   }
 
@@ -164,7 +164,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'after' field.
    * @param value the value to set.
    */
-  public void setAfter(post_created.post.posts.Value value) {
+  public void setAfter(post_created.post.post_created_events.Value value) {
     this.after = value;
   }
 
@@ -240,8 +240,8 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
    * Creates a new Envelope RecordBuilder.
    * @return A new Envelope RecordBuilder
    */
-  public static post_created.post.posts.Envelope.Builder newBuilder() {
-    return new post_created.post.posts.Envelope.Builder();
+  public static post_created.post.post_created_events.Envelope.Builder newBuilder() {
+    return new post_created.post.post_created_events.Envelope.Builder();
   }
 
   /**
@@ -249,11 +249,11 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
    * @param other The existing builder to copy.
    * @return A new Envelope RecordBuilder
    */
-  public static post_created.post.posts.Envelope.Builder newBuilder(post_created.post.posts.Envelope.Builder other) {
+  public static post_created.post.post_created_events.Envelope.Builder newBuilder(post_created.post.post_created_events.Envelope.Builder other) {
     if (other == null) {
-      return new post_created.post.posts.Envelope.Builder();
+      return new post_created.post.post_created_events.Envelope.Builder();
     } else {
-      return new post_created.post.posts.Envelope.Builder(other);
+      return new post_created.post.post_created_events.Envelope.Builder(other);
     }
   }
 
@@ -262,11 +262,11 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
    * @param other The existing instance to copy.
    * @return A new Envelope RecordBuilder
    */
-  public static post_created.post.posts.Envelope.Builder newBuilder(post_created.post.posts.Envelope other) {
+  public static post_created.post.post_created_events.Envelope.Builder newBuilder(post_created.post.post_created_events.Envelope other) {
     if (other == null) {
-      return new post_created.post.posts.Envelope.Builder();
+      return new post_created.post.post_created_events.Envelope.Builder();
     } else {
-      return new post_created.post.posts.Envelope.Builder(other);
+      return new post_created.post.post_created_events.Envelope.Builder(other);
     }
   }
 
@@ -277,10 +277,10 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Envelope>
     implements org.apache.avro.data.RecordBuilder<Envelope> {
 
-    private post_created.post.posts.Value before;
-    private post_created.post.posts.Value.Builder beforeBuilder;
-    private post_created.post.posts.Value after;
-    private post_created.post.posts.Value.Builder afterBuilder;
+    private post_created.post.post_created_events.Value before;
+    private post_created.post.post_created_events.Value.Builder beforeBuilder;
+    private post_created.post.post_created_events.Value after;
+    private post_created.post.post_created_events.Value.Builder afterBuilder;
     private io.debezium.connector.postgresql.Source source;
     private io.debezium.connector.postgresql.Source.Builder sourceBuilder;
     private java.lang.String op;
@@ -297,21 +297,21 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(post_created.post.posts.Envelope.Builder other) {
+    private Builder(post_created.post.post_created_events.Envelope.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.before)) {
         this.before = data().deepCopy(fields()[0].schema(), other.before);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
       if (other.hasBeforeBuilder()) {
-        this.beforeBuilder = post_created.post.posts.Value.newBuilder(other.getBeforeBuilder());
+        this.beforeBuilder = post_created.post.post_created_events.Value.newBuilder(other.getBeforeBuilder());
       }
       if (isValidValue(fields()[1], other.after)) {
         this.after = data().deepCopy(fields()[1].schema(), other.after);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
       if (other.hasAfterBuilder()) {
-        this.afterBuilder = post_created.post.posts.Value.newBuilder(other.getAfterBuilder());
+        this.afterBuilder = post_created.post.post_created_events.Value.newBuilder(other.getAfterBuilder());
       }
       if (isValidValue(fields()[2], other.source)) {
         this.source = data().deepCopy(fields()[2].schema(), other.source);
@@ -341,7 +341,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
      * Creates a Builder by copying an existing Envelope instance
      * @param other The existing instance to copy.
      */
-    private Builder(post_created.post.posts.Envelope other) {
+    private Builder(post_created.post.post_created_events.Envelope other) {
       super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.before)) {
         this.before = data().deepCopy(fields()[0].schema(), other.before);
@@ -377,7 +377,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'before' field.
       * @return The value.
       */
-    public post_created.post.posts.Value getBefore() {
+    public post_created.post.post_created_events.Value getBefore() {
       return before;
     }
 
@@ -387,7 +387,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'before'.
       * @return This builder.
       */
-    public post_created.post.posts.Envelope.Builder setBefore(post_created.post.posts.Value value) {
+    public post_created.post.post_created_events.Envelope.Builder setBefore(post_created.post.post_created_events.Value value) {
       validate(fields()[0], value);
       this.beforeBuilder = null;
       this.before = value;
@@ -407,12 +407,12 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
      * Gets the Builder instance for the 'before' field and creates one if it doesn't exist yet.
      * @return This builder.
      */
-    public post_created.post.posts.Value.Builder getBeforeBuilder() {
+    public post_created.post.post_created_events.Value.Builder getBeforeBuilder() {
       if (beforeBuilder == null) {
         if (hasBefore()) {
-          setBeforeBuilder(post_created.post.posts.Value.newBuilder(before));
+          setBeforeBuilder(post_created.post.post_created_events.Value.newBuilder(before));
         } else {
-          setBeforeBuilder(post_created.post.posts.Value.newBuilder());
+          setBeforeBuilder(post_created.post.post_created_events.Value.newBuilder());
         }
       }
       return beforeBuilder;
@@ -424,7 +424,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
      * @return This builder.
      */
 
-    public post_created.post.posts.Envelope.Builder setBeforeBuilder(post_created.post.posts.Value.Builder value) {
+    public post_created.post.post_created_events.Envelope.Builder setBeforeBuilder(post_created.post.post_created_events.Value.Builder value) {
       clearBefore();
       beforeBuilder = value;
       return this;
@@ -442,7 +442,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'before' field.
       * @return This builder.
       */
-    public post_created.post.posts.Envelope.Builder clearBefore() {
+    public post_created.post.post_created_events.Envelope.Builder clearBefore() {
       before = null;
       beforeBuilder = null;
       fieldSetFlags()[0] = false;
@@ -453,7 +453,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'after' field.
       * @return The value.
       */
-    public post_created.post.posts.Value getAfter() {
+    public post_created.post.post_created_events.Value getAfter() {
       return after;
     }
 
@@ -463,7 +463,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'after'.
       * @return This builder.
       */
-    public post_created.post.posts.Envelope.Builder setAfter(post_created.post.posts.Value value) {
+    public post_created.post.post_created_events.Envelope.Builder setAfter(post_created.post.post_created_events.Value value) {
       validate(fields()[1], value);
       this.afterBuilder = null;
       this.after = value;
@@ -483,12 +483,12 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
      * Gets the Builder instance for the 'after' field and creates one if it doesn't exist yet.
      * @return This builder.
      */
-    public post_created.post.posts.Value.Builder getAfterBuilder() {
+    public post_created.post.post_created_events.Value.Builder getAfterBuilder() {
       if (afterBuilder == null) {
         if (hasAfter()) {
-          setAfterBuilder(post_created.post.posts.Value.newBuilder(after));
+          setAfterBuilder(post_created.post.post_created_events.Value.newBuilder(after));
         } else {
-          setAfterBuilder(post_created.post.posts.Value.newBuilder());
+          setAfterBuilder(post_created.post.post_created_events.Value.newBuilder());
         }
       }
       return afterBuilder;
@@ -500,7 +500,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
      * @return This builder.
      */
 
-    public post_created.post.posts.Envelope.Builder setAfterBuilder(post_created.post.posts.Value.Builder value) {
+    public post_created.post.post_created_events.Envelope.Builder setAfterBuilder(post_created.post.post_created_events.Value.Builder value) {
       clearAfter();
       afterBuilder = value;
       return this;
@@ -518,7 +518,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'after' field.
       * @return This builder.
       */
-    public post_created.post.posts.Envelope.Builder clearAfter() {
+    public post_created.post.post_created_events.Envelope.Builder clearAfter() {
       after = null;
       afterBuilder = null;
       fieldSetFlags()[1] = false;
@@ -539,7 +539,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'source'.
       * @return This builder.
       */
-    public post_created.post.posts.Envelope.Builder setSource(io.debezium.connector.postgresql.Source value) {
+    public post_created.post.post_created_events.Envelope.Builder setSource(io.debezium.connector.postgresql.Source value) {
       validate(fields()[2], value);
       this.sourceBuilder = null;
       this.source = value;
@@ -576,7 +576,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
      * @return This builder.
      */
 
-    public post_created.post.posts.Envelope.Builder setSourceBuilder(io.debezium.connector.postgresql.Source.Builder value) {
+    public post_created.post.post_created_events.Envelope.Builder setSourceBuilder(io.debezium.connector.postgresql.Source.Builder value) {
       clearSource();
       sourceBuilder = value;
       return this;
@@ -594,7 +594,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'source' field.
       * @return This builder.
       */
-    public post_created.post.posts.Envelope.Builder clearSource() {
+    public post_created.post.post_created_events.Envelope.Builder clearSource() {
       source = null;
       sourceBuilder = null;
       fieldSetFlags()[2] = false;
@@ -615,7 +615,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'op'.
       * @return This builder.
       */
-    public post_created.post.posts.Envelope.Builder setOp(java.lang.String value) {
+    public post_created.post.post_created_events.Envelope.Builder setOp(java.lang.String value) {
       validate(fields()[3], value);
       this.op = value;
       fieldSetFlags()[3] = true;
@@ -635,7 +635,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'op' field.
       * @return This builder.
       */
-    public post_created.post.posts.Envelope.Builder clearOp() {
+    public post_created.post.post_created_events.Envelope.Builder clearOp() {
       op = null;
       fieldSetFlags()[3] = false;
       return this;
@@ -655,7 +655,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'ts_ms'.
       * @return This builder.
       */
-    public post_created.post.posts.Envelope.Builder setTsMs(java.lang.Long value) {
+    public post_created.post.post_created_events.Envelope.Builder setTsMs(java.lang.Long value) {
       validate(fields()[4], value);
       this.ts_ms = value;
       fieldSetFlags()[4] = true;
@@ -675,7 +675,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'ts_ms' field.
       * @return This builder.
       */
-    public post_created.post.posts.Envelope.Builder clearTsMs() {
+    public post_created.post.post_created_events.Envelope.Builder clearTsMs() {
       ts_ms = null;
       fieldSetFlags()[4] = false;
       return this;
@@ -695,7 +695,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'transaction'.
       * @return This builder.
       */
-    public post_created.post.posts.Envelope.Builder setTransaction(event.block value) {
+    public post_created.post.post_created_events.Envelope.Builder setTransaction(event.block value) {
       validate(fields()[5], value);
       this.transactionBuilder = null;
       this.transaction = value;
@@ -732,7 +732,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
      * @return This builder.
      */
 
-    public post_created.post.posts.Envelope.Builder setTransactionBuilder(event.block.Builder value) {
+    public post_created.post.post_created_events.Envelope.Builder setTransactionBuilder(event.block.Builder value) {
       clearTransaction();
       transactionBuilder = value;
       return this;
@@ -750,7 +750,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'transaction' field.
       * @return This builder.
       */
-    public post_created.post.posts.Envelope.Builder clearTransaction() {
+    public post_created.post.post_created_events.Envelope.Builder clearTransaction() {
       transaction = null;
       transactionBuilder = null;
       fieldSetFlags()[5] = false;
@@ -770,7 +770,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
             throw e;
           }
         } else {
-          record.before = fieldSetFlags()[0] ? this.before : (post_created.post.posts.Value) defaultValue(fields()[0]);
+          record.before = fieldSetFlags()[0] ? this.before : (post_created.post.post_created_events.Value) defaultValue(fields()[0]);
         }
         if (afterBuilder != null) {
           try {
@@ -780,7 +780,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
             throw e;
           }
         } else {
-          record.after = fieldSetFlags()[1] ? this.after : (post_created.post.posts.Value) defaultValue(fields()[1]);
+          record.after = fieldSetFlags()[1] ? this.after : (post_created.post.post_created_events.Value) defaultValue(fields()[1]);
         }
         if (sourceBuilder != null) {
           try {
@@ -884,7 +884,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
         this.before = null;
       } else {
         if (this.before == null) {
-          this.before = new post_created.post.posts.Value();
+          this.before = new post_created.post.post_created_events.Value();
         }
         this.before.customDecode(in);
       }
@@ -894,7 +894,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
         this.after = null;
       } else {
         if (this.after == null) {
-          this.after = new post_created.post.posts.Value();
+          this.after = new post_created.post.post_created_events.Value();
         }
         this.after.customDecode(in);
       }
@@ -932,7 +932,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
             this.before = null;
           } else {
             if (this.before == null) {
-              this.before = new post_created.post.posts.Value();
+              this.before = new post_created.post.post_created_events.Value();
             }
             this.before.customDecode(in);
           }
@@ -944,7 +944,7 @@ public class Envelope extends org.apache.avro.specific.SpecificRecordBase implem
             this.after = null;
           } else {
             if (this.after == null) {
-              this.after = new post_created.post.posts.Value();
+              this.after = new post_created.post.post_created_events.Value();
             }
             this.after.customDecode(in);
           }

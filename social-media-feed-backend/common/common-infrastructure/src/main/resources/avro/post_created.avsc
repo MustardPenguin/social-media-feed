@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "Envelope",
-  "namespace": "post_created.post.posts",
+  "namespace": "post_created.post.post_created_events",
   "fields": [
     {
       "name": "before",
@@ -12,7 +12,7 @@
           "name": "Value",
           "fields": [
             {
-              "name": "post_id",
+              "name": "event_id",
               "type": {
                 "type": "string",
                 "connect.version": 1,
@@ -28,15 +28,15 @@
               }
             },
             {
-              "name": "title",
-              "type": "string"
-            },
-            {
-              "name": "description",
-              "type": "string"
+              "name": "post_id",
+              "type": {
+                "type": "string",
+                "connect.version": 1,
+                "connect.name": "io.debezium.data.Uuid"
+              }
             }
           ],
-          "connect.name": "post_created.post.posts.Value"
+          "connect.name": "post_created.post.post_created_events.Value"
         }
       ],
       "default": null
@@ -178,5 +178,5 @@
     }
   ],
   "connect.version": 1,
-  "connect.name": "post_created.post.posts.Envelope"
+  "connect.name": "post_created.post.post_created_events.Envelope"
 }

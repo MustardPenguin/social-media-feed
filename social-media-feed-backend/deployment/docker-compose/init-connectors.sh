@@ -19,7 +19,7 @@ post_created_json=$(jq -n \
       "database.user": $user,
       "database.password": $password,
       "database.dbname": "postgres",
-      "table.include.list": "post.posts",
+      "table.include.list": "post.post_created_events",
       "topic.prefix": "post_created",
       "tombstones.on.delete" : "false",
       "slot.name": "post_created_slot",
