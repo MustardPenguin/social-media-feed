@@ -10,3 +10,11 @@ CREATE TABLE account.accounts (
     username VARCHAR(50) NOT NULL,
     password VARCHAR(255) NOT NULL
 );
+
+DROP TABLE IF EXISTS account.follows;
+
+CREATE TABLE account.follows (
+    follow_id UUID PRIMARY KEY,
+    follower_id UUID NOT NULL,
+    followee_id UUID NOT NULL
+);

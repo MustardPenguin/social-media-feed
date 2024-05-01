@@ -7,7 +7,6 @@ import lombok.Getter;
 
 import java.util.UUID;
 
-@Getter
 public class Account extends AggregateRoot<AccountId> {
 
     private final String username;
@@ -29,6 +28,14 @@ public class Account extends AggregateRoot<AccountId> {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public static final class Builder {

@@ -4,10 +4,10 @@ import com.social.media.feed.domain.event.DomainEvent;
 import com.social.media.feed.post.service.domain.entity.Post;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
-public class PostCreatedEvent extends PostEvent {
-
-    public PostCreatedEvent(Post entity, LocalDateTime createdAt) {
+public class PostEvent extends DomainEvent<Post> {
+    public PostEvent(Post entity, LocalDateTime createdAt) {
         super(entity, createdAt);
     }
 }

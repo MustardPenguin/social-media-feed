@@ -24,6 +24,10 @@ public class GatewayRouteConfig {
                         .path("/api/account/{accountId}")
                         .and().method("GET")
                         .uri("lb://account-service"))
+                .route("follow-service", route -> route
+                        .path("/api/follow/**")
+                        .filters(filter -> filter.filter(authenticationFilter))
+                        .uri("lb://account-service"))
                 .route("authenticate-account", route -> route
                         .path("/api/authenticate")
                         .uri("lb://account-service"))

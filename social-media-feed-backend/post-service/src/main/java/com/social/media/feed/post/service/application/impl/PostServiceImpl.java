@@ -37,10 +37,11 @@ public class PostServiceImpl implements PostService {
         post.setCreatedAt(createdAt);
 
         Account account = postServiceUtil.getAccountByAccountId(post.getAccountId());
-        PostCreatedEvent postCreatedEvent = new PostCreatedEvent(post, createdAt);
+        Post response = postRepository.save(post);
+        PostCreatedEvent postCreatedEvent = new PostCreatedEvent(response, createdAt);
         postCreatedEventRepository.save(postCreatedEvent);
 
         log.info("Account found of id {} and username {}!", account.getAccountId(), account.getUsername());
-        return postRepository.save(post);
+        return response;
     }
 }
