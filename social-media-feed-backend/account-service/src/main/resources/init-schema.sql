@@ -21,8 +21,8 @@ CREATE TABLE account.follows (
 
 DROP TABLE IF EXISTS account.follow_created_event;
 
-CREATE TABLE account.follow_created_event (
-    follow_id UUID PRIMARY KEY,
-    follower_id UUID NOT NULL,
-    followee_id UUID NOT NULL
+CREATE TABLE account.follow_created_events (
+    event_id UUID PRIMARY KEY,
+    created_at TIMESTAMP NOT NULL,
+    payload jsonb NOT NULL
 );

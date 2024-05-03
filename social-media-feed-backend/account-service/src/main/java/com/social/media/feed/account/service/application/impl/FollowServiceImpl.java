@@ -1,6 +1,7 @@
 package com.social.media.feed.account.service.application.impl;
 
 import com.social.media.feed.account.service.application.port.repository.AccountRepository;
+import com.social.media.feed.account.service.application.port.repository.FollowCreatedEventRepository;
 import com.social.media.feed.account.service.application.port.repository.FollowRepository;
 import com.social.media.feed.account.service.application.port.service.FollowService;
 import com.social.media.feed.account.service.domain.entity.Account;
@@ -18,11 +19,14 @@ import java.util.UUID;
 @Service
 public class FollowServiceImpl implements FollowService {
 
-
+    private final FollowCreatedEventRepository followCreatedEventRepository;
     private final AccountRepository accountRepository;
     private final FollowRepository followRepository;
 
-    public FollowServiceImpl(AccountRepository accountRepository, FollowRepository followRepository) {
+    public FollowServiceImpl(FollowCreatedEventRepository followCreatedEventRepository,
+                             AccountRepository accountRepository,
+                             FollowRepository followRepository) {
+        this.followCreatedEventRepository = followCreatedEventRepository;
         this.accountRepository = accountRepository;
         this.followRepository = followRepository;
     }
@@ -38,14 +42,15 @@ public class FollowServiceImpl implements FollowService {
                 .followeeId(followeeId)
                 .followerId(followerId)
                 .build();
-        Follow existingFollow = followRepository.findFollowByFollowerIdAndFolloweeId(follow);
-        if(existingFollow != null) {
-            throw new AccountDomainException("Already following the account with accountId " + followeeId);
-        }
+
+        // TODO Uncomment below later, allowing multiple follow for testing purposes for now
+//        Follow existingFollow = followRepository.findFollowByFollowerIdAndFolloweeId(follow);
+//        if(existingFollow != null) {
+//            throw new AccountDomainException("Already following the account with accountId " + followeeId);
+//        }
         Follow response = followRepository.saveFollow(follow);
         FollowCreatedEvent followCreatedEvent = new FollowCreatedEvent(response, LocalDateTime.now());
-        // TODO Save to event table to publish to kafka
-        // TODO Using JSON event payload for message bus
+        followCreatedEventRepository.saveFollowCreatedEvent(followCreatedEvent);
 
         return response;
     }

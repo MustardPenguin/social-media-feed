@@ -53,3 +53,4 @@ kafka-config-data:
 
 kafka-consumer-topics:
   post-created-event: post_created.post.post_created_events
+  follow-created-event: follow_created.account.follow_created_events

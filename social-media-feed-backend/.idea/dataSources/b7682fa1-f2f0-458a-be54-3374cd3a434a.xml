@@ -3,9 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.51">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>807</IntrospectionStateNumber>
+      <IntrospectionStateNumber>862</IntrospectionStateNumber>
       <ServerVersion>16.1</ServerVersion>
-      <StartupTime>1714514915</StartupTime>
+      <StartupTime>1714690584</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -1396,7 +1396,7 @@ true posixrules
 13189||10|C|G
 13189||-9223372036854775808|U|G
 13189||10|U|G</Grants>
-      <IntrospectionStateNumber>807</IntrospectionStateNumber>
+      <IntrospectionStateNumber>862</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
       <OwnerName>user</OwnerName>
     </database>
@@ -1404,50 +1404,50 @@ true posixrules
       <ObjectId>16384</ObjectId>
       <OwnerName>user</OwnerName>
     </database>
-    <role id="4" parent="1" name="pg_database_owner">
+    <role id="4" parent="1" name="pg_checkpoint">
+      <ObjectId>4544</ObjectId>
+    </role>
+    <role id="5" parent="1" name="pg_create_subscription">
+      <ObjectId>6304</ObjectId>
+    </role>
+    <role id="6" parent="1" name="pg_database_owner">
       <ObjectId>6171</ObjectId>
     </role>
-    <role id="5" parent="1" name="pg_read_all_data">
-      <ObjectId>6181</ObjectId>
+    <role id="7" parent="1" name="pg_execute_server_program">
+      <ObjectId>4571</ObjectId>
     </role>
-    <role id="6" parent="1" name="pg_write_all_data">
-      <ObjectId>6182</ObjectId>
-    </role>
-    <role id="7" parent="1" name="pg_monitor">
+    <role id="8" parent="1" name="pg_monitor">
       <ObjectId>3373</ObjectId>
       <RoleGrants>3374
 3375
 3377</RoleGrants>
     </role>
-    <role id="8" parent="1" name="pg_read_all_settings">
+    <role id="9" parent="1" name="pg_read_all_data">
+      <ObjectId>6181</ObjectId>
+    </role>
+    <role id="10" parent="1" name="pg_read_all_settings">
       <ObjectId>3374</ObjectId>
     </role>
-    <role id="9" parent="1" name="pg_read_all_stats">
+    <role id="11" parent="1" name="pg_read_all_stats">
       <ObjectId>3375</ObjectId>
     </role>
-    <role id="10" parent="1" name="pg_stat_scan_tables">
-      <ObjectId>3377</ObjectId>
-    </role>
-    <role id="11" parent="1" name="pg_read_server_files">
+    <role id="12" parent="1" name="pg_read_server_files">
       <ObjectId>4569</ObjectId>
     </role>
-    <role id="12" parent="1" name="pg_write_server_files">
-      <ObjectId>4570</ObjectId>
-    </role>
-    <role id="13" parent="1" name="pg_execute_server_program">
-      <ObjectId>4571</ObjectId>
-    </role>
-    <role id="14" parent="1" name="pg_signal_backend">
+    <role id="13" parent="1" name="pg_signal_backend">
       <ObjectId>4200</ObjectId>
     </role>
-    <role id="15" parent="1" name="pg_checkpoint">
-      <ObjectId>4544</ObjectId>
+    <role id="14" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
     </role>
-    <role id="16" parent="1" name="pg_use_reserved_connections">
+    <role id="15" parent="1" name="pg_use_reserved_connections">
       <ObjectId>4550</ObjectId>
     </role>
-    <role id="17" parent="1" name="pg_create_subscription">
-      <ObjectId>6304</ObjectId>
+    <role id="16" parent="1" name="pg_write_all_data">
+      <ObjectId>6182</ObjectId>
+    </role>
+    <role id="17" parent="1" name="pg_write_server_files">
+      <ObjectId>4570</ObjectId>
     </role>
     <role id="18" parent="1" name="user">
       <BypassRls>1</BypassRls>
@@ -4806,10 +4806,8 @@ true posixrules
       <ValidatorSchema>pg_catalog</ValidatorSchema>
     </language>
     <schema id="262" parent="2" name="account">
-      <IntrospectionStateNumber>807</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-05-01.02:41:39</LastIntrospectionLocalTimestamp>
-      <ObjectId>16475</ObjectId>
-      <StateNumber>799</StateNumber>
+      <ObjectId>16633</ObjectId>
+      <StateNumber>852</StateNumber>
       <OwnerName>user</OwnerName>
     </schema>
     <schema id="263" parent="2" name="information_schema">
@@ -4824,199 +4822,119 @@ true posixrules
       <OwnerName>user</OwnerName>
     </schema>
     <schema id="265" parent="2" name="post">
-      <IntrospectionStateNumber>804</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-05-01.02:40:38</LastIntrospectionLocalTimestamp>
-      <ObjectId>16450</ObjectId>
+      <IntrospectionStateNumber>862</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-05-03.02:39:33</LastIntrospectionLocalTimestamp>
+      <ObjectId>16497</ObjectId>
       <StateNumber>782</StateNumber>
       <OwnerName>user</OwnerName>
     </schema>
     <schema id="266" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>804</IntrospectionStateNumber>
       <LastIntrospectionLocalTimestamp>2024-05-01.02:40:38</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
-    <table id="267" parent="262" name="accounts">
-      <ObjectId>16476</ObjectId>
-      <StateNumber>800</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>user</OwnerName>
-    </table>
-    <table id="268" parent="262" name="follows">
-      <ObjectId>16481</ObjectId>
-      <StateNumber>801</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>user</OwnerName>
-    </table>
-    <table id="269" parent="265" name="post_created_events">
-      <ObjectId>16458</ObjectId>
+    <table id="267" parent="265" name="post_created_events">
+      <ObjectId>16505</ObjectId>
       <StateNumber>784</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>user</OwnerName>
     </table>
-    <table id="270" parent="265" name="posts">
-      <ObjectId>16451</ObjectId>
+    <table id="268" parent="265" name="posts">
+      <ObjectId>16498</ObjectId>
       <StateNumber>783</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>user</OwnerName>
     </table>
-    <column id="271" parent="267" name="account_id">
-      <DasType>uuid|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>800</StateNumber>
-      <TypeId>2950</TypeId>
-    </column>
-    <column id="272" parent="267" name="username">
-      <DasType>varchar(50)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StateNumber>800</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="273" parent="267" name="password">
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StateNumber>800</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <index id="274" parent="267" name="accounts_pkey">
-      <ColNames>account_id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16479</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>800</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="275" parent="267" name="accounts_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16480</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>800</StateNumber>
-      <UnderlyingIndexId>16479</UnderlyingIndexId>
-    </key>
-    <column id="276" parent="268" name="follow_id">
-      <DasType>uuid|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>801</StateNumber>
-      <TypeId>2950</TypeId>
-    </column>
-    <column id="277" parent="268" name="follower_id">
-      <DasType>uuid|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StateNumber>801</StateNumber>
-      <TypeId>2950</TypeId>
-    </column>
-    <column id="278" parent="268" name="followee_id">
-      <DasType>uuid|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StateNumber>801</StateNumber>
-      <TypeId>2950</TypeId>
-    </column>
-    <index id="279" parent="268" name="follows_pkey">
-      <ColNames>follow_id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16484</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>801</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="280" parent="268" name="follows_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16485</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>801</StateNumber>
-      <UnderlyingIndexId>16484</UnderlyingIndexId>
-    </key>
-    <column id="281" parent="269" name="event_id">
+    <column id="269" parent="267" name="event_id">
       <DasType>uuid|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>784</StateNumber>
       <TypeId>2950</TypeId>
     </column>
-    <column id="282" parent="269" name="account_id">
-      <DasType>uuid|0s</DasType>
+    <column id="270" parent="267" name="created_at">
+      <DasType>timestamp|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>784</StateNumber>
-      <TypeId>2950</TypeId>
+      <TypeId>1114</TypeId>
     </column>
-    <column id="283" parent="269" name="post_id">
-      <DasType>uuid|0s</DasType>
+    <column id="271" parent="267" name="payload">
+      <DasType>jsonb|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>784</StateNumber>
-      <TypeId>2950</TypeId>
+      <TypeId>3802</TypeId>
     </column>
-    <index id="284" parent="269" name="post_created_events_pkey">
+    <index id="272" parent="267" name="post_created_events_pkey">
       <ColNames>event_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16461</ObjectId>
+      <ObjectId>16510</ObjectId>
       <Primary>1</Primary>
       <StateNumber>784</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="285" parent="269" name="post_created_events_pkey">
+    <key id="273" parent="267" name="post_created_events_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16462</ObjectId>
+      <ObjectId>16511</ObjectId>
       <Primary>1</Primary>
       <StateNumber>784</StateNumber>
-      <UnderlyingIndexId>16461</UnderlyingIndexId>
+      <UnderlyingIndexId>16510</UnderlyingIndexId>
     </key>
-    <column id="286" parent="270" name="post_id">
+    <column id="274" parent="268" name="post_id">
       <DasType>uuid|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>783</StateNumber>
       <TypeId>2950</TypeId>
     </column>
-    <column id="287" parent="270" name="account_id">
+    <column id="275" parent="268" name="account_id">
       <DasType>uuid|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>783</StateNumber>
       <TypeId>2950</TypeId>
     </column>
-    <column id="288" parent="270" name="title">
+    <column id="276" parent="268" name="title">
       <DasType>varchar(128)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>783</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="289" parent="270" name="description">
+    <column id="277" parent="268" name="description">
       <DasType>varchar(1024)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>783</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="290" parent="270" name="posts_pkey">
+    <column id="278" parent="268" name="created_at">
+      <DasType>timestamp|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>783</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <index id="279" parent="268" name="posts_pkey">
       <ColNames>post_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16456</ObjectId>
+      <ObjectId>16503</ObjectId>
       <Primary>1</Primary>
       <StateNumber>783</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="291" parent="270" name="posts_pkey">
+    <key id="280" parent="268" name="posts_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16457</ObjectId>
+      <ObjectId>16504</ObjectId>
       <Primary>1</Primary>
       <StateNumber>783</StateNumber>
-      <UnderlyingIndexId>16456</UnderlyingIndexId>
+      <UnderlyingIndexId>16503</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

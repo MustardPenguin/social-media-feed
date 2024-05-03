@@ -1,4 +1,4 @@
-package com.social.media.feed.post.service.infrastructure.repository.outbox.postcreated;
+package com.social.media.feed.account.service.infrastructure.repository.outbox.followcreated;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -16,8 +16,8 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "post_created_events")
-public class PostCreatedEventEntity {
+@Table(name = "follow_created_events")
+public class FollowCreatedEventEntity {
 
     @Id
     private UUID eventId;
