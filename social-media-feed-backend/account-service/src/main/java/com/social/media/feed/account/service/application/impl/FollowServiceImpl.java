@@ -44,6 +44,8 @@ public class FollowServiceImpl implements FollowService {
         }
         Follow response = followRepository.saveFollow(follow);
         FollowCreatedEvent followCreatedEvent = new FollowCreatedEvent(response, LocalDateTime.now());
+        // TODO Save to event table to publish to kafka
+        // TODO Using JSON event payload for message bus
 
         return response;
     }

@@ -5,31 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/impl/FollowServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/port/repository/FollowRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/port/service/FollowService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/domain/entity/Follow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/domain/event/FollowCreatedEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/domain/event/FollowEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/follow/FollowJpaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/follow/FollowRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/follow/FollowRepositoryMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-domain/src/main/java/com/social/media/feed/domain/valueobject/FollowId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/domain/event/PostEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-infrastructure/src/main/java/com/social/media/feed/infrastructure/message/dto/payload/PostCreatedEventPayload.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/account.LYrTuQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/account.LYrTuQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/post.oJg0AA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/post.oJg0AA.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/FollowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/FollowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/domain/entity/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/domain/entity/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/follow/FollowEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/follow/FollowEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/resources/init-data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/resources/init-data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/impl/FollowServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/impl/FollowServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account-service/src/main/resources/init-schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/resources/init-schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway-service/src/main/java/com/social/media/feed/api/gateway/configuration/GatewayRouteConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway-service/src/main/java/com/social/media/feed/api/gateway/configuration/GatewayRouteConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/application/impl/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/application/impl/PostServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/domain/event/PostCreatedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/domain/event/PostCreatedEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/outbox/postcreated/PostCreatedEventJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/outbox/postcreated/PostCreatedEventJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-application/src/main/java/com/social/media/feed/application/rest/util/ObjectMapperUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-application/src/main/java/com/social/media/feed/application/util/ObjectMapperUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-infrastructure/src/main/java/com/social/media/feed/infrastructure/message/config/KafkaConsumerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-infrastructure/src/main/java/com/social/media/feed/infrastructure/message/config/KafkaConsumerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-infrastructure/src/main/java/com/social/media/feed/infrastructure/message/model/avro/event/block.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-infrastructure/src/main/java/com/social/media/feed/infrastructure/message/model/avro/io/debezium/connector/postgresql/Source.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-infrastructure/src/main/java/com/social/media/feed/infrastructure/message/model/avro/post_created/post/post_created_events/Envelope.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-infrastructure/src/main/java/com/social/media/feed/infrastructure/message/model/avro/post_created/post/post_created_events/Value.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-infrastructure/src/main/resources/avro/post_created.avsc" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-infrastructure/src/main/resources/avro/post_created.avsc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/application/util/PostServiceUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/application/util/PostServiceUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/outbox/postcreated/PostCreatedEventEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/outbox/postcreated/PostCreatedEventEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/outbox/postcreated/PostCreatedEventRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/outbox/postcreated/PostCreatedEventRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/post/PostEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/post/PostEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/post/PostRepositoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/post/PostRepositoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/main/resources/init-schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/resources/init-schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +97,9 @@
     ]
   }
 }</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/deployment/docker-compose" />
@@ -120,7 +117,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.AccountApplicationService">
+  <component name="RunManager" selected="Spring Boot.PostApplicationService">
     <configuration name="AccountApplicationService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="account-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.social.media.feed.account.service.AccountApplicationService" />
@@ -188,11 +185,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.AccountApplicationService" />
-        <item itemvalue="Spring Boot.PostApplicationService" />
-        <item itemvalue="Spring Boot.ApiGatewayServiceApplication" />
         <item itemvalue="Spring Boot.FeedApplicationService" />
+        <item itemvalue="Spring Boot.PostApplicationService" />
         <item itemvalue="Spring Boot.EurekaServerApplication" />
+        <item itemvalue="Spring Boot.ApiGatewayServiceApplication" />
+        <item itemvalue="Spring Boot.AccountApplicationService" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +212,8 @@
       <workItem from="1714267161132" duration="5458000" />
       <workItem from="1714341860725" duration="16096000" />
       <workItem from="1714419161604" duration="17373000" />
-      <workItem from="1714514077668" duration="16927000" />
+      <workItem from="1714514077668" duration="17758000" />
+      <workItem from="1714690365669" duration="9283000" />
     </task>
     <servers />
   </component>

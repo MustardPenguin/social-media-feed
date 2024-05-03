@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Value extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -5981094708064157383L;
+  private static final long serialVersionUID = -4062598753564259832L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Value\",\"namespace\":\"post_created.post.post_created_events\",\"fields\":[{\"name\":\"event_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\",\"connect.version\":1,\"connect.name\":\"io.debezium.data.Uuid\"}},{\"name\":\"account_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\",\"connect.version\":1,\"connect.name\":\"io.debezium.data.Uuid\"}},{\"name\":\"post_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\",\"connect.version\":1,\"connect.name\":\"io.debezium.data.Uuid\"}}],\"connect.name\":\"post_created.post.post_created_events.Value\"}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Value\",\"namespace\":\"post_created.post.post_created_events\",\"fields\":[{\"name\":\"event_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\",\"connect.version\":1,\"connect.name\":\"io.debezium.data.Uuid\"}},{\"name\":\"created_at\",\"type\":{\"type\":\"long\",\"connect.version\":1,\"connect.name\":\"io.debezium.time.MicroTimestamp\"}},{\"name\":\"payload\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\",\"connect.version\":1,\"connect.name\":\"io.debezium.data.Json\"}}],\"connect.name\":\"post_created.post.post_created_events.Value\"}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -74,8 +74,8 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
   }
 
   private java.lang.String event_id;
-  private java.lang.String account_id;
-  private java.lang.String post_id;
+  private long created_at;
+  private java.lang.String payload;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -87,13 +87,13 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
   /**
    * All-args constructor.
    * @param event_id The new value for event_id
-   * @param account_id The new value for account_id
-   * @param post_id The new value for post_id
+   * @param created_at The new value for created_at
+   * @param payload The new value for payload
    */
-  public Value(java.lang.String event_id, java.lang.String account_id, java.lang.String post_id) {
+  public Value(java.lang.String event_id, java.lang.Long created_at, java.lang.String payload) {
     this.event_id = event_id;
-    this.account_id = account_id;
-    this.post_id = post_id;
+    this.created_at = created_at;
+    this.payload = payload;
   }
 
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
@@ -102,8 +102,8 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return event_id;
-    case 1: return account_id;
-    case 2: return post_id;
+    case 1: return created_at;
+    case 2: return payload;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -113,8 +113,8 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: event_id = value$ != null ? value$.toString() : null; break;
-    case 1: account_id = value$ != null ? value$.toString() : null; break;
-    case 2: post_id = value$ != null ? value$.toString() : null; break;
+    case 1: created_at = (java.lang.Long)value$; break;
+    case 2: payload = value$ != null ? value$.toString() : null; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -137,37 +137,37 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
   }
 
   /**
-   * Gets the value of the 'account_id' field.
-   * @return The value of the 'account_id' field.
+   * Gets the value of the 'created_at' field.
+   * @return The value of the 'created_at' field.
    */
-  public java.lang.String getAccountId() {
-    return account_id;
+  public long getCreatedAt() {
+    return created_at;
   }
 
 
   /**
-   * Sets the value of the 'account_id' field.
+   * Sets the value of the 'created_at' field.
    * @param value the value to set.
    */
-  public void setAccountId(java.lang.String value) {
-    this.account_id = value;
+  public void setCreatedAt(long value) {
+    this.created_at = value;
   }
 
   /**
-   * Gets the value of the 'post_id' field.
-   * @return The value of the 'post_id' field.
+   * Gets the value of the 'payload' field.
+   * @return The value of the 'payload' field.
    */
-  public java.lang.String getPostId() {
-    return post_id;
+  public java.lang.String getPayload() {
+    return payload;
   }
 
 
   /**
-   * Sets the value of the 'post_id' field.
+   * Sets the value of the 'payload' field.
    * @param value the value to set.
    */
-  public void setPostId(java.lang.String value) {
-    this.post_id = value;
+  public void setPayload(java.lang.String value) {
+    this.payload = value;
   }
 
   /**
@@ -212,8 +212,8 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
     implements org.apache.avro.data.RecordBuilder<Value> {
 
     private java.lang.String event_id;
-    private java.lang.String account_id;
-    private java.lang.String post_id;
+    private long created_at;
+    private java.lang.String payload;
 
     /** Creates a new Builder */
     private Builder() {
@@ -230,12 +230,12 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
         this.event_id = data().deepCopy(fields()[0].schema(), other.event_id);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.account_id)) {
-        this.account_id = data().deepCopy(fields()[1].schema(), other.account_id);
+      if (isValidValue(fields()[1], other.created_at)) {
+        this.created_at = data().deepCopy(fields()[1].schema(), other.created_at);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.post_id)) {
-        this.post_id = data().deepCopy(fields()[2].schema(), other.post_id);
+      if (isValidValue(fields()[2], other.payload)) {
+        this.payload = data().deepCopy(fields()[2].schema(), other.payload);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
     }
@@ -250,12 +250,12 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
         this.event_id = data().deepCopy(fields()[0].schema(), other.event_id);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.account_id)) {
-        this.account_id = data().deepCopy(fields()[1].schema(), other.account_id);
+      if (isValidValue(fields()[1], other.created_at)) {
+        this.created_at = data().deepCopy(fields()[1].schema(), other.created_at);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.post_id)) {
-        this.post_id = data().deepCopy(fields()[2].schema(), other.post_id);
+      if (isValidValue(fields()[2], other.payload)) {
+        this.payload = data().deepCopy(fields()[2].schema(), other.payload);
         fieldSetFlags()[2] = true;
       }
     }
@@ -301,81 +301,80 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
     }
 
     /**
-      * Gets the value of the 'account_id' field.
+      * Gets the value of the 'created_at' field.
       * @return The value.
       */
-    public java.lang.String getAccountId() {
-      return account_id;
+    public long getCreatedAt() {
+      return created_at;
     }
 
 
     /**
-      * Sets the value of the 'account_id' field.
-      * @param value The value of 'account_id'.
+      * Sets the value of the 'created_at' field.
+      * @param value The value of 'created_at'.
       * @return This builder.
       */
-    public post_created.post.post_created_events.Value.Builder setAccountId(java.lang.String value) {
+    public post_created.post.post_created_events.Value.Builder setCreatedAt(long value) {
       validate(fields()[1], value);
-      this.account_id = value;
+      this.created_at = value;
       fieldSetFlags()[1] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'account_id' field has been set.
-      * @return True if the 'account_id' field has been set, false otherwise.
+      * Checks whether the 'created_at' field has been set.
+      * @return True if the 'created_at' field has been set, false otherwise.
       */
-    public boolean hasAccountId() {
+    public boolean hasCreatedAt() {
       return fieldSetFlags()[1];
     }
 
 
     /**
-      * Clears the value of the 'account_id' field.
+      * Clears the value of the 'created_at' field.
       * @return This builder.
       */
-    public post_created.post.post_created_events.Value.Builder clearAccountId() {
-      account_id = null;
+    public post_created.post.post_created_events.Value.Builder clearCreatedAt() {
       fieldSetFlags()[1] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'post_id' field.
+      * Gets the value of the 'payload' field.
       * @return The value.
       */
-    public java.lang.String getPostId() {
-      return post_id;
+    public java.lang.String getPayload() {
+      return payload;
     }
 
 
     /**
-      * Sets the value of the 'post_id' field.
-      * @param value The value of 'post_id'.
+      * Sets the value of the 'payload' field.
+      * @param value The value of 'payload'.
       * @return This builder.
       */
-    public post_created.post.post_created_events.Value.Builder setPostId(java.lang.String value) {
+    public post_created.post.post_created_events.Value.Builder setPayload(java.lang.String value) {
       validate(fields()[2], value);
-      this.post_id = value;
+      this.payload = value;
       fieldSetFlags()[2] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'post_id' field has been set.
-      * @return True if the 'post_id' field has been set, false otherwise.
+      * Checks whether the 'payload' field has been set.
+      * @return True if the 'payload' field has been set, false otherwise.
       */
-    public boolean hasPostId() {
+    public boolean hasPayload() {
       return fieldSetFlags()[2];
     }
 
 
     /**
-      * Clears the value of the 'post_id' field.
+      * Clears the value of the 'payload' field.
       * @return This builder.
       */
-    public post_created.post.post_created_events.Value.Builder clearPostId() {
-      post_id = null;
+    public post_created.post.post_created_events.Value.Builder clearPayload() {
+      payload = null;
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -386,8 +385,8 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
       try {
         Value record = new Value();
         record.event_id = fieldSetFlags()[0] ? this.event_id : (java.lang.String) defaultValue(fields()[0]);
-        record.account_id = fieldSetFlags()[1] ? this.account_id : (java.lang.String) defaultValue(fields()[1]);
-        record.post_id = fieldSetFlags()[2] ? this.post_id : (java.lang.String) defaultValue(fields()[2]);
+        record.created_at = fieldSetFlags()[1] ? this.created_at : (java.lang.Long) defaultValue(fields()[1]);
+        record.payload = fieldSetFlags()[2] ? this.payload : (java.lang.String) defaultValue(fields()[2]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -422,9 +421,9 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
   {
     out.writeString(this.event_id);
 
-    out.writeString(this.account_id);
+    out.writeLong(this.created_at);
 
-    out.writeString(this.post_id);
+    out.writeString(this.payload);
 
   }
 
@@ -435,9 +434,9 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
     if (fieldOrder == null) {
       this.event_id = in.readString();
 
-      this.account_id = in.readString();
+      this.created_at = in.readLong();
 
-      this.post_id = in.readString();
+      this.payload = in.readString();
 
     } else {
       for (int i = 0; i < 3; i++) {
@@ -447,11 +446,11 @@ public class Value extends org.apache.avro.specific.SpecificRecordBase implement
           break;
 
         case 1:
-          this.account_id = in.readString();
+          this.created_at = in.readLong();
           break;
 
         case 2:
-          this.post_id = in.readString();
+          this.payload = in.readString();
           break;
 
         default:

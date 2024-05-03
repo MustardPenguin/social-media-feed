@@ -1,7 +1,7 @@
 package com.social.media.feed.post.service.application.util;
 
 import com.social.media.feed.application.rest.model.AccountResponse;
-import com.social.media.feed.application.rest.util.ObjectMapperUtil;
+import com.social.media.feed.application.util.ObjectMapperUtil;
 import com.social.media.feed.post.service.application.port.repository.AccountCache;
 import com.social.media.feed.post.service.domain.entity.Account;
 import com.social.media.feed.post.service.domain.exception.PostDomainException;

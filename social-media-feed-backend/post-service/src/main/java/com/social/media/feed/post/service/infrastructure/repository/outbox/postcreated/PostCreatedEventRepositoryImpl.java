@@ -1,5 +1,7 @@
 package com.social.media.feed.post.service.infrastructure.repository.outbox.postcreated;
 
+import com.social.media.feed.application.util.ObjectMapperUtil;
+import com.social.media.feed.infrastructure.message.dto.payload.PostCreatedEventPayload;
 import com.social.media.feed.post.service.application.port.repository.PostCreatedEventRepository;
 import com.social.media.feed.post.service.domain.entity.Post;
 import com.social.media.feed.post.service.domain.event.PostCreatedEvent;
@@ -12,15 +14,17 @@ import org.springframework.stereotype.Component;
 public class PostCreatedEventRepositoryImpl implements PostCreatedEventRepository {
 
     private final PostCreatedEventJpaRepository postCreatedEventJpaRepository;
+    private final ObjectMapperUtil objectMapperUtil;
 
-    public PostCreatedEventRepositoryImpl(PostCreatedEventJpaRepository postCreatedEventJpaRepository) {
+    public PostCreatedEventRepositoryImpl(PostCreatedEventJpaRepository postCreatedEventJpaRepository, ObjectMapperUtil objectMapperUtil) {
         this.postCreatedEventJpaRepository = postCreatedEventJpaRepository;
+        this.objectMapperUtil = objectMapperUtil;
     }
 
     @Override
     public PostCreatedEvent save(PostCreatedEvent postCreatedEvent) {
         try {
-            PostCreatedEventEntity postCreatedEventEntity = postCreatedEventToEntity(postCreatedEvent);
+            PostCreatedEventEntity postCreatedEventEntity = createdEventEntityFromEvent(postCreatedEvent);
             PostCreatedEventEntity response = postCreatedEventJpaRepository.save(postCreatedEventEntity);
             log.info("Post created event saved in outbox event table with id: {}", response.getEventId());
             return postCreatedEvent;
@@ -30,12 +34,17 @@ public class PostCreatedEventRepositoryImpl implements PostCreatedEventRepositor
         }
     }
 
-    private PostCreatedEventEntity postCreatedEventToEntity(PostCreatedEvent postCreatedEvent) {
+    private PostCreatedEventEntity createdEventEntityFromEvent(PostCreatedEvent postCreatedEvent) {
         Post post = postCreatedEvent.getEntity();
-        return PostCreatedEventEntity.builder()
-                .eventId(postCreatedEvent.getEventId())
+        PostCreatedEventPayload postCreatedEventPayload = PostCreatedEventPayload.builder()
                 .postId(post.getId().getValue())
                 .accountId(post.getAccountId())
+                .build();
+        String payload = objectMapperUtil.convertObjectToString(postCreatedEventPayload);
+        return PostCreatedEventEntity.builder()
+                .createdAt(postCreatedEvent.getCreatedAt())
+                .eventId(postCreatedEvent.getEventId())
+                .payload(payload)
                 .build();
     }
 }

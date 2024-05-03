@@ -18,3 +18,11 @@ CREATE TABLE account.follows (
     follower_id UUID NOT NULL,
     followee_id UUID NOT NULL
 );
+
+DROP TABLE IF EXISTS account.follow_created_event;
+
+CREATE TABLE account.follow_created_event (
+    follow_id UUID PRIMARY KEY,
+    follower_id UUID NOT NULL,
+    followee_id UUID NOT NULL
+);

@@ -20,19 +20,19 @@
               }
             },
             {
-              "name": "account_id",
+              "name": "created_at",
               "type": {
-                "type": "string",
+                "type": "long",
                 "connect.version": 1,
-                "connect.name": "io.debezium.data.Uuid"
+                "connect.name": "io.debezium.time.MicroTimestamp"
               }
             },
             {
-              "name": "post_id",
+              "name": "payload",
               "type": {
                 "type": "string",
                 "connect.version": 1,
-                "connect.name": "io.debezium.data.Uuid"
+                "connect.name": "io.debezium.data.Json"
               }
             }
           ],
