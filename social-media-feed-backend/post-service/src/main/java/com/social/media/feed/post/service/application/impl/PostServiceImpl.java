@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.UUID;
 
 @Slf4j
@@ -32,7 +33,7 @@ public class PostServiceImpl implements PostService {
     @Transactional
     public Post createPost(Post post) {
         log.info("Creating post for account id {} at service layer", post.getAccountId());
-        LocalDateTime createdAt = LocalDateTime.now();
+        LocalDateTime createdAt = LocalDateTime.now(ZoneId.of("UTC"));
         post.setPostId(UUID.randomUUID());
         post.setCreatedAt(createdAt);
 

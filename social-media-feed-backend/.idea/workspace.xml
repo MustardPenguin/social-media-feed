@@ -5,23 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/port/repository/FollowCreatedEventRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/outbox/followcreated/FollowCreatedEventEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/outbox/followcreated/FollowCreatedEventJpaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/outbox/followcreated/FollowCreatedEventRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-infrastructure/src/main/java/com/social/media/feed/infrastructure/message/dto/payload/FollowCreatedEventPayload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-infrastructure/src/main/resources/avro/follow_created.avsc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/message/post/FollowCreatedKafkaListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/account.LYrTuQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/account.LYrTuQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/post.oJg0AA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/post.oJg0AA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/application/dto/PostCreatedEventModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/application/impl/PostCreatedMessageListenerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/application/port/message/PostCreatedMessageListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/impl/FollowServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/impl/FollowServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/resources/init-schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/resources/init-schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/docker-compose/init-connectors.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/docker-compose/init-connectors.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/outbox/postcreated/PostCreatedEventEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/outbox/postcreated/PostCreatedEventEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/message/post/FollowCreatedKafkaListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/message/post/FollowCreatedKafkaListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/message/post/PostCreatedKafkaListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/message/post/PostCreatedKafkaListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/application/impl/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/application/impl/PostServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,10 +174,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.FeedApplicationService" />
-        <item itemvalue="Spring Boot.AccountApplicationService" />
         <item itemvalue="Spring Boot.PostApplicationService" />
         <item itemvalue="Spring Boot.EurekaServerApplication" />
         <item itemvalue="Spring Boot.ApiGatewayServiceApplication" />
+        <item itemvalue="Spring Boot.AccountApplicationService" />
       </list>
     </recent_temporary>
   </component>
@@ -211,7 +201,8 @@
       <workItem from="1714341860725" duration="16096000" />
       <workItem from="1714419161604" duration="17373000" />
       <workItem from="1714514077668" duration="17758000" />
-      <workItem from="1714690365669" duration="12546000" />
+      <workItem from="1714690365669" duration="12769000" />
+      <workItem from="1714944720768" duration="7952000" />
     </task>
     <servers />
   </component>

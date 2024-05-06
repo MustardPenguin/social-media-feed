@@ -17,5 +17,8 @@ public class FollowCreatedKafkaListener implements KafkaConsumer<follow_created.
     public void receiveMessages(List<Envelope> messages) {
         log.info("Received follow created event messages!");
         log.info("Messages: {}", messages);
+        messages.forEach(message -> {
+
+        });
     }
 }
