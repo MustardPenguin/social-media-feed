@@ -1,5 +1,6 @@
 package com.social.media.feed.account.service.application.util;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -18,11 +19,19 @@ public class JwtTokenUtil {
 
     public String generateToken(String username, HashMap<String, String> claims) {
         return Jwts.builder()
-                .setSubject(username)
                 .setClaims(claims)
+                .setSubject(username)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + JWT_EXPIRATION))
                 .signWith(Keys.hmacShaKeyFor(Decoders.BASE64.decode(JWT_SECRET)))
                 .compact();
+    }
+
+    public Claims extractAllClaims(String jwtToken) {
+        return Jwts.parserBuilder()
+                .setSigningKey(Keys.hmacShaKeyFor(Decoders.BASE64.decode(JWT_SECRET)))
+                .build()
+                .parseClaimsJws(jwtToken)
+                .getBody();
     }
 }

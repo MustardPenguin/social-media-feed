@@ -18,7 +18,7 @@ public class JwtTokenUtil {
 
     public Claims extractAllClaims(String jwtToken) {
         return Jwts.parserBuilder()
-                .setSigningKey(Keys.hmacShaKeyFor(Decoders.BASE64URL.decode(JWT_SECRET)))
+                .setSigningKey(Keys.hmacShaKeyFor(Decoders.BASE64.decode(JWT_SECRET)))
                 .build()
                 .parseClaimsJws(jwtToken)
                 .getBody();
