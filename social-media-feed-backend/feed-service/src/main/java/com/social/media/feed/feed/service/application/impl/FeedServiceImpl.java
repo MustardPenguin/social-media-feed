@@ -28,9 +28,11 @@ public class FeedServiceImpl implements FeedService {
     public Flux<ServerSentEvent<PostCreatedResponse>> subscribeToFeed(UUID accountId) {
         log.info("Incoming subscription request for account {}", accountId);
         final AtomicLong counter = new AtomicLong(0);
-        return eventSink.asFlux().map(
-                e -> ServerSentEvent.builder(e)
-                        .id(counter.incrementAndGet() + "")
-                        .build());
+        return eventSink.asFlux().map(postCreatedResponse -> {
+            log.info("Test!");
+            return ServerSentEvent.builder(postCreatedResponse)
+                   .id(counter.incrementAndGet() + "")
+                   .build();
+        });
     }
 }

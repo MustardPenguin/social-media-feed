@@ -23,7 +23,13 @@ public class PostCreatedMessageListenerImpl implements PostCreatedMessageListene
     @Override
     @Transactional
     public void postCreated(PostCreatedEventModel postCreatedEventModel) {
-        eventSink.emitNext(new PostCreatedResponse(UUID.randomUUID(), UUID.randomUUID()), (signalType, emitResult) -> emitResult.isFailure());
+        PostCreatedResponse postCreatedResponse = new PostCreatedResponse(postCreatedEventModel.getPostId(), postCreatedEventModel.getAccountId());
+        eventSink.emitNext(postCreatedResponse, (signalType, emitResult) -> {
+            log.info("Signal type: {}", signalType);
+            log.info("Emit result: {}", emitResult.name());
+            // Return false to not retry emitting data
+            return false;
+        });
         log.info("Post created event emitted");
     }
 }

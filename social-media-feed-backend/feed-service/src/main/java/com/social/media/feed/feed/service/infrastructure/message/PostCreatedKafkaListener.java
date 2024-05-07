@@ -1,4 +1,4 @@
-package com.social.media.feed.feed.service.infrastructure.message.post;
+package com.social.media.feed.feed.service.infrastructure.message;
 
 import com.social.media.feed.application.util.ObjectMapperUtil;
 import com.social.media.feed.feed.service.application.dto.PostCreatedEventModel;

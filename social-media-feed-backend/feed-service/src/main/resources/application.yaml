@@ -30,7 +30,7 @@ spring:
     driver-class-name: org.postgresql.Driver
   sql:
     init:
-#      schema-locations: classpath:init-schema.sql
+      schema-locations: classpath:init-schema.sql
       platform: postgres
       mode: always
   jpa:
