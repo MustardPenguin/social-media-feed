@@ -12,11 +12,7 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
 
-//@Configuration
+@Configuration
 public class AccountTestBeanConfigurations {
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return Mockito.mock(UserDetailsServiceImpl.class);
-    }
 }

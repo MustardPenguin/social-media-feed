@@ -1,9 +1,12 @@
 package com.social.media.feed.account.service;
 
 import com.social.media.feed.account.service.application.dto.AccountDetails;
+import com.social.media.feed.account.service.application.port.repository.AccountRepository;
 import com.social.media.feed.account.service.application.port.service.AuthenticationService;
+import com.social.media.feed.account.service.application.rest.controller.AccountController;
 import com.social.media.feed.account.service.application.rest.controller.AuthenticateController;
 import com.social.media.feed.account.service.application.rest.model.LoginAccountRequestBody;
+import com.social.media.feed.account.service.application.rest.model.RegisterAccountRequestBody;
 import com.social.media.feed.account.service.application.util.JwtTokenUtil;
 import com.social.media.feed.account.service.domain.entity.Account;
 import io.jsonwebtoken.Claims;
@@ -13,6 +16,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -32,11 +36,17 @@ import java.util.function.Supplier;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
+@SpringBootTest(properties = "eureka.client.enabled=false")
 public class AccountApplicationServiceTest {
 
     @Autowired
     private AuthenticateController authenticateController;
+    @Autowired
+    private AccountController accountController;
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+    @Autowired
+    private AccountRepository accountRepository;
 
     static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:latest")
             .withUrlParam("stringtype", "unspecified")
@@ -63,8 +73,28 @@ public class AccountApplicationServiceTest {
 
     @Test
     public void testAuthentication()  {
-        LoginAccountRequestBody loginAccountRequestBody = new LoginAccountRequestBody("test", "test");
+        final String username = "usertest";
+
+        // Test account registration
+        RegisterAccountRequestBody registerAccountRequestBody = new RegisterAccountRequestBody(username, "test");
+        ResponseEntity<String> response = accountController.registerAccount(registerAccountRequestBody);
+
+        assertEquals(ResponseEntity.class, response.getClass());
+
+        // Test authentication
+        LoginAccountRequestBody loginAccountRequestBody = new LoginAccountRequestBody(username, "test");
         String token = authenticateController.authenticate(loginAccountRequestBody);
+
+        try {
+            LoginAccountRequestBody invalidCredentials = new LoginAccountRequestBody(username, "test1");
+            authenticateController.authenticate(invalidCredentials);
+        } catch (Exception e) {
+            assertEquals("Bad credentials", e.getMessage());
+        }
+
+        // Validate token
         assertNotNull(token);
+        Claims claims = jwtTokenUtil.extractAllClaims(token);
+        assertEquals(username, claims.getSubject());
     }
 }
