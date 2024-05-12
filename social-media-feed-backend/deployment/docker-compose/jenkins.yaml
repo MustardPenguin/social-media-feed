@@ -15,4 +15,3 @@ services:
       - ./jenkins-data:/var/jenkins_home
     environment:
       JENKINS_PORT: 9090
-       
