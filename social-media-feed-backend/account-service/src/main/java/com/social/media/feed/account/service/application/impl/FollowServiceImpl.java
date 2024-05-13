@@ -43,11 +43,10 @@ public class FollowServiceImpl implements FollowService {
                 .followerId(followerId)
                 .build();
 
-        // TODO Uncomment below later, allowing multiple follow for testing purposes for now
-//        Follow existingFollow = followRepository.findFollowByFollowerIdAndFolloweeId(follow);
-//        if(existingFollow != null) {
-//            throw new AccountDomainException("Already following the account with accountId " + followeeId);
-//        }
+        Follow existingFollow = followRepository.findFollowByFollowerIdAndFolloweeId(follow);
+        if(existingFollow != null) {
+            throw new AccountDomainException("Already following the account with accountId " + followeeId);
+        }
         Follow response = followRepository.saveFollow(follow);
         FollowCreatedEvent followCreatedEvent = new FollowCreatedEvent(response, LocalDateTime.now());
         followCreatedEventRepository.saveFollowCreatedEvent(followCreatedEvent);
