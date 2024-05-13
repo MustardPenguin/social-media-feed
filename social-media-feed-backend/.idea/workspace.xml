@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/post-service/src/test/java/com/social/media/feed/post/service/PostApplicationServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/impl/FollowServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/impl/FollowServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/AccountApplicationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/AccountApplicationServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/AccountTestBeanConfigurations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/application/rest/model/CreatePostRequestBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/application/rest/model/CreatePostRequestBody.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,8 +52,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "JUnit.AccountApplicationServiceTest.executor": "Coverage",
+    "JUnit.AccountApplicationServiceTest.executor": "Run",
     "JUnit.AccountApplicationServiceTest.testAuthentication.executor": "Run",
+    "JUnit.PostApplicationServiceTest.executor": "Coverage",
+    "JUnit.PostApplicationServiceTest.testPostService.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -109,7 +113,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AccountApplicationServiceTest">
+  <component name="RunManager" selected="JUnit.PostApplicationServiceTest">
     <configuration name="AccountApplicationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="account-service" />
       <extension name="coverage">
@@ -141,15 +145,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccountApplicationService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="account-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.social.media.feed.account.service.AccountApplicationService" />
+    <configuration name="PostApplicationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="post-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.social.media.feed.account.service.*" />
+          <option name="PATTERN" value="com.social.media.feed.post.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.social.media.feed.post.service" />
+      <option name="MAIN_CLASS_NAME" value="com.social.media.feed.post.service.PostApplicationServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PostApplicationServiceTest.testPostService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="post-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.social.media.feed.post.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.social.media.feed.post.service" />
+      <option name="MAIN_CLASS_NAME" value="com.social.media.feed.post.service.PostApplicationServiceTest" />
+      <option name="METHOD_NAME" value="testPostService(com.social.media.feed.post.service.application.util.PostServiceUtil)" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -167,26 +189,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="eureka-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.social.media.feed.eureka.service.EurekaServerApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.social.media.feed.eureka.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PostApplicationServiceTest" />
+        <item itemvalue="JUnit.PostApplicationServiceTest.testPostService" />
         <item itemvalue="JUnit.AccountApplicationServiceTest" />
         <item itemvalue="JUnit.AccountApplicationServiceTest.testAuthentication" />
         <item itemvalue="Spring Boot.ApiGatewayServiceApplication" />
-        <item itemvalue="Spring Boot.AccountApplicationService" />
-        <item itemvalue="Spring Boot.EurekaServerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +224,7 @@
       <workItem from="1715029162195" duration="20774000" />
       <workItem from="1715103071795" duration="3852000" />
       <workItem from="1715442366934" duration="13064000" />
-      <workItem from="1715543105941" duration="7306000" />
+      <workItem from="1715543105941" duration="14194000" />
     </task>
     <servers />
   </component>
@@ -236,6 +245,9 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/social_media_feed_backend$AccountApplicationServiceTest.ic" NAME="AccountApplicationServiceTest Coverage Results" MODIFIED="1715558524352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.social.media.feed.account.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/social_media_feed_backend$PostApplicationServiceTest.ic" NAME="PostApplicationServiceTest Coverage Results" MODIFIED="1715568477399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.social.media.feed.post.service.*</FILTER>
     </SUITE>
   </component>
 </project>
