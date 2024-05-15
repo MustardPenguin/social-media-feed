@@ -4,8 +4,7 @@
   <div class="form-container">
     <div>Register</div>
     <app-form
-    [fields]="fields"
-    [submit]="submit"
+    fields={4}
     />
   </div>
 </div>
