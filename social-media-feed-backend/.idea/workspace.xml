@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="" />
+    <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/features/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/features/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/features/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/features/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/shared/form/form.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/shared/form/form.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/shared/form/form.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/shared/form/form.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/shared/interfaces/fieldType.ts" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -221,6 +233,7 @@
       <workItem from="1715543105941" duration="16912000" />
       <workItem from="1715572335680" duration="285000" />
       <workItem from="1715715838485" duration="682000" />
+      <workItem from="1715801899740" duration="1800000" />
     </task>
     <servers />
   </component>
