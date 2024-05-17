@@ -1,0 +1,17 @@
+
+<form (ngSubmit)="onSubmit()" class="form" [formGroup]="formData">
+    @for(field of fields; track field.name) {
+        <mat-form-field appearance="fill">
+            <mat-label>{{field.name}}</mat-label>
+            <input 
+            matInput 
+            placeholder="Type {{field.name}} here" 
+            type={{field.type}}
+            formControlName={{field.name}}
+            >
+            <mat-icon matSuffix>{{field.icon}}</mat-icon>
+        </mat-form-field>
+    }
+
+    <button type="submit">Submit</button>
+</form>

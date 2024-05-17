@@ -3,9 +3,15 @@
 <div class="container">
   <div class="form-container">
     <div>Register</div>
-    <form (ngSubmit)="onSubmit()">
+
+    <app-form 
+    [fields]="fields"
+    />
+
+    <!-- <form (ngSubmit)="onSubmit()">
       <div class="form"></div>
       <button type="submit">Submit</button>
-    </form>
+    </form> -->
+    
   </div>
 </div>

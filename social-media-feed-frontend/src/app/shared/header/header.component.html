@@ -4,10 +4,10 @@
     <div>Social Media Feed</div>
   </div>
   <div class="right-header">
-    <button mat-button>Home</button>
-    <button mat-button>Register</button>
-    <button mat-button>Login</button>
-    <button mat-button>Logout</button>
+    <button mat-button (click)="navigateTo('home')">Home</button>
+    <button mat-button (click)="navigateTo('register')">Register</button>
+    <button mat-button (click)="navigateTo('login')">Login</button>
+    <button mat-button (click)="navigateTo('logout')">Logout</button>
   </div>
 </div>
 
