@@ -2,6 +2,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Subscription, catchError, lastValueFrom, map, throwError } from 'rxjs';
+
+import { AuthenticationService } from './authentication.service';
 import FormData from '../shared/interfaces/FormData';
 import HttpResponseData from '../shared/interfaces/HttpResponseData';
 
@@ -10,7 +12,7 @@ import HttpResponseData from '../shared/interfaces/HttpResponseData';
 })
 export class ApiService {
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private authenticationService: AuthenticationService) { }
 
     async sendPostRequest(url: string, data: FormData, headers: FormData = { }): Promise<HttpResponseData<any>> {
         return lastValueFrom(this.http.post<any>(url, data, { observe: 'response', headers: headers }))
@@ -26,7 +28,7 @@ export class ApiService {
                 console.log(error);
                 const httpResponseData: HttpResponseData<any> = {
                     statusCode: error.status,
-                    body: error.error,
+                    body: { error: error.error },
                     ok: error.ok
                 };
                 return httpResponseData;

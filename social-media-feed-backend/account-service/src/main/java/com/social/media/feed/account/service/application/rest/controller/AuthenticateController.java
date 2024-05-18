@@ -31,7 +31,6 @@ public class AuthenticateController {
     public ResponseEntity<HttpResponse> authenticate(@RequestBody LoginAccountRequestBody loginAccountRequestBody) {
         Account account = accountServiceMapper.loginAccountRequestBodyToAccount(loginAccountRequestBody);
         String token = authenticationService.authenticateAccount(account);
-//        return new ResponseEntity<>(new AuthenticationResponse("Successfully authenticated!", token), HttpStatusCode.valueOf(500));
         return ResponseEntity.ok(new AuthenticationResponse("Successfully authenticated!", token));
     }
 }

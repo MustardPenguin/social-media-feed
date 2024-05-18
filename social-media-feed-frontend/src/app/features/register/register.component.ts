@@ -37,6 +37,7 @@ export class RegisterComponent {
   async submitForm(formData: FormData): Promise<void> {
     console.log(formData);
     const response: HttpResponseData<any> = await this.accountService.registerAccount(formData);
+    console.log(response)
     if(response.ok === true) {
       window.alert(response.body.message);
     } else {

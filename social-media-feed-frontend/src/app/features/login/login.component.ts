@@ -7,6 +7,7 @@ import FieldType from '../../shared/interfaces/FieldType';
 import FormData from '../../shared/interfaces/FormData';
 import { Observable, Subscription } from 'rxjs';
 import { AuthenticationService } from '../../core/authentication.service';
+import HttpResponseData from '../../shared/interfaces/HttpResponseData';
 
 @Component({
   selector: 'app-login',
@@ -31,9 +32,15 @@ export class LoginComponent {
     });
   }
 
-  submitForm(formData: FormData): void {
+  async submitForm(formData: FormData): Promise<void> {
     console.log(formData);
-    this.authenticationService.authenticateCredentials(formData);
+    const response: HttpResponseData<any> = await this.authenticationService.authenticateCredentials(formData);
+    console.log(response);
+    if(response.ok === true) {
+      window.alert(response.body.message);
+    } else {
+      window.alert(response.body.error);
+    }
   }
 
   ngOnDestroy(): void {

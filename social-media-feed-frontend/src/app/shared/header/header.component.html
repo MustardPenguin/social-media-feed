@@ -5,9 +5,15 @@
   </div>
   <div class="right-header">
     <button mat-button (click)="navigateTo('home')">Home</button>
-    <button mat-button (click)="navigateTo('register')">Register</button>
-    <button mat-button (click)="navigateTo('login')">Login</button>
-    <button mat-button (click)="navigateTo('logout')">Logout</button>
+
+    @if(!isAuthenticated()) {
+      <button mat-button (click)="navigateTo('register')">Register</button>
+      <button mat-button (click)="navigateTo('login')">Login</button>
+    }
+
+    @if(isAuthenticated()) {
+      <button mat-button (click)="logout()">Logout</button>
+    }
   </div>
 </div>
 
