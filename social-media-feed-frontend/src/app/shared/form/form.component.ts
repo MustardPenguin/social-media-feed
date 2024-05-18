@@ -4,6 +4,7 @@ import { FormsModule, FormBuilder, FormGroup, ReactiveFormsModule } from '@angul
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 import { FormService } from '../../core/form.service';
 import FormData from '../interfaces/FormData';
@@ -14,7 +15,7 @@ import FieldType from '../interfaces/FieldType';
   selector: 'app-form',
   standalone: true,
   imports: [
-    MatFormFieldModule, MatIconModule, MatInputModule,
+    MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule,
     FormsModule, ReactiveFormsModule
   ],
   templateUrl: './form.component.html',
@@ -36,8 +37,7 @@ export class FormComponent {
   }
 
   onSubmit(): void {
-    console.log('submit');
-    console.log(this.formData.value)
-    this.formService.updateFormData([]);
+    const formData: FormData = this.formData.value;
+    this.formService.updateFormData(formData);
   }
 }

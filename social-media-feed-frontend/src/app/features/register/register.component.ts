@@ -1,10 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { AuthenticationService } from '../../core/authentication.service';
+import { AccountService } from '../../core/account.service';
 import { FormService } from '../../core/form.service';
-import FieldType from '../../shared/interfaces/FieldType';
 import { FormComponent } from '../../shared/form/form.component';
+
+import FieldType from '../../shared/interfaces/FieldType';
+import FormData from '../../shared/interfaces/FormData';
+import { Subscription } from 'rxjs';
+import HttpResponseData from '../../shared/interfaces/HttpResponseData';
 
 
 @Component({
@@ -20,20 +24,29 @@ export class RegisterComponent {
     { name: "password", type: "password", icon: "password" }
   ];
 
-  constructor(private authenticationService: AuthenticationService, private formService: FormService) {}
+  private connection: Subscription | null = null;
+
+  constructor(private accountService: AccountService, private formService: FormService) {}
 
   ngOnInit(): void {
-    // const element = document.querySelector('.form') as Element;
-    // this.formService.createForm(element, this.fields);
-    this.formService.getFormData().subscribe(formData => {
-      console.log(formData);
+    this.connection = this.formService.getFormData().subscribe(formData => {
+      this.submitForm(formData);
     });
   }
 
-  onSubmit(): void {
-    // this.formService.getFormData(this.fields);
-    
+  async submitForm(formData: FormData): Promise<void> {
+    console.log(formData);
+    const response: HttpResponseData<any> = await this.accountService.registerAccount(formData);
+    if(response.ok === true) {
+      window.alert(response.body.message);
+    } else {
+      window.alert(response.body.error);
+    }
+  }
 
-    this.authenticationService.registerAccount();
+  ngOnDestroy(): void {
+    if(this.connection !== null) {
+      this.connection.unsubscribe();
+    }
   }
 }

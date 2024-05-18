@@ -1,7 +1,8 @@
 
 <form (ngSubmit)="onSubmit()" class="form" [formGroup]="formData">
+    <div class="field-container">
     @for(field of fields; track field.name) {
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="field">
             <mat-label>{{field.name}}</mat-label>
             <input 
             matInput 
@@ -12,6 +13,9 @@
             <mat-icon matSuffix>{{field.icon}}</mat-icon>
         </mat-form-field>
     }
+    </div>
 
-    <button type="submit">Submit</button>
+    <div style="display: flex">
+    <button mat-raised-button color="primary" type="submit" style="flex: 1">Submit</button>
+    </div>
 </form>

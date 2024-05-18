@@ -3,8 +3,13 @@ package com.social.media.feed.account.service.application.rest.controller;
 import com.social.media.feed.account.service.application.mapper.AccountServiceMapper;
 import com.social.media.feed.account.service.application.port.service.AccountService;
 import com.social.media.feed.account.service.application.port.service.AuthenticationService;
+import com.social.media.feed.account.service.application.rest.model.AuthenticationResponse;
 import com.social.media.feed.account.service.application.rest.model.LoginAccountRequestBody;
 import com.social.media.feed.account.service.domain.entity.Account;
+import com.social.media.feed.application.rest.model.HttpResponse;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +28,10 @@ public class AuthenticateController {
     }
 
     @PostMapping
-    public String authenticate(@RequestBody LoginAccountRequestBody loginAccountRequestBody) {
+    public ResponseEntity<HttpResponse> authenticate(@RequestBody LoginAccountRequestBody loginAccountRequestBody) {
         Account account = accountServiceMapper.loginAccountRequestBodyToAccount(loginAccountRequestBody);
-        return authenticationService.authenticateAccount(account);
+        String token = authenticationService.authenticateAccount(account);
+//        return new ResponseEntity<>(new AuthenticationResponse("Successfully authenticated!", token), HttpStatusCode.valueOf(500));
+        return ResponseEntity.ok(new AuthenticationResponse("Successfully authenticated!", token));
     }
 }
