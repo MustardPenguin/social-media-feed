@@ -1,0 +1,43 @@
+
+<div class="container">
+    <div class="left-side">
+        <div class="form-container">
+            <div class="form-title">Follow someone!</div>
+            <app-form 
+            style="width: 100%"
+            [fields]="fields"
+            />
+        </div>
+        <div>my follows</div>
+    </div>
+    <div class="right-side">
+        <div class="followers-container">
+            <div class="followers-title">Followers</div>
+            <div class="followers">
+                <table class="followers-table">
+                    <tr>
+                        <th>Username</th>
+                        <th>Id</th>
+                    </tr>
+                    @for(follow of followers; track follow.accountId) {
+                        <tr>
+                            <td>{{follow.username}}</td>
+                            <td>{{follow.accountId}}</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container">
+    <div class="form-container">
+      <div class="title">Follow</div>
+      <app-form 
+      style="width: 100%"
+      [fields]="fields"
+      />
+    </div>
+  </div> -->
+  

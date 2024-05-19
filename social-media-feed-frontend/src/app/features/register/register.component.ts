@@ -9,6 +9,7 @@ import FieldType from '../../shared/interfaces/FieldType';
 import FormData from '../../shared/interfaces/FormData';
 import { Subscription } from 'rxjs';
 import HttpResponseData from '../../shared/interfaces/HttpResponseData';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -26,7 +27,11 @@ export class RegisterComponent {
 
   private connection: Subscription | null = null;
 
-  constructor(private accountService: AccountService, private formService: FormService) {}
+  constructor(
+    private accountService: AccountService, 
+    private formService: FormService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.connection = this.formService.getFormData().subscribe(formData => {
@@ -40,6 +45,7 @@ export class RegisterComponent {
     console.log(response)
     if(response.ok === true) {
       window.alert(response.body.message);
+      this.router.navigate(['login']);
     } else {
       window.alert(response.body.error);
     }

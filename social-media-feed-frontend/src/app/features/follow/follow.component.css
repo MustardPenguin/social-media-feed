@@ -1,0 +1,42 @@
+
+/* Layout */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+
+    margin-top: 50px;
+    gap: 24px;
+}
+
+.left-side {
+
+}
+
+.right-side {
+  
+}
+
+/* Shared */
+.form-container, .followers-container {
+  box-shadow: 1px 1px 1px 1px;
+  padding: 12px;
+}
+
+.form-title, .followers-title {
+  font-size: 24px;
+  text-align: center;
+  padding-bottom: 12px;
+}
+
+table, th, td {
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-align: center;
+}
+
+/* Form */
+
+/* Following */
+
+/* Followers */

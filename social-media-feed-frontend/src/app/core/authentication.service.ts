@@ -6,6 +6,7 @@ import { environment } from '../../environments/environment.development';
 import HttpResponseData from '../shared/interfaces/HttpResponseData';
 import { lastValueFrom } from 'rxjs';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import JwtPayload from '../shared/interfaces/JwtPayload';
 
 @Injectable({
   providedIn: 'root',
@@ -38,8 +39,21 @@ export class AuthenticationService {
     this.token = "";
   }
 
-  async sendAuthenticateRequest(data: FormData): Promise<HttpResponseData<any>> {
+  decodeToken(): JwtPayload {
+    const token = this.token;
+    if(token === "") {
+      throw new Error("No token found");
+    }
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    const payload: JwtPayload = JSON.parse(jsonPayload);
+    return payload;
+  }
 
+  async sendAuthenticateRequest(data: FormData): Promise<HttpResponseData<any>> {
     const url = environment.apiUrl + 'authenticate';
     return lastValueFrom(this.http.post<any>(url, data, { observe: 'response' }))
             .then((response: HttpResponse<any>) => {

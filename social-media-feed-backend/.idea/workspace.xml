@@ -5,18 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/739dff82-06a2-4655-8211-699615db51b6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/739dff82-06a2-4655-8211-699615db51b6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/AuthenticateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/AuthenticateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/core/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/core/api.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/model/RegisterAccountRequestBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/model/RegisterAccountRequestBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/app.routes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/core/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/core/authentication.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/features/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/features/login/login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/features/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/features/register/register.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/shared/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/shared/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/shared/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/shared/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/shared/interfaces/FieldType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/shared/interfaces/FieldType.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,9 +188,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.AccountApplicationService" />
         <item itemvalue="Spring Boot.EurekaServerApplication" />
         <item itemvalue="Spring Boot.ApiGatewayServiceApplication" />
-        <item itemvalue="Spring Boot.AccountApplicationService" />
         <item itemvalue="JUnit.PostApplicationServiceTest" />
         <item itemvalue="JUnit.PostApplicationServiceTest.testPostService" />
       </list>
@@ -236,7 +232,7 @@
       <workItem from="1716051560960" duration="142000" />
       <workItem from="1716051960135" duration="478000" />
       <workItem from="1716052461010" duration="6456000" />
-      <workItem from="1716069043275" duration="1265000" />
+      <workItem from="1716069043275" duration="8752000" />
     </task>
     <servers />
   </component>

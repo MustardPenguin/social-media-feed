@@ -8,6 +8,7 @@ import FormData from '../../shared/interfaces/FormData';
 import { Observable, Subscription } from 'rxjs';
 import { AuthenticationService } from '../../core/authentication.service';
 import HttpResponseData from '../../shared/interfaces/HttpResponseData';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,11 @@ export class LoginComponent {
 
   private connection: Subscription | null = null;
 
-  constructor(private formService: FormService, private authenticationService: AuthenticationService) {}
+  constructor(
+    private authenticationService: AuthenticationService,
+    private formService: FormService, 
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.connection = this.formService.getFormData().subscribe(formData => {
@@ -38,6 +43,8 @@ export class LoginComponent {
     console.log(response);
     if(response.ok === true) {
       window.alert(response.body.message);
+      console.log(this.authenticationService.decodeToken());
+      this.router.navigate(['home']);
     } else {
       window.alert(response.body.error);
     }
