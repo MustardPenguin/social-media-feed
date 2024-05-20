@@ -11,7 +11,7 @@
 }
 
 .left-side {
-
+  
 }
 
 .right-side {
@@ -19,24 +19,53 @@
 }
 
 /* Shared */
-.form-container, .followers-container {
+.form-container, .followers-container, .following-container {
   box-shadow: 1px 1px 1px 1px;
   padding: 12px;
 }
 
-.form-title, .followers-title {
+.form-title, .followers-title, .following-title {
   font-size: 24px;
   text-align: center;
   padding-bottom: 12px;
 }
 
-table, th, td {
-  border: 1px solid rgba(0, 0, 0, 0);
-  text-align: center;
+/* Form */
+.form-container {
+  margin-bottom: 36px;
 }
 
-/* Form */
-
 /* Following */
+.following-container {
+  /* max-width: 200px; */
+}
+
+.followings {
+  display: flex;
+  flex-direction: column;
+}
+
+.following {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+}
+
+.following > div {
+  margin-right: 24px;
+  max-width: 200px;
+}
 
 /* Followers */
+.followers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.follower {
+  word-wrap: break-word;
+  max-width: 200px;
+}

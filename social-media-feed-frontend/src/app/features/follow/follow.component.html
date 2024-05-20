@@ -8,36 +8,29 @@
             [fields]="fields"
             />
         </div>
-        <div>my follows</div>
-    </div>
-    <div class="right-side">
+
         <div class="followers-container">
             <div class="followers-title">Followers</div>
             <div class="followers">
-                <table class="followers-table">
-                    <tr>
-                        <th>Username</th>
-                        <th>Id</th>
-                    </tr>
-                    @for(follow of followers; track follow.accountId) {
-                        <tr>
-                            <td>{{follow.username}}</td>
-                            <td>{{follow.accountId}}</td>
-                        </tr>
-                    }
-                </table>
+                @for(follow of followers; track follow.accountId) {
+                    <div class="follower">{{follow.username}}</div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="right-side">
+        <div class="following-container">
+            <div class="following-title">Followers</div>
+            <div class="followings">
+                @for(follow of following; track follow.accountId) {
+                    <div class="following">
+                        <div>{{follow.username}}</div>
+                        @if (follow.accountId !== '') {
+                            <button mat-button color="primary">Unfollow</button>
+                        }
+                    </div>
+                }
             </div>
         </div>
     </div>
 </div>
-
-<!-- <div class="container">
-    <div class="form-container">
-      <div class="title">Follow</div>
-      <app-form 
-      style="width: 100%"
-      [fields]="fields"
-      />
-    </div>
-  </div> -->
-  
