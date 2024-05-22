@@ -34,4 +34,27 @@ export class ApiService {
                 return httpResponseData;
             });
     }
+
+    async sendPostRequestWithToken(url: string, data: FormData, headers: FormData = { }): Promise<HttpResponseData<any>> {
+        const token: string = this.authenticationService.getToken();
+        headers['Authorization'] = `Bearer ${token}`;
+        return lastValueFrom(this.http.post<any>(url, data, { observe: 'response', headers: headers }))
+            .then((response: HttpResponse<any>) => {
+                console.log(response);
+                const httpResponseData: HttpResponseData<any> = {
+                    statusCode: response.status,
+                    body: response.body,
+                    ok: response.ok
+                };
+                return httpResponseData;
+            }).catch((error: HttpErrorResponse) => {
+                console.log(error);
+                const httpResponseData: HttpResponseData<any> = {
+                    statusCode: error.status,
+                    body: { error: error.error },
+                    ok: error.ok
+                };
+                return httpResponseData;
+            });
+    }
 }

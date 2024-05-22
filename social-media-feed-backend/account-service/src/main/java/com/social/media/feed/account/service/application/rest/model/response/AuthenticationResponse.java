@@ -1,4 +1,4 @@
-package com.social.media.feed.account.service.application.rest.model;
+package com.social.media.feed.account.service.application.rest.model.response;
 
 import com.social.media.feed.application.rest.model.HttpResponse;
 import lombok.Getter;

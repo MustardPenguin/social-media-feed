@@ -1,7 +1,7 @@
 package com.social.media.feed.account.service.application.mapper;
 
-import com.social.media.feed.account.service.application.rest.model.LoginAccountRequestBody;
-import com.social.media.feed.account.service.application.rest.model.RegisterAccountRequestBody;
+import com.social.media.feed.account.service.application.rest.model.request.LoginAccountRequestBody;
+import com.social.media.feed.account.service.application.rest.model.request.RegisterAccountRequestBody;
 import com.social.media.feed.account.service.domain.entity.Account;
 import com.social.media.feed.application.rest.model.AccountResponse;
 import org.springframework.stereotype.Component;

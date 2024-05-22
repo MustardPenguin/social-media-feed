@@ -5,7 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/dto/FollowsWithUsername.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/model/response/FollowsResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/impl/FollowServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/impl/FollowServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/mapper/AccountServiceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/mapper/AccountServiceMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/port/repository/FollowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/port/repository/FollowRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/port/service/FollowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/port/service/FollowService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/AuthenticateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/AuthenticateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/FollowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/FollowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/model/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/model/response/AuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/model/LoginAccountRequestBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/model/request/LoginAccountRequestBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/model/RegisterAccountRequestBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/model/request/RegisterAccountRequestBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/follow/FollowJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/follow/FollowJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/follow/FollowRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/follow/FollowRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/AccountApplicationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/AccountApplicationServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway-service/src/main/java/com/social/media/feed/api/gateway/configuration/GatewayRouteConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway-service/src/main/java/com/social/media/feed/api/gateway/configuration/GatewayRouteConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/core/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/core/api.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/core/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/core/authentication.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,9 +199,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.EurekaServerApplication" />
-        <item itemvalue="Spring Boot.ApiGatewayServiceApplication" />
         <item itemvalue="Spring Boot.AccountApplicationService" />
+        <item itemvalue="Spring Boot.ApiGatewayServiceApplication" />
+        <item itemvalue="Spring Boot.EurekaServerApplication" />
         <item itemvalue="JUnit.PostApplicationServiceTest" />
         <item itemvalue="JUnit.PostApplicationServiceTest.testPostService" />
       </list>
@@ -226,7 +244,8 @@
       <workItem from="1716051960135" duration="478000" />
       <workItem from="1716052461010" duration="6456000" />
       <workItem from="1716069043275" duration="8774000" />
-      <workItem from="1716158176424" duration="4307000" />
+      <workItem from="1716158176424" duration="8426000" />
+      <workItem from="1716322039005" duration="17877000" />
     </task>
     <servers />
   </component>

@@ -2,7 +2,7 @@ package com.social.media.feed.account.service.application.rest.controller;
 
 import com.social.media.feed.account.service.application.mapper.AccountServiceMapper;
 import com.social.media.feed.account.service.application.port.service.AccountService;
-import com.social.media.feed.account.service.application.rest.model.RegisterAccountRequestBody;
+import com.social.media.feed.account.service.application.rest.model.request.RegisterAccountRequestBody;
 import com.social.media.feed.account.service.domain.entity.Account;
 import com.social.media.feed.application.rest.model.AccountResponse;
 import com.social.media.feed.application.rest.model.HttpResponse;

@@ -6,7 +6,9 @@ import com.social.media.feed.account.service.domain.exception.AccountDomainExcep
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Slf4j
 @Component
@@ -37,5 +39,19 @@ public class FollowRepositoryImpl implements FollowRepository {
         FollowEntity followEntity = followRepositoryMapper.followToFollowEntity(follow);
         Optional<FollowEntity> response = followJpaRepository.findFollowEntityByFollowerIdAndAndFolloweeId(followEntity.getFollowerId(), followEntity.getFolloweeId());
         return response.map(followRepositoryMapper::followEntityToFollow).orElse(null);
+    }
+
+    @Override
+    public List<Follow> getFollowersByAccountId(UUID accountId) {
+        return followJpaRepository.findFollowEntitiesByFolloweeId(accountId).stream()
+                .map(followRepositoryMapper::followEntityToFollow)
+                .toList();
+    }
+
+    @Override
+    public List<Follow> getFolloweesByAccountId(UUID accountId) {
+        return followJpaRepository.findFollowEntitiesByFollowerId(accountId).stream()
+                .map(followRepositoryMapper::followEntityToFollow)
+                .toList();
     }
 }

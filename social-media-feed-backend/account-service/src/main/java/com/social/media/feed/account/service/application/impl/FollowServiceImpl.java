@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Slf4j
@@ -43,15 +44,27 @@ public class FollowServiceImpl implements FollowService {
                 .followerId(followerId)
                 .build();
 
-        Follow existingFollow = followRepository.findFollowByFollowerIdAndFolloweeId(follow);
-        if(existingFollow != null) {
-            throw new AccountDomainException("Already following the account with accountId " + followeeId);
-        }
+//        Follow existingFollow = followRepository.findFollowByFollowerIdAndFolloweeId(follow);
+//        if(existingFollow != null) {
+//            throw new AccountDomainException("Already following the account with accountId " + followeeId);
+//        }
         Follow response = followRepository.saveFollow(follow);
         FollowCreatedEvent followCreatedEvent = new FollowCreatedEvent(response, LocalDateTime.now());
         followCreatedEventRepository.saveFollowCreatedEvent(followCreatedEvent);
 
         return response;
+    }
+
+    @Override
+    public List<Follow> getFollowersByAccountId(UUID accountId) {
+        validateAccountExistence(accountId);
+        return followRepository.getFollowersByAccountId(accountId);
+    }
+
+    @Override
+    public List<Follow> getFolloweesByAccountId(UUID accountId) {
+        validateAccountExistence(accountId);
+        return followRepository.getFolloweesByAccountId(accountId);
     }
 
     private Account validateAccountExistence(UUID accountId) {

@@ -13,7 +13,7 @@ import JwtPayload from '../shared/interfaces/JwtPayload';
 })
 export class AuthenticationService {
   authenticated: boolean = false;
-  private token: String = "";
+  private token: string = "";
 
   constructor(private http: HttpClient) { }
 
@@ -30,7 +30,7 @@ export class AuthenticationService {
     return this.authenticated;
   }
 
-  getToken(): String {
+  getToken(): string {
     return this.token;
   }
 

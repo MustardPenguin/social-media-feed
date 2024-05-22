@@ -33,10 +33,16 @@ export class FollowComponent {
     this.connection = this.formService.getFormData().subscribe(formData => {
       this.submitForm(formData);
     });
+
+    
   }
 
   async submitForm(formData: FormData): Promise<void> {
     console.log(formData);
+  }
+
+  unfollow(accountId: string): void {
+    console.log(`unfollow ${accountId}`);
   }
 
   ngOnDestroy(): void {

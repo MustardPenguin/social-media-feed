@@ -1,4 +1,4 @@
-package com.social.media.feed.account.service.application.rest.model;
+package com.social.media.feed.account.service.application.rest.model.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

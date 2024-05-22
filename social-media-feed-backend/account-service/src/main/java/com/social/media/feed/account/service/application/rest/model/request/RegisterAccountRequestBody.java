@@ -1,6 +1,5 @@
-package com.social.media.feed.account.service.application.rest.model;
+package com.social.media.feed.account.service.application.rest.model.request;
 
-import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
