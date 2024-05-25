@@ -1,5 +1,6 @@
 package com.social.media.feed.account.service.application.rest.controller;
 
+import com.social.media.feed.account.service.application.dto.FollowWithUsername;
 import com.social.media.feed.account.service.application.port.service.FollowService;
 import com.social.media.feed.account.service.application.rest.model.response.FollowsResponse;
 import com.social.media.feed.account.service.domain.entity.Follow;
@@ -31,14 +32,14 @@ public class FollowController {
 
     @GetMapping("/account/{accountId}/followers")
     public ResponseEntity<FollowsResponse> getFollowers(@PathVariable("accountId") UUID accountId) {
-        List<Follow> follows = followService.getFollowersByAccountId(accountId);
+        List<FollowWithUsername> follows = followService.getFollowersByAccountId(accountId);
         FollowsResponse response = new FollowsResponse("Successfully retrieved!", follows);
         return ResponseEntity.ok(response);
     }
 
     @GetMapping("/account/{accountId}/following")
     public ResponseEntity<FollowsResponse> getFollowing(@PathVariable("accountId") UUID accountId) {
-        List<Follow> follows = followService.getFolloweesByAccountId(accountId);
+        List<FollowWithUsername> follows = followService.getFolloweesByAccountId(accountId);
         FollowsResponse response = new FollowsResponse("Successfully retrieved!", follows);
         return ResponseEntity.ok(response);
     }

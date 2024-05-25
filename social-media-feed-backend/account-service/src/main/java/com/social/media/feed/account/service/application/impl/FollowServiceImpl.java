@@ -1,5 +1,6 @@
 package com.social.media.feed.account.service.application.impl;
 
+import com.social.media.feed.account.service.application.dto.FollowWithUsername;
 import com.social.media.feed.account.service.application.port.repository.AccountRepository;
 import com.social.media.feed.account.service.application.port.repository.FollowCreatedEventRepository;
 import com.social.media.feed.account.service.application.port.repository.FollowRepository;
@@ -56,13 +57,13 @@ public class FollowServiceImpl implements FollowService {
     }
 
     @Override
-    public List<Follow> getFollowersByAccountId(UUID accountId) {
+    public List<FollowWithUsername> getFollowersByAccountId(UUID accountId) {
         validateAccountExistence(accountId);
         return followRepository.getFollowersByAccountId(accountId);
     }
 
     @Override
-    public List<Follow> getFolloweesByAccountId(UUID accountId) {
+    public List<FollowWithUsername> getFolloweesByAccountId(UUID accountId) {
         validateAccountExistence(accountId);
         return followRepository.getFolloweesByAccountId(accountId);
     }

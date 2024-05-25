@@ -1,5 +1,6 @@
 package com.social.media.feed.account.service.application.port.repository;
 
+import com.social.media.feed.account.service.application.dto.FollowWithUsername;
 import com.social.media.feed.account.service.domain.entity.Follow;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public interface FollowRepository {
 
     Follow findFollowByFollowerIdAndFolloweeId(Follow follow);
 
-    List<Follow> getFollowersByAccountId(UUID accountId);
+    List<FollowWithUsername> getFollowersByAccountId(UUID accountId);
 
-    List<Follow> getFolloweesByAccountId(UUID accountId);
+    List<FollowWithUsername> getFolloweesByAccountId(UUID accountId);
 }

@@ -1,14 +1,13 @@
 package com.social.media.feed.account.service.infrastructure.repository.follow;
 
+import com.social.media.feed.account.service.application.dto.FollowWithUsername;
 import com.social.media.feed.account.service.application.port.repository.FollowRepository;
 import com.social.media.feed.account.service.domain.entity.Follow;
 import com.social.media.feed.account.service.domain.exception.AccountDomainException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Slf4j
 @Component
@@ -42,16 +41,33 @@ public class FollowRepositoryImpl implements FollowRepository {
     }
 
     @Override
-    public List<Follow> getFollowersByAccountId(UUID accountId) {
-        return followJpaRepository.findFollowEntitiesByFolloweeId(accountId).stream()
-                .map(followRepositoryMapper::followEntityToFollow)
-                .toList();
+    public List<FollowWithUsername> getFollowersByAccountId(UUID accountId) {
+//        return followJpaRepository.findFollowEntitiesByFolloweeId(accountId).stream()
+//                .map(followRepositoryMapper::followEntityToFollow)
+//                .toList();
+        List<FollowWithUsername> followsWithUsername = new ArrayList<>();
+        List<Object[]> result = followJpaRepository.findFollowEntitiesByFolloweeId(accountId);
+        for(Object[] follow : result) {
+            FollowWithUsername followWithUsername = new FollowWithUsername((UUID) follow[0], (String) follow[1]);
+            followsWithUsername.add(followWithUsername);
+        }
+//        Map<Object,Object> map = null;
+//        if(result != null && !result.isEmpty()){
+//            map = new HashMap<>();
+//            for (Object[] object : result) {
+//                log.info("Field: {}, value: {}", object[0], object[1]);
+//                map.put((object[0]),object[1]);
+//            }
+//        }
+//        log.info("Follows with usernames: {}, size: {}", result, result.size());
+        return followsWithUsername;
     }
 
     @Override
-    public List<Follow> getFolloweesByAccountId(UUID accountId) {
-        return followJpaRepository.findFollowEntitiesByFollowerId(accountId).stream()
-                .map(followRepositoryMapper::followEntityToFollow)
-                .toList();
+    public List<FollowWithUsername> getFolloweesByAccountId(UUID accountId) {
+//        return followJpaRepository.findFollowEntitiesByFollowerId(accountId).stream()
+//                .map(followRepositoryMapper::followEntityToFollow)
+//                .toList();
+        return null;
     }
 }
