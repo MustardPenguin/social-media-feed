@@ -8,7 +8,11 @@ import java.util.UUID;
 
 public interface FollowService {
 
-    Follow followAccount(UUID followerId, UUID followeeId);
+//    Follow followAccount(UUID followerId, UUID followeeId);
+
+    Follow followAccountWithUUID(UUID followerId, UUID followeeId);
+
+    Follow followAccountWithUsername(UUID followerId, String followeeUsername);
 
     List<FollowWithUsername> getFollowersByAccountId(UUID accountId);
 

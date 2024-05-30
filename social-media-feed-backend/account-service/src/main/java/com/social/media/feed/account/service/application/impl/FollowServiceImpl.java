@@ -5,6 +5,7 @@ import com.social.media.feed.account.service.application.port.repository.Account
 import com.social.media.feed.account.service.application.port.repository.FollowCreatedEventRepository;
 import com.social.media.feed.account.service.application.port.repository.FollowRepository;
 import com.social.media.feed.account.service.application.port.service.FollowService;
+import com.social.media.feed.account.service.application.util.AccountServiceUtil;
 import com.social.media.feed.account.service.domain.entity.Account;
 import com.social.media.feed.account.service.domain.entity.Follow;
 import com.social.media.feed.account.service.domain.event.FollowCreatedEvent;
@@ -22,23 +23,23 @@ import java.util.UUID;
 public class FollowServiceImpl implements FollowService {
 
     private final FollowCreatedEventRepository followCreatedEventRepository;
+    private final AccountServiceUtil accountServiceUtil;
     private final AccountRepository accountRepository;
     private final FollowRepository followRepository;
 
     public FollowServiceImpl(FollowCreatedEventRepository followCreatedEventRepository,
+                             AccountServiceUtil accountServiceUtil,
                              AccountRepository accountRepository,
                              FollowRepository followRepository) {
         this.followCreatedEventRepository = followCreatedEventRepository;
+        this.accountServiceUtil = accountServiceUtil;
         this.accountRepository = accountRepository;
         this.followRepository = followRepository;
     }
 
-    @Override
     @Transactional
     public Follow followAccount(UUID followerId, UUID followeeId) {
         log.info("Requesting follow for followerId {} and followeeId {}", followerId, followeeId);
-        validateAccountExistence(followerId);
-        validateAccountExistence(followeeId);
         Follow follow = Follow.builder()
                 .followId(UUID.randomUUID())
                 .followeeId(followeeId)
@@ -57,22 +58,30 @@ public class FollowServiceImpl implements FollowService {
     }
 
     @Override
+    @Transactional
+    public Follow followAccountWithUsername(UUID followerId, String followeeUsername) {
+        accountServiceUtil.validateAccountExistence(followerId);
+        Account followee = accountServiceUtil.validateAccountExistence(followeeUsername);
+        return followAccount(followerId, followee.getId().getValue());
+    }
+
+    @Override
+    @Transactional
+    public Follow followAccountWithUUID(UUID followerId, UUID followeeId) {
+        accountServiceUtil.validateAccountExistence(followerId);
+        accountServiceUtil.validateAccountExistence(followeeId);
+        return followAccount(followerId, followeeId);
+    }
+
+    @Override
     public List<FollowWithUsername> getFollowersByAccountId(UUID accountId) {
-        validateAccountExistence(accountId);
+        accountServiceUtil.validateAccountExistence(accountId);
         return followRepository.getFollowersByAccountId(accountId);
     }
 
     @Override
     public List<FollowWithUsername> getFolloweesByAccountId(UUID accountId) {
-        validateAccountExistence(accountId);
+        accountServiceUtil.validateAccountExistence(accountId);
         return followRepository.getFolloweesByAccountId(accountId);
-    }
-
-    private Account validateAccountExistence(UUID accountId) {
-        Account account = accountRepository.findAccountByAccountId(accountId);
-        if(account == null) {
-            throw new AccountDomainException("Account not found with accountId " + accountId);
-        }
-        return account;
     }
 }
