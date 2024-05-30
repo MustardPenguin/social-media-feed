@@ -38,7 +38,6 @@ public class AuthenticationFilter implements GatewayFilter {
         Claims claims = jwtTokenUtil.extractAllClaims(token);
         String username = claims.getSubject();
         String accountId = claims.get("accountId", String.class);
-        System.out.println(username);
 
         ServerHttpRequest modifiedRequest = exchange.getRequest().mutate()
                 .header("accountId", accountId)

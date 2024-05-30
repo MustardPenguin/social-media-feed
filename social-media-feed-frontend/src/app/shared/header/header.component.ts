@@ -25,6 +25,7 @@ export class HeaderComponent {
 
   logout(): void {
     this.authenticationService.logout();
+    this.router.navigate(['/home']);
   }
 
   navigateTo(url: string): void {

@@ -38,6 +38,13 @@ export class FormComponent {
 
   onSubmit(): void {
     const formData: FormData = this.formData.value;
+    for(let i = 0; i < this.fields.length; i++) {
+      const field = this.fields[i];
+      if(!formData[field.name]) {
+        window.alert(`Please fill in the ${field.name} field`);
+        return;
+      }
+    }
     this.formService.updateFormData(formData);
   }
 }

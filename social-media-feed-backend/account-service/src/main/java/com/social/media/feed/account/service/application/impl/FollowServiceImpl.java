@@ -59,18 +59,18 @@ public class FollowServiceImpl implements FollowService {
 
     @Override
     @Transactional
-    public Follow followAccountWithUsername(UUID followerId, String followeeUsername) {
-        accountServiceUtil.validateAccountExistence(followerId);
+    public FollowWithUsername followAccountWithUsername(UUID followerId, String followeeUsername) {
         Account followee = accountServiceUtil.validateAccountExistence(followeeUsername);
-        return followAccount(followerId, followee.getId().getValue());
+        followAccount(followerId, followee.getId().getValue());
+        return new FollowWithUsername(followee.getId().getValue(), followee.getUsername());
     }
 
     @Override
     @Transactional
-    public Follow followAccountWithUUID(UUID followerId, UUID followeeId) {
-        accountServiceUtil.validateAccountExistence(followerId);
-        accountServiceUtil.validateAccountExistence(followeeId);
-        return followAccount(followerId, followeeId);
+    public FollowWithUsername followAccountWithUUID(UUID followerId, UUID followeeId) {
+        Account followee = accountServiceUtil.validateAccountExistence(followeeId);
+        followAccount(followerId, followeeId);
+        return new FollowWithUsername(followeeId, followee.getUsername());
     }
 
     @Override

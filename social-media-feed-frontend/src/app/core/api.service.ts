@@ -16,45 +16,43 @@ export class ApiService {
 
     async sendPostRequest(url: string, data: FormData, headers: FormData = { }): Promise<HttpResponseData<any>> {
         return lastValueFrom(this.http.post<any>(url, data, { observe: 'response', headers: headers }))
-            .then((response: HttpResponse<any>) => {
-                console.log(response);
-                const httpResponseData: HttpResponseData<any> = {
-                    statusCode: response.status,
-                    body: response.body,
-                    ok: response.ok
-                };
-                return httpResponseData;
-            }).catch((error: HttpErrorResponse) => {
-                console.log(error);
-                const httpResponseData: HttpResponseData<any> = {
-                    statusCode: error.status,
-                    body: { error: error.error },
-                    ok: error.ok
-                };
-                return httpResponseData;
-            });
+            .then((response: HttpResponse<any>) => this.handleResponse(response))
+            .catch((error: HttpErrorResponse) => this.handleError(error));
     }
 
     async sendPostRequestWithToken(url: string, data: FormData, headers: FormData = { }): Promise<HttpResponseData<any>> {
         const token: string = this.authenticationService.getToken();
         headers['Authorization'] = `Bearer ${token}`;
         return lastValueFrom(this.http.post<any>(url, data, { observe: 'response', headers: headers }))
-            .then((response: HttpResponse<any>) => {
-                console.log(response);
-                const httpResponseData: HttpResponseData<any> = {
-                    statusCode: response.status,
-                    body: response.body,
-                    ok: response.ok
-                };
-                return httpResponseData;
-            }).catch((error: HttpErrorResponse) => {
-                console.log(error);
-                const httpResponseData: HttpResponseData<any> = {
-                    statusCode: error.status,
-                    body: { error: error.error },
-                    ok: error.ok
-                };
-                return httpResponseData;
-            });
+            .then((response: HttpResponse<any>) => this.handleResponse(response))
+            .catch((error: HttpErrorResponse) => this.handleError(error));
     }
+
+    async sendGetRequestWithToken(url: string, headers: FormData = { }): Promise<HttpResponseData<any>> {
+        const token: string = this.authenticationService.getToken();
+        headers['Authorization'] = `Bearer ${token}`;
+        return lastValueFrom(this.http.get<any>(url, { observe: 'response', headers: headers }))
+            .then((response: HttpResponse<any>) => this.handleResponse(response))
+            .catch((error: HttpErrorResponse) => this.handleError(error));
+    }
+
+    private handleResponse(response: HttpResponse<any>): HttpResponseData<any> {
+        console.log(response);
+        const httpResponseData: HttpResponseData<any> = {
+            statusCode: response.status,
+            body: response.body,
+            ok: response.ok
+        };
+        return httpResponseData;
+    }
+
+    private handleError(error: HttpErrorResponse): HttpResponseData<any> {
+        console.log(error);
+        const httpResponseData: HttpResponseData<any> = {
+            statusCode: error.status,
+            body: { error: error.error },
+            ok: error.ok
+        };
+        return httpResponseData;
+    };
 }

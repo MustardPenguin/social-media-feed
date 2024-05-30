@@ -10,6 +10,9 @@ import FormData from '../../shared/interfaces/FormData';
 import { FormService } from '../../core/form.service';
 
 import { Subscription } from 'rxjs';
+import { FollowService } from '../../core/follow.service';
+import { HttpResponse } from '@angular/common/http';
+import HttpResponseData from '../../shared/interfaces/HttpResponseData';
 
 @Component({
   selector: 'app-follow',
@@ -27,18 +30,32 @@ export class FollowComponent {
   private connection: Subscription | null = null;
 
 
-  constructor(private formService: FormService) { }
+  constructor(private formService: FormService, private followService: FollowService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+
+    const followees: HttpResponseData<any> = await this.followService.fetchFollowees();
+    this.following = followees.body.follows;
+
+    const followers: HttpResponseData<any> = await this.followService.fetchFollowers();
+    this.followers = followers.body.follows;
+
     this.connection = this.formService.getFormData().subscribe(formData => {
       this.submitForm(formData);
     });
-
-    
   }
 
   async submitForm(formData: FormData): Promise<void> {
     console.log(formData);
+    const user = formData['follow'];
+    const response: HttpResponseData<any> = await this.followService.followAccount(user);
+    console.log(response);
+    if(response.ok) {
+      window.alert(`Successfully followed ${user}`);
+      this.following.push({ accountId: response.body.accountId, username: response.body.username });
+    } else {
+      window.alert(response.body.error);
+    }
   }
 
   unfollow(accountId: string): void {
