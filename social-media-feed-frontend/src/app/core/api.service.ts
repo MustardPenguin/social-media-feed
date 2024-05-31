@@ -36,6 +36,14 @@ export class ApiService {
             .catch((error: HttpErrorResponse) => this.handleError(error));
     }
 
+    async sendDeleteeRequestWithToken(url: string, headers: FormData = { }): Promise<HttpResponseData<any>> {
+        const token: string = this.authenticationService.getToken();
+        headers['Authorization'] = `Bearer ${token}`;
+        return lastValueFrom(this.http.delete<any>(url, { observe: 'response', headers: headers }))
+            .then((response: HttpResponse<any>) => this.handleResponse(response))
+            .catch((error: HttpErrorResponse) => this.handleError(error));
+    }
+
     private handleResponse(response: HttpResponse<any>): HttpResponseData<any> {
         console.log(response);
         const httpResponseData: HttpResponseData<any> = {

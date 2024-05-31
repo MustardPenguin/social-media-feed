@@ -12,8 +12,10 @@ import JwtPayload from '../shared/interfaces/JwtPayload';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  authenticated: boolean = false;
-  private token: string = "";
+  // authenticated: boolean = false;
+  // private token: string = "";
+  authenticated: boolean = true;
+  private token: string = "eyJhbGciOiJIUzM4NCJ9.eyJhY2NvdW50SWQiOiI5NTZjMjUzYi0wZDRmLTQ1N2UtYTk2ZC0zMWNjZTc2MzllYWEiLCJzdWIiOiJ0ZXN0IiwiaWF0IjoxNzE3MDI2NDMxLCJleHAiOjE3MTczODY0MzF9.U7lnHQgyYg7Ha_H_2Mv-i1PJFg0x4vtBD3oGz5K3-yQhLx-jtBzzWaDS-WHZECbD";
 
   constructor(private http: HttpClient) { }
 

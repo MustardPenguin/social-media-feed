@@ -11,7 +11,6 @@ import { FormService } from '../../core/form.service';
 
 import { Subscription } from 'rxjs';
 import { FollowService } from '../../core/follow.service';
-import { HttpResponse } from '@angular/common/http';
 import HttpResponseData from '../../shared/interfaces/HttpResponseData';
 
 @Component({
@@ -58,9 +57,16 @@ export class FollowComponent {
     }
   }
 
-  unfollow(accountId: string): void {
+  async unfollow(accountId: string): Promise<void> {
     console.log(`unfollow ${accountId}`);
-    this.followService.unfollowAccount(accountId);
+    const response: HttpResponseData<any> = await this.followService.unfollowAccount(accountId);
+
+    if(response.ok) {
+      window.alert(`Successfully unfollowed ${accountId}`);
+      this.followees = this.followees.filter(follow => follow.accountId !== accountId);
+    } else {
+      window.alert(response.body.error);
+    }
   }
 
   ngOnDestroy(): void {

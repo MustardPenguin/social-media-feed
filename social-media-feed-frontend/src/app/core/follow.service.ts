@@ -22,8 +22,9 @@ export class FollowService {
     }
 
     async unfollowAccount(user: string): Promise<HttpResponseData<any>> {
-
-        return new Promise((resolve, reject) => {});
+        const url = environment.apiUrl + 'follow/' + user;
+        const response: HttpResponseData<any> = await this.apiService.sendDeleteeRequestWithToken(url, {});
+        return response;
     }
 
     async fetchFollowers(): Promise<HttpResponseData<any>> {
