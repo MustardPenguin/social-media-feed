@@ -26,7 +26,7 @@ public class FollowController {
     }
 
     @PostMapping("/follow/{followee}")
-    public ResponseEntity<FollowWithUsername> followWithUUID(@PathVariable("followee") Object followee, @RequestHeader("accountId") UUID accountId) {
+    public ResponseEntity<FollowWithUsername> follow(@PathVariable("followee") Object followee, @RequestHeader("accountId") UUID accountId) {
         FollowWithUsername followWithUsername;
         try {
             UUID followeeId = UUID.fromString(followee.toString());
@@ -34,6 +34,21 @@ public class FollowController {
         } catch (IllegalArgumentException e) {
             String username = followee.toString();
             followWithUsername = followService.followAccountWithUsername(accountId, username);
+        } catch (Exception e) {
+            throw new AccountDomainException(e.getMessage());
+        }
+        return ResponseEntity.ok(followWithUsername);
+    }
+
+    @DeleteMapping("/follow/{followee}")
+    public ResponseEntity<FollowWithUsername> unfollow(@PathVariable("followee") Object followee, @RequestHeader("accountId") UUID accountId) {
+        FollowWithUsername followWithUsername;
+        try {
+            UUID followeeId = UUID.fromString(followee.toString());
+            followWithUsername = followService.unfollowAccountWithUUID(accountId, followeeId);
+        } catch (IllegalArgumentException e) {
+            String username = followee.toString();
+            followWithUsername = followService.unfollowAccountWithUsername(accountId, username);
         } catch (Exception e) {
             throw new AccountDomainException(e.getMessage());
         }
@@ -48,7 +63,7 @@ public class FollowController {
     }
 
     @GetMapping("/account/{accountId}/following")
-    public ResponseEntity<FollowsResponse> getFollowing(@PathVariable("accountId") UUID accountId) {
+    public ResponseEntity<FollowsResponse> getFollowees(@PathVariable("accountId") UUID accountId) {
         List<FollowWithUsername> follows = followService.getFolloweesByAccountId(accountId);
         FollowsResponse response = new FollowsResponse("Successfully retrieved!", follows);
         return ResponseEntity.ok(response);

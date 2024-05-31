@@ -14,6 +14,10 @@ public interface FollowService {
 
     FollowWithUsername followAccountWithUsername(UUID followerId, String followeeUsername);
 
+    FollowWithUsername unfollowAccountWithUUID(UUID followerId, UUID followeeId);
+
+    FollowWithUsername unfollowAccountWithUsername(UUID followerId, String followeeUsername);
+
     List<FollowWithUsername> getFollowersByAccountId(UUID accountId);
 
     List<FollowWithUsername> getFolloweesByAccountId(UUID accountId);

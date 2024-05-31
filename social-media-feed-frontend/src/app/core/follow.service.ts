@@ -21,6 +21,11 @@ export class FollowService {
         return response;
     }
 
+    async unfollowAccount(user: string): Promise<HttpResponseData<any>> {
+
+        return new Promise((resolve, reject) => {});
+    }
+
     async fetchFollowers(): Promise<HttpResponseData<any>> {
         const payload: JwtPayload = this.authenticationService.decodeToken();
         const url = environment.apiUrl + 'account/' + payload.accountId + '/followers';

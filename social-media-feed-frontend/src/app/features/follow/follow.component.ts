@@ -25,8 +25,8 @@ export class FollowComponent {
   fields: FieldType[] = [
     { name: "follow", type: "text", icon: "add_reaction", placeholder: 'username or id' },
   ];
-  followers: Follow[] = [ { accountId: "", username: "No followers!" } ];
-  following: Follow[] = [ { accountId: "", username: "No follows!" } ];
+  followers: Follow[] = [];
+  followees: Follow[] = [];
   private connection: Subscription | null = null;
 
 
@@ -34,10 +34,10 @@ export class FollowComponent {
 
   async ngOnInit(): Promise<void> {
 
-    const followees: HttpResponseData<any> = await this.followService.fetchFollowees();
-    this.following = followees.body.follows;
+    let followees: HttpResponseData<any> = await this.followService.fetchFollowees();
+    this.followees = followees.body.follows;
 
-    const followers: HttpResponseData<any> = await this.followService.fetchFollowers();
+    let followers: HttpResponseData<any> = await this.followService.fetchFollowers();
     this.followers = followers.body.follows;
 
     this.connection = this.formService.getFormData().subscribe(formData => {
@@ -52,7 +52,7 @@ export class FollowComponent {
     console.log(response);
     if(response.ok) {
       window.alert(`Successfully followed ${user}`);
-      this.following.push({ accountId: response.body.accountId, username: response.body.username });
+      this.followees.push({ accountId: response.body.accountId, username: response.body.username });
     } else {
       window.alert(response.body.error);
     }
@@ -60,6 +60,7 @@ export class FollowComponent {
 
   unfollow(accountId: string): void {
     console.log(`unfollow ${accountId}`);
+    this.followService.unfollowAccount(accountId);
   }
 
   ngOnDestroy(): void {

@@ -10,6 +10,8 @@ public interface FollowRepository {
 
     Follow saveFollow(Follow follow);
 
+    void deleteFollow(Follow follow);
+
     Follow findFollowByFollowerIdAndFolloweeId(Follow follow);
 
     List<FollowWithUsername> getFollowersByAccountId(UUID accountId);

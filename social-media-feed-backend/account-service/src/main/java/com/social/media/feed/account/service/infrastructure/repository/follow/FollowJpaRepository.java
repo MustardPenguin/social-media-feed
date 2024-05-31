@@ -13,6 +13,8 @@ import java.util.UUID;
 @Repository
 public interface FollowJpaRepository extends JpaRepository<FollowEntity, UUID> {
 
+    void deleteFollowEntityByFollowerIdAndAndFolloweeId(UUID followerId, UUID followeeId);
+
     Optional<FollowEntity> findFollowEntityByFollowerIdAndAndFolloweeId(UUID followerId, UUID followeeId);
 
     @Query(nativeQuery = true, value =

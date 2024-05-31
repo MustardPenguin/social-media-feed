@@ -34,6 +34,16 @@ public class FollowRepositoryImpl implements FollowRepository {
     }
 
     @Override
+    public void deleteFollow(Follow follow) {
+        try {
+            followJpaRepository.deleteFollowEntityByFollowerIdAndAndFolloweeId(follow.getFollowerId(), follow.getFolloweeId());
+        } catch (Exception e) {
+            log.error("Error while deleting follow for follower {} and followee {}", follow.getFollowerId(), follow.getFolloweeId(), e);
+            throw new AccountDomainException("Error while deleting follow for follower " + follow.getFollowerId() + " and followee " + follow.getFolloweeId(), e);
+        }
+    }
+
+    @Override
     public Follow findFollowByFollowerIdAndFolloweeId(Follow follow) {
         FollowEntity followEntity = followRepositoryMapper.followToFollowEntity(follow);
         Optional<FollowEntity> response = followJpaRepository.findFollowEntityByFollowerIdAndAndFolloweeId(followEntity.getFollowerId(), followEntity.getFolloweeId());

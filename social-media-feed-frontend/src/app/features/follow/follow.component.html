@@ -12,6 +12,9 @@
         <div class="followers-container">
             <div class="followers-title">Followers</div>
             <div class="followers">
+                @if(followers.length === 0) {
+                    <div class="follower">No followers yet!</div> 
+                }
                 @for(follow of followers; track follow.accountId) {
                     <div class="follower">{{follow.username}}</div>
                 }
@@ -20,16 +23,17 @@
     </div>
     <div class="right-side">
         <div class="following-container">
-            <div class="following-title">Followers</div>
+            <div class="following-title">Followees</div>
             <div class="followings">
-                @for(follow of following; track follow.accountId) {
+                @if(followees.length === 0) {
+                    <div class="follower">No followees yet!</div> 
+                }
+                @for(follow of followees; track follow.accountId) {
                     <div class="following">
                         <div>{{follow.username}}</div>
-                        @if (follow.accountId !== '') {
-                            <button mat-button color="primary"
-                            (click)="unfollow(follow.accountId)"
-                            >Unfollow</button>
-                        }
+                        <button mat-button color="primary"
+                        (click)="unfollow(follow.accountId)"
+                        >Unfollow</button>
                     </div>
                 }
             </div>

@@ -46,15 +46,29 @@ public class FollowServiceImpl implements FollowService {
                 .followerId(followerId)
                 .build();
 
-//        Follow existingFollow = followRepository.findFollowByFollowerIdAndFolloweeId(follow);
-//        if(existingFollow != null) {
-//            throw new AccountDomainException("Already following the account with accountId " + followeeId);
-//        }
+        Follow existingFollow = followRepository.findFollowByFollowerIdAndFolloweeId(follow);
+        if(existingFollow != null) {
+            throw new AccountDomainException("Already following the account with accountId " + followeeId);
+        }
         Follow response = followRepository.saveFollow(follow);
         FollowCreatedEvent followCreatedEvent = new FollowCreatedEvent(response, LocalDateTime.now());
         followCreatedEventRepository.saveFollowCreatedEvent(followCreatedEvent);
 
         return response;
+    }
+
+    @Transactional
+    public Follow unfollowAccount(UUID followerId, UUID followeeId) {
+        log.info("Requesting unfollow for followerId {} and followeeId {}", followerId, followeeId);
+        Follow follow = followRepository.findFollowByFollowerIdAndFolloweeId(Follow.builder()
+                .followeeId(followeeId)
+                .followerId(followerId)
+                .build());
+        if(follow == null) {
+            throw new AccountDomainException("Not following the account with accountId " + followeeId + "!");
+        }
+        followRepository.deleteFollow(follow);
+        return follow;
     }
 
     @Override
@@ -73,6 +87,22 @@ public class FollowServiceImpl implements FollowService {
         return new FollowWithUsername(followeeId, followee.getUsername());
     }
 
+
+    @Override
+    @Transactional
+    public FollowWithUsername unfollowAccountWithUUID(UUID followerId, UUID followeeId) {
+        Account account = accountServiceUtil.validateAccountExistence(followeeId);
+        Follow follow = unfollowAccount(followerId, followeeId);
+        return new FollowWithUsername(follow.getFolloweeId(), account.getUsername());
+    }
+
+    @Override
+    @Transactional
+    public FollowWithUsername unfollowAccountWithUsername(UUID followerId, String followeeUsername) {
+        Account account = accountServiceUtil.validateAccountExistence(followeeUsername);
+        Follow follow = unfollowAccount(followerId, account.getId().getValue());
+        return new FollowWithUsername(follow.getFolloweeId(), account.getUsername());
+    }
     @Override
     public List<FollowWithUsername> getFollowersByAccountId(UUID accountId) {
         accountServiceUtil.validateAccountExistence(accountId);
