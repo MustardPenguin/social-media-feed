@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/BaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/FollowServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/impl/FollowServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/impl/FollowServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/port/repository/FollowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/port/repository/FollowRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/port/service/FollowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/port/service/FollowService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/AuthenticateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/AuthenticateController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/FollowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/FollowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/follow/FollowJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/follow/FollowJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/follow/FollowRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/follow/FollowRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/core/follow.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/core/follow.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/features/follow/follow.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/features/follow/follow.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/features/follow/follow.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/features/follow/follow.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/AccountApplicationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/AccountApplicationServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,44 +49,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.AccountApplicationServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AccountApplicationServiceTest.testAuthentication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PostApplicationServiceTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.PostApplicationServiceTest.testPostService.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.AccountApplicationService.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ApiGatewayServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.EurekaServerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.FeedApplicationService.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.PostApplicationService.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mustardpenguin/repos/social-media-feed/social-media-feed-backend/deployment/docker-compose&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.AccountApplicationServiceTest.executor": "Run",
+    "JUnit.AccountApplicationServiceTest.testAuthentication.executor": "Run",
+    "JUnit.AccountApplicationServiceTest.testFollowService.executor": "Run",
+    "JUnit.FollowServiceTest.executor": "Run",
+    "JUnit.FollowServiceTest.testFollowService.executor": "Run",
+    "JUnit.PostApplicationServiceTest.executor": "Coverage",
+    "JUnit.PostApplicationServiceTest.testPostService.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.AccountApplicationService.executor": "Run",
+    "Spring Boot.ApiGatewayServiceApplication.executor": "Run",
+    "Spring Boot.EurekaServerApplication.executor": "Run",
+    "Spring Boot.FeedApplicationService.executor": "Run",
+    "Spring Boot.PostApplicationService.executor": "Run",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/mustardpenguin/repos/social-media-feed/social-media-feed-backend/deployment/docker-compose",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "database.query.execution",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;,
-      &quot;redis&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql",
+      "redis"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -117,33 +116,64 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.AccountApplicationService">
-    <configuration name="PostApplicationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="post-service" />
+  <component name="RunManager" selected="JUnit.FollowServiceTest">
+    <configuration name="AccountApplicationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="account-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.social.media.feed.post.service.*" />
+          <option name="PATTERN" value="com.social.media.feed.account.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.social.media.feed.post.service" />
-      <option name="MAIN_CLASS_NAME" value="com.social.media.feed.post.service.PostApplicationServiceTest" />
+      <option name="PACKAGE_NAME" value="com.social.media.feed.account.service" />
+      <option name="MAIN_CLASS_NAME" value="com.social.media.feed.account.service.AccountApplicationServiceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PostApplicationServiceTest.testPostService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="post-service" />
+    <configuration name="AccountApplicationServiceTest.testFollowService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="account-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.social.media.feed.post.service.*" />
+          <option name="PATTERN" value="com.social.media.feed.account.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.social.media.feed.post.service" />
-      <option name="MAIN_CLASS_NAME" value="com.social.media.feed.post.service.PostApplicationServiceTest" />
-      <option name="METHOD_NAME" value="testPostService(com.social.media.feed.post.service.application.util.PostServiceUtil)" />
+      <option name="PACKAGE_NAME" value="com.social.media.feed.account.service" />
+      <option name="MAIN_CLASS_NAME" value="com.social.media.feed.account.service.AccountApplicationServiceTest" />
+      <option name="METHOD_NAME" value="testFollowService" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FollowServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="account-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.social.media.feed.account.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.social.media.feed.account.service" />
+      <option name="MAIN_CLASS_NAME" value="com.social.media.feed.account.service.FollowServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FollowServiceTest.testFollowService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="account-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.social.media.feed.account.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.social.media.feed.account.service" />
+      <option name="MAIN_CLASS_NAME" value="com.social.media.feed.account.service.FollowServiceTest" />
+      <option name="METHOD_NAME" value="testFollowService" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -162,39 +192,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ApiGatewayServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="api-gateway-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.social.media.feed.api.gateway.ApiGatewayServiceApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.social.media.feed.api.gateway.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="eureka-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.social.media.feed.eureka.service.EurekaServerApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.social.media.feed.eureka.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FollowServiceTest" />
+        <item itemvalue="JUnit.FollowServiceTest.testFollowService" />
+        <item itemvalue="JUnit.AccountApplicationServiceTest" />
+        <item itemvalue="JUnit.AccountApplicationServiceTest.testFollowService" />
         <item itemvalue="Spring Boot.AccountApplicationService" />
-        <item itemvalue="Spring Boot.EurekaServerApplication" />
-        <item itemvalue="Spring Boot.ApiGatewayServiceApplication" />
-        <item itemvalue="JUnit.PostApplicationServiceTest" />
-        <item itemvalue="JUnit.PostApplicationServiceTest.testPostService" />
       </list>
     </recent_temporary>
   </component>
@@ -239,7 +243,7 @@
       <workItem from="1716322039005" duration="18042000" />
       <workItem from="1716600111111" duration="4700000" />
       <workItem from="1717024326903" duration="9850000" />
-      <workItem from="1717174972864" duration="7040000" />
+      <workItem from="1717174972864" duration="10354000" />
     </task>
     <servers />
   </component>

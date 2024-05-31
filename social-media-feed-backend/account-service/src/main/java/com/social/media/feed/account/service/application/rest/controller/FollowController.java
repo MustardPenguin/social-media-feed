@@ -26,14 +26,14 @@ public class FollowController {
     }
 
     @PostMapping("/follow/{followee}")
-    public ResponseEntity<FollowWithUsername> follow(@PathVariable("followee") Object followee, @RequestHeader("accountId") UUID accountId) {
+    public ResponseEntity<FollowWithUsername> follow(@RequestHeader("accountId") UUID followerId, @PathVariable("followee") Object followee) {
         FollowWithUsername followWithUsername;
         try {
             UUID followeeId = UUID.fromString(followee.toString());
-            followWithUsername = followService.followAccountWithUUID(accountId, followeeId);
+            followWithUsername = followService.followAccountWithUUID(followerId, followeeId);
         } catch (IllegalArgumentException e) {
             String username = followee.toString();
-            followWithUsername = followService.followAccountWithUsername(accountId, username);
+            followWithUsername = followService.followAccountWithUsername(followerId, username);
         } catch (Exception e) {
             throw new AccountDomainException(e.getMessage());
         }
@@ -41,14 +41,14 @@ public class FollowController {
     }
 
     @DeleteMapping("/follow/{followee}")
-    public ResponseEntity<FollowWithUsername> unfollow(@PathVariable("followee") Object followee, @RequestHeader("accountId") UUID accountId) {
+    public ResponseEntity<FollowWithUsername> unfollow(@RequestHeader("accountId") UUID followerId, @PathVariable("followee") Object followee) {
         FollowWithUsername followWithUsername;
         try {
             UUID followeeId = UUID.fromString(followee.toString());
-            followWithUsername = followService.unfollowAccountWithUUID(accountId, followeeId);
+            followWithUsername = followService.unfollowAccountWithUUID(followerId, followeeId);
         } catch (IllegalArgumentException e) {
             String username = followee.toString();
-            followWithUsername = followService.unfollowAccountWithUsername(accountId, username);
+            followWithUsername = followService.unfollowAccountWithUsername(followerId, username);
         } catch (Exception e) {
             throw new AccountDomainException(e.getMessage());
         }
