@@ -1,0 +1,38 @@
+
+<div class="container">
+
+    <div class="form-container">
+        <h1>Create a post</h1>
+
+        <form [formGroup]="formData" class="form" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill" class="field">
+                <mat-label>Title</mat-label>
+                <input 
+                matInput 
+                placeholder="title"
+                type="text"
+                formControlName="title"
+                required
+                />
+                <mat-icon matSuffix>mode</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="field">
+                <mat-label>Description</mat-label>
+                <textarea 
+                matInput
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="5"
+                cdkAutosizeMaxRows="10"
+                formControlName="description"
+                required
+                ></textarea>
+                <mat-icon matSuffix>description</mat-icon>
+            </mat-form-field>
+            
+            <div style="display: flex; justify-content: center;">
+                <button mat-raised-button color="primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

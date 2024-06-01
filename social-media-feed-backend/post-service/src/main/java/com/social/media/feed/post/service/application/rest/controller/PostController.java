@@ -1,5 +1,6 @@
 package com.social.media.feed.post.service.application.rest.controller;
 
+import com.social.media.feed.application.rest.model.HttpResponse;
 import com.social.media.feed.post.service.application.mapper.PostServiceMapper;
 import com.social.media.feed.post.service.application.port.service.PostService;
 import com.social.media.feed.post.service.application.rest.model.CreatePostRequestBody;
@@ -23,13 +24,14 @@ public class PostController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createPost(
+    public ResponseEntity<HttpResponse> createPost(
             @RequestBody @Valid CreatePostRequestBody createPostRequestBody,
             @RequestHeader("accountId") UUID accountId) {
         Post post = postServiceMapper.createPostRequestBodyToPost(createPostRequestBody);
         post.setAccountId(accountId);
         Post response = postService.createPost(post);
-        return ResponseEntity.ok("Post created successfully with id " + response.getId().getValue()
+        HttpResponse httpResponse = new HttpResponse("Post created successfully with id " + response.getId().getValue().toString()
                 + " for account id " + response.getAccountId() + "!");
+        return ResponseEntity.ok(httpResponse);
     }
 }

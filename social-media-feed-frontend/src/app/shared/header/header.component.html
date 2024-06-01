@@ -12,6 +12,7 @@
     }
 
     @if(isAuthenticated()) {
+      <button mat-button (click)="navigateTo('post')">Post</button>
       <button mat-button>Feed</button>
       <button mat-button (click)="navigateTo('follows')">Follows</button>
       <button mat-button (click)="logout()">Logout</button>
