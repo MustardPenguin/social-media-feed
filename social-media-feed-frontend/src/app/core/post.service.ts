@@ -18,4 +18,10 @@ export class PostService {
         const response: HttpResponseData<any> = await this.apiService.sendPostRequestWithToken(url, formData);
         return response;
     }
+
+    async getPosts() {
+        const url = environment.apiUrl + 'post' + "/";
+        const response: HttpResponseData<any> = await this.apiService.sendGetRequestWithToken(url);
+        return response;
+    }
 };

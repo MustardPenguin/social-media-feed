@@ -34,4 +34,10 @@ public class PostController {
                 + " for account id " + response.getAccountId() + "!");
         return ResponseEntity.ok(httpResponse);
     }
+
+    @GetMapping("/{postId}")
+    public ResponseEntity<Post> getPost(@PathVariable UUID postId) {
+        Post post = postService.getPostById(postId);
+        return ResponseEntity.ok(post);
+    }
 }

@@ -6,6 +6,9 @@ import com.social.media.feed.post.service.domain.exception.PostDomainException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+import java.util.UUID;
+
 @Slf4j
 @Component
 public class PostRepositoryImpl implements PostRepository {
@@ -29,5 +32,11 @@ public class PostRepositoryImpl implements PostRepository {
             throw new PostDomainException("Error while saving post for user " + post.getAccountId()
                     + ", error: " + e.getMessage(), e);
         }
+    }
+
+    @Override
+    public Post getPostById(UUID postId) {
+        Optional<PostEntity> postEntity = postJpaRepository.findPostEntityByPostId(postId);
+        return postEntity.map(postRepositoryMapper::postEntityToPost).orElse(null);
     }
 }

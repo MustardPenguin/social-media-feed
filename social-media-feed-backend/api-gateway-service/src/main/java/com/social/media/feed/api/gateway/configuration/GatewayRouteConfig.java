@@ -38,6 +38,10 @@ public class GatewayRouteConfig {
                         .path("/api/post")
                         .filters(filter -> filter.filter(authenticationFilter))
                         .uri("lb://post-service"))
+                .route("get-post", route -> route
+                        .path("/api/post/**")
+                        .and().method("GET")
+                        .uri("lb://post-service"))
                 .route("feed-service", route -> route
                         .path("/api/feed/**")
                         .uri("lb://feed-service"))

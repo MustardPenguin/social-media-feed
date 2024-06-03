@@ -7,6 +7,7 @@ import com.social.media.feed.post.service.application.util.PostServiceUtil;
 import com.social.media.feed.post.service.domain.entity.Account;
 import com.social.media.feed.post.service.domain.entity.Post;
 import com.social.media.feed.post.service.domain.event.PostCreatedEvent;
+import com.social.media.feed.post.service.domain.exception.PostDomainException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,5 +45,16 @@ public class PostServiceImpl implements PostService {
 
         log.info("Account found of id {} and username {}!", account.getAccountId(), account.getUsername());
         return response;
+    }
+
+    @Override
+    public Post getPostById(UUID postId) {
+        log.info("Getting post by id {} at service layer", postId);
+        Post post = postRepository.getPostById(postId);
+        if(post == null) {
+            log.error("Post not found for id {}", postId);
+            throw new PostDomainException("Post not found for id " + postId);
+        }
+        return post;
     }
 }
