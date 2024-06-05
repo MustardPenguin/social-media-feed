@@ -4,6 +4,8 @@ import com.social.media.feed.application.rest.model.HttpResponse;
 import com.social.media.feed.post.service.application.mapper.PostServiceMapper;
 import com.social.media.feed.post.service.application.port.service.PostService;
 import com.social.media.feed.post.service.application.rest.model.CreatePostRequestBody;
+import com.social.media.feed.post.service.application.rest.model.PostResponse;
+import com.social.media.feed.post.service.application.util.PostServiceUtil;
 import com.social.media.feed.post.service.domain.entity.Post;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +20,8 @@ public class PostController {
     private final PostServiceMapper postServiceMapper;
     private final PostService postService;
 
-    public PostController(PostServiceMapper postServiceMapper, PostService postService) {
+    public PostController(PostServiceMapper postServiceMapper,
+                          PostService postService) {
         this.postServiceMapper = postServiceMapper;
         this.postService = postService;
     }
@@ -36,8 +39,9 @@ public class PostController {
     }
 
     @GetMapping("/{postId}")
-    public ResponseEntity<Post> getPost(@PathVariable UUID postId) {
+    public ResponseEntity<PostResponse> getPost(@PathVariable UUID postId) {
         Post post = postService.getPostById(postId);
-        return ResponseEntity.ok(post);
+        PostResponse postResponse = postServiceMapper.postToPostResponse(post);
+        return ResponseEntity.ok(postResponse);
     }
 }

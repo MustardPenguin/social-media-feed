@@ -25,12 +25,13 @@ export class FeedComponent {
     this.feedService.createEventSource();
     this.subscription = this.feedService.getEventSubject().subscribe((postReceivedEvent: PostReceivedEvent) => {
       console.log("Post received event: ", postReceivedEvent);
-      
     });
   }
 
   ngOnDestroy(): void {
     this.feedService.closeEventSource();
-    this.subscription?.unsubscribe();
+    if(this.subscription !== null) {
+      this.subscription.unsubscribe();
+    }
   }
 }

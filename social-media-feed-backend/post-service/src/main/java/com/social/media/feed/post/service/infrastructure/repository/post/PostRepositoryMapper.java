@@ -22,6 +22,7 @@ public class PostRepositoryMapper {
                 .accountId(postEntity.getAccountId())
                 .title(postEntity.getTitle())
                 .description(postEntity.getDescription())
+                .createdAt(postEntity.getCreatedAt())
                 .build();
     }
 }
