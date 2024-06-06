@@ -15,7 +15,7 @@ export class AuthenticationService {
   // authenticated: boolean = false;
   // private token: string = "";
   authenticated: boolean = true;
-  private token: string = "eyJhbGciOiJIUzM4NCJ9.eyJhY2NvdW50SWQiOiI5NTZjMjUzYi0wZDRmLTQ1N2UtYTk2ZC0zMWNjZTc2MzllYWEiLCJzdWIiOiJ0ZXN0IiwiaWF0IjoxNzE3Mjc4NzczLCJleHAiOjE3MTc2Mzg3NzN9.BmF_SmH8MGvENEsLDJDPnRWdMnoIfmNORtsafnH6YynWYTWkITnEuGzvl3dh6833";
+  private token: string = "eyJhbGciOiJIUzM4NCJ9.eyJhY2NvdW50SWQiOiI5NTZjMjUzYi0wZDRmLTQ1N2UtYTk2ZC0zMWNjZTc2MzllYWEiLCJzdWIiOiJ0ZXN0IiwiaWF0IjoxNzE3NjQxMjY3LCJleHAiOjE3MTgwMDEyNjd9.reufDHuRQfkM7A7HV6sIeB4zkrli7HdDMMTHH-7KWiO4Qx5K4MWnN5dAojV4QEWc";
 
   constructor(private http: HttpClient) { }
 

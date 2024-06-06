@@ -28,6 +28,12 @@ export class ApiService {
             .catch((error: HttpErrorResponse) => this.handleError(error));
     }
 
+    async sendGetRequest(url: string, headers: FormData = { }): Promise<HttpResponseData<any>> {
+        return lastValueFrom(this.http.get<any>(url, { observe: 'response', headers: headers }))
+            .then((response: HttpResponse<any>) => this.handleResponse(response))
+            .catch((error: HttpErrorResponse) => this.handleError(error));
+    }
+
     async sendGetRequestWithToken(url: string, headers: FormData = { }): Promise<HttpResponseData<any>> {
         const token: string = this.authenticationService.getToken();
         headers['Authorization'] = `Bearer ${token}`;

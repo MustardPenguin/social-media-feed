@@ -17,3 +17,11 @@
     box-shadow: 1px 1px 1px 1px;
 }
 
+
+.post div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+

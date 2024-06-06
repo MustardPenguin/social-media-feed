@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/application/rest/model/PostResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/739dff82-06a2-4655-8211-699615db51b6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/739dff82-06a2-4655-8211-699615db51b6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/docker-compose/infrastructure.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/docker-compose/infrastructure.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/application/mapper/PostServiceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/application/mapper/PostServiceMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/application/rest/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/application/rest/controller/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/post/PostRepositoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/post/PostRepositoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/features/feed/feed.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/features/feed/feed.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +232,7 @@
       <workItem from="1717274360174" duration="5386000" />
       <workItem from="1717293169990" duration="3011000" />
       <workItem from="1717446844914" duration="5542000" />
-      <workItem from="1717461947729" duration="8962000" />
+      <workItem from="1717461947729" duration="11751000" />
     </task>
     <servers />
   </component>
