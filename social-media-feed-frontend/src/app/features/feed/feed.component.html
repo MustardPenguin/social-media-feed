@@ -3,18 +3,21 @@
 <div class="container">
     <div class="feed-container">
         <h1>Your feed</h1>
+        <div class="line-divider"><hr></div>
         <div class="feed">
             @for(post of posts; track post.postId) {
                 <div class="post">
                     <div class="post-header">
                         <div class="post-title">{{post.title}}</div>
-                        <div class="post-username">{{post.username}}</div>
-                        <div class="post-createdat">{{post.createdAt}}</div>
+                    </div>
+                    <div class="post-subheader">
+                        <div>By {{post.username}} at {{post.createdAt}}</div>
                     </div>
                     <div class="post-content">
                         <div class="post-description">{{post.description}}</div>
                     </div>
                 </div>
+                <div class="line-divider"><hr></div>
             }
         </div>
     </div>

@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import HttpResponseData from '../../shared/interfaces/HttpResponseData';
 import PostData from '../../shared/interfaces/PostData';
 
+import { MatTooltipModule } from '@angular/material/tooltip'
+
 interface PostReceivedEvent {
   accountId: string;
   postId: string;
@@ -13,14 +15,14 @@ interface PostReceivedEvent {
 @Component({
   selector: 'app-feed',
   standalone: true,
-  imports: [],
+  imports: [MatTooltipModule],
   templateUrl: './feed.component.html',
   styleUrl: './feed.component.css'
 })
 export class FeedComponent {
   private subscription: Subscription | null = null;
   posts: PostData[] = [
-    { accountId: '1', title: 'Post 1', description: 'Content 1', postId: "1", username: 'Author 1', createdAt: "2020-01-01" },
+    { accountId: '1', title: 'Post 1', description: 'Content 1', postId: "1", username: 'Author 1', createdAt: "2024-06-07T02:18:11.927642" },
   ];
 
   constructor(private postService: PostService, private changeDetectorRef: ChangeDetectorRef,
