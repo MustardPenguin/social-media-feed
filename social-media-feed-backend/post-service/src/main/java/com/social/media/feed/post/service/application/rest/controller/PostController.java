@@ -4,8 +4,8 @@ import com.social.media.feed.application.rest.model.HttpResponse;
 import com.social.media.feed.post.service.application.mapper.PostServiceMapper;
 import com.social.media.feed.post.service.application.port.service.PostService;
 import com.social.media.feed.post.service.application.rest.model.CreatePostRequestBody;
+import com.social.media.feed.post.service.application.rest.model.PostCreatedResponse;
 import com.social.media.feed.post.service.application.rest.model.PostResponse;
-import com.social.media.feed.post.service.application.util.PostServiceUtil;
 import com.social.media.feed.post.service.domain.entity.Post;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -27,15 +27,15 @@ public class PostController {
     }
 
     @PostMapping
-    public ResponseEntity<HttpResponse> createPost(
+    public ResponseEntity<PostCreatedResponse> createPost(
             @RequestBody @Valid CreatePostRequestBody createPostRequestBody,
             @RequestHeader("accountId") UUID accountId) {
         Post post = postServiceMapper.createPostRequestBodyToPost(createPostRequestBody);
         post.setAccountId(accountId);
         Post response = postService.createPost(post);
-        HttpResponse httpResponse = new HttpResponse("Post created successfully with id " + response.getId().getValue().toString()
-                + " for account id " + response.getAccountId() + "!");
-        return ResponseEntity.ok(httpResponse);
+        PostCreatedResponse postCreatedResponse = new PostCreatedResponse(
+                "Post created successfully!", response.getId().getValue());
+        return ResponseEntity.ok(postCreatedResponse);
     }
 
     @GetMapping("/{postId}")

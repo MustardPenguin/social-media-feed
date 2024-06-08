@@ -1,8 +1,8 @@
 package com.social.media.feed.post.service.application.mapper;
 
+import com.social.media.feed.post.service.application.port.repository.AccountRepository;
 import com.social.media.feed.post.service.application.rest.model.CreatePostRequestBody;
 import com.social.media.feed.post.service.application.rest.model.PostResponse;
-import com.social.media.feed.post.service.application.util.PostServiceUtil;
 import com.social.media.feed.post.service.domain.entity.Account;
 import com.social.media.feed.post.service.domain.entity.Post;
 import org.springframework.stereotype.Component;
@@ -10,10 +10,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class PostServiceMapper {
 
-    private final PostServiceUtil postServiceUtil;
+    private final AccountRepository accountRepository;
 
-    public PostServiceMapper(PostServiceUtil postServiceUtil) {
-        this.postServiceUtil = postServiceUtil;
+    public PostServiceMapper(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
     }
 
     public Post createPostRequestBodyToPost(CreatePostRequestBody createPostRequestBody) {
@@ -24,7 +24,7 @@ public class PostServiceMapper {
     }
 
     public PostResponse postToPostResponse(Post post) {
-        Account account = postServiceUtil.getAccountByAccountId(post.getAccountId());
+        Account account = accountRepository.getAccountByAccountUUID(post.getAccountId());
         return PostResponse.builder()
                 .postId(post.getId().getValue())
                 .accountId(post.getAccountId())

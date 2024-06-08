@@ -1,9 +1,9 @@
 package com.social.media.feed.post.service.application.impl;
 
+import com.social.media.feed.post.service.application.port.repository.AccountRepository;
 import com.social.media.feed.post.service.application.port.repository.PostCreatedEventRepository;
 import com.social.media.feed.post.service.application.port.repository.PostRepository;
 import com.social.media.feed.post.service.application.port.service.PostService;
-import com.social.media.feed.post.service.application.util.PostServiceUtil;
 import com.social.media.feed.post.service.domain.entity.Account;
 import com.social.media.feed.post.service.domain.entity.Post;
 import com.social.media.feed.post.service.domain.event.PostCreatedEvent;
@@ -21,12 +21,14 @@ import java.util.UUID;
 public class PostServiceImpl implements PostService {
 
     private final PostCreatedEventRepository postCreatedEventRepository;
-    private final PostServiceUtil postServiceUtil;
+    private final AccountRepository accountRepository;
     private final PostRepository postRepository;
 
-    public PostServiceImpl(PostCreatedEventRepository postCreatedEventRepository, PostServiceUtil postServiceUtil, PostRepository postRepository) {
+    public PostServiceImpl(PostCreatedEventRepository postCreatedEventRepository,
+                           AccountRepository accountRepository,
+                           PostRepository postRepository) {
         this.postCreatedEventRepository = postCreatedEventRepository;
-        this.postServiceUtil = postServiceUtil;
+        this.accountRepository = accountRepository;
         this.postRepository = postRepository;
     }
 
@@ -38,7 +40,7 @@ public class PostServiceImpl implements PostService {
         post.setPostId(UUID.randomUUID());
         post.setCreatedAt(createdAt);
 
-        Account account = postServiceUtil.getAccountByAccountId(post.getAccountId());
+        Account account = accountRepository.getAccountByAccountUUID(post.getAccountId());
         Post response = postRepository.save(post);
         PostCreatedEvent postCreatedEvent = new PostCreatedEvent(response, createdAt);
         postCreatedEventRepository.save(postCreatedEvent);
