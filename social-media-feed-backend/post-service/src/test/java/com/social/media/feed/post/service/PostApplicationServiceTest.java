@@ -64,7 +64,7 @@ public class PostApplicationServiceTest {
     static void afterAll() {
         postgres.stop();
     }
-    
+
     @Test
     public void testPostService() {
         final UUID accountId = UUID.randomUUID();
@@ -76,15 +76,16 @@ public class PostApplicationServiceTest {
                 .username(username)
                 .build());
 
+        // Create post
         CreatePostRequestBody createPostRequestBody = new CreatePostRequestBody("My title", "My description");
-
         ResponseEntity<PostCreatedResponse> response = postController.createPost(createPostRequestBody, accountId);
-
         assertEquals(ResponseEntity.class, response.getClass());
 
+        // Verify that a post created event is saved to the outbox table
         List<PostCreatedEventEntity> postCreatedEventEntities = postCreatedEventJpaRepository.findAll();
         assertEquals(1, postCreatedEventEntities.size());
 
+        // Gets the post information
         ResponseEntity<PostResponse> post = postController.getPost(response.getBody().getPostId());
         PostResponse postResponse = post.getBody();
 

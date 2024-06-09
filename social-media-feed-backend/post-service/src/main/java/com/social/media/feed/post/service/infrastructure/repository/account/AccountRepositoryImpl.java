@@ -33,13 +33,13 @@ public class AccountRepositoryImpl implements AccountRepository {
         Account account = getAccountFromCache(accountId);
         if(account == null) {
             account = getAccountResponseByAccountIdFromAccountService(accountId);
-            saveAccount(account);
+            saveAccountToCache(account);
             log.info("Account info not found in cache, fetched from account service and saved to cache!");
         }
         return account;
     }
 
-    private void saveAccount(Account account) {
+    private void saveAccountToCache(Account account) {
         String key = account.getAccountId().toString();
         redisTemplate.opsForValue().set(key, account);
         redisTemplate.expire(key, 300, java.util.concurrent.TimeUnit.SECONDS);

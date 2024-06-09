@@ -3,10 +3,11 @@ package com.social.media.feed.post.service.domain.entity;
 import com.social.media.feed.domain.entity.AggregateRoot;
 import com.social.media.feed.post.service.domain.valueobject.PostId;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class Post extends AggregateRoot<PostId> {
+public class Post extends AggregateRoot<PostId> implements Serializable {
 
     private UUID accountId;
     private String title;
