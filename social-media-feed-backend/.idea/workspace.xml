@@ -5,18 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/blobs/version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/domain/entity/Follow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/739dff82-06a2-4655-8211-699615db51b6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/739dff82-06a2-4655-8211-699615db51b6.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/account.LYrTuQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/account.LYrTuQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/feed.nuUvAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/feed.nuUvAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/post.oJg0AA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/post.oJg0AA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/domain/entity/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/domain/entity/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/account/AccountRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/account/AccountRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/post/PostRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/social/media/feed/post/service/infrastructure/repository/post/PostRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post-service/src/test/java/com/social/media/feed/post/service/PostApplicationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/test/java/com/social/media/feed/post/service/PostApplicationServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/application/configuration/BeanConfigs.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/application/configuration/BeanConfigs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/application/impl/FeedServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/application/impl/FeedServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/application/port/repository/FollowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/application/port/repository/FollowRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/repository/follow/FollowJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/repository/follow/FollowJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/repository/follow/FollowRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/repository/follow/FollowRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/repository/follow/FollowRepositoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/repository/follow/FollowRepositoryMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,22 +138,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.PostApplicationService">
-    <configuration name="FollowServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="account-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.social.media.feed.account.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.social.media.feed.account.service" />
-      <option name="MAIN_CLASS_NAME" value="com.social.media.feed.account.service.FollowServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.FeedApplicationService">
     <configuration name="AccountApplicationService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="account-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.social.media.feed.account.service.AccountApplicationService" />
@@ -192,6 +178,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FeedApplicationService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="feed-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.social.media.feed.feed.service.FeedApplicationService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.social.media.feed.feed.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PostApplicationService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="post-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.social.media.feed.post.service.PostApplicationService" />
@@ -207,11 +206,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.FeedApplicationService" />
         <item itemvalue="Spring Boot.PostApplicationService" />
-        <item itemvalue="Spring Boot.AccountApplicationService" />
-        <item itemvalue="Spring Boot.ApiGatewayServiceApplication" />
         <item itemvalue="Spring Boot.EurekaServerApplication" />
-        <item itemvalue="JUnit.FollowServiceTest" />
+        <item itemvalue="Spring Boot.ApiGatewayServiceApplication" />
+        <item itemvalue="Spring Boot.AccountApplicationService" />
       </list>
     </recent_temporary>
   </component>
@@ -261,7 +260,7 @@
       <workItem from="1717446844914" duration="5542000" />
       <workItem from="1717461947729" duration="24093000" />
       <workItem from="1717900960243" duration="51000" />
-      <workItem from="1717901017406" duration="2145000" />
+      <workItem from="1717901017406" duration="11121000" />
     </task>
     <servers />
   </component>
