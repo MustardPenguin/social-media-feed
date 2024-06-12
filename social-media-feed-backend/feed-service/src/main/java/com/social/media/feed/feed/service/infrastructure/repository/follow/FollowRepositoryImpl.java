@@ -17,14 +17,13 @@ public class FollowRepositoryImpl implements FollowRepository {
 
     private final FollowRepositoryMapper followRepositoryMapper;
     private final FollowJpaRepository followJpaRepository;
-    private final RedisTemplate<String, Object> redisTemplate;
+    private final FollowCache followCache;
 
     public FollowRepositoryImpl(FollowRepositoryMapper followRepositoryMapper,
-                                FollowJpaRepository followJpaRepository,
-                                RedisTemplate<String, Object> redisTemplate) {
+                                FollowJpaRepository followJpaRepository, FollowCache followCache) {
         this.followRepositoryMapper = followRepositoryMapper;
         this.followJpaRepository = followJpaRepository;
-        this.redisTemplate = redisTemplate;
+        this.followCache = followCache;
     }
 
     @Override
@@ -40,8 +39,18 @@ public class FollowRepositoryImpl implements FollowRepository {
     }
 
     @Override
+    public void deleteFollow(FollowCreatedEventModel followCreatedEventModel) {
+        try {
+            followJpaRepository.deleteFollowEntityByFollowerIdAndFolloweeId(followCreatedEventModel.getFollowerId(), followCreatedEventModel.getFolloweeId());
+            followCache.deleteFollowFromCache(followCreatedEventModel.getFollowerId(), followCreatedEventModel.getFolloweeId());
+        } catch (Exception e) {
+            throw new FeedDomainException("Error occurred while deleting follow of id " + followCreatedEventModel.getFollowId(), e);
+        }
+    }
+
+    @Override
     public Follow getFollowByFollowerIdAndFolloweeId(UUID followerId, UUID followeeId) {
-        Follow follow = getFollowByFollowerIdAndFolloweeIdFromCache(followerId, followeeId);
+        Follow follow = followCache.getFollowFromCache(followerId, followeeId);
         if(follow == null) {
             log.info("Follow not found in cache, fetching follow from database...");
             Optional<FollowEntity> response = followJpaRepository.findFollowEntityByFollowerIdAndAndFolloweeId(followerId, followeeId);
@@ -49,18 +58,8 @@ public class FollowRepositoryImpl implements FollowRepository {
                 return null;
             }
             follow = response.map(followRepositoryMapper::followEntityToFollow).get();
-            saveFollowToCache(follow);
+            followCache.saveFollowToCache(follow);
         }
         return follow;
-    }
-
-    private void saveFollowToCache(Follow follow) {
-        String key = follow.getFollowerId() + "." + follow.getFolloweeId();
-        redisTemplate.opsForValue().set(key, follow);
-        redisTemplate.expire(key, 600, java.util.concurrent.TimeUnit.SECONDS);
-    }
-
-    private Follow getFollowByFollowerIdAndFolloweeIdFromCache(UUID followerId, UUID followeeId) {
-        return (Follow) redisTemplate.opsForValue().get(followerId + "." + followeeId);
     }
 }

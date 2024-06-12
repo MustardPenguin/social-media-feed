@@ -10,5 +10,7 @@ public interface FollowRepository {
 
     FollowCreatedEventModel saveFollow(FollowCreatedEventModel followCreatedEventModel);
 
+    void deleteFollow(FollowCreatedEventModel followCreatedEventModel);
+
     Follow getFollowByFollowerIdAndFolloweeId(UUID followerId, UUID followeeId);
 }

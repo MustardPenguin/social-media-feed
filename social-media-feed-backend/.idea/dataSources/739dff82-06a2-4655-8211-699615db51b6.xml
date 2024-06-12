@@ -22,8 +22,11 @@
     <schema id="15" parent="1" name="13"/>
     <schema id="16" parent="1" name="14"/>
     <schema id="17" parent="1" name="15"/>
-    <string id="18" parent="2" name="��&#xffef;￠&#x5;t&#xffef;￠$0ea1f482-e281-4ae8-8d3b-137424454ce1"/>
-    <string id="19" parent="2" name="��&#xffef;￠&#x5;t&#xffef;￠$a692ba7a-08a9-4566-85ff-d5c849491927"/>
-    <string id="20" parent="2" name="��&#xffef;￠&#x5;t&#xffef;￠$c1a3b40a-5b2b-4c5b-9788-d9494f3a9d85"/>
+    <string id="18" parent="2" name="��&#xffef;￠&#x5;t&#xffef;￠$08a8374f-1f95-40d6-9ae5-69bcaa971605"/>
+    <string id="19" parent="2" name="��&#xffef;￠&#x5;t&#xffef;￠$2a22597f-a89e-4aca-b235-91dd6a67f55f"/>
+    <string id="20" parent="2" name="��&#xffef;￠&#x5;t&#xffef;￠$686c1dce-2fe9-446b-a01c-775a5a405f42"/>
+    <string id="21" parent="2" name="��&#xffef;￠&#x5;t&#xffef;￠$6e18e2bc-4aeb-4c06-8943-87ee2d917ba7"/>
+    <string id="22" parent="2" name="��&#xffef;￠&#x5;t&#xffef;￠$956c253b-0d4f-457e-a96d-31cce7639eab"/>
+    <string id="23" parent="2" name="��&#xffef;￠&#x5;t&#xffef;￠$f354bddd-fb3a-4499-b9cb-561fe4904301"/>
   </database-model>
 </dataSource>

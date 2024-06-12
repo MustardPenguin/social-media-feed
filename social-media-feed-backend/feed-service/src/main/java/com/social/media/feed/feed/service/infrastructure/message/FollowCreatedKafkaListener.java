@@ -32,7 +32,12 @@ public class FollowCreatedKafkaListener implements KafkaConsumer<follow_created.
             follow_created.account.follow_created_events.Value value = message.getAfter();
             FollowCreatedEventPayload followCreatedEventPayload =
                     objectMapperUtil.convertStringToObject(value.getPayload(), FollowCreatedEventPayload.class);
-            followCreatedMessageListener.followCreated(followCreatedEventPayloadToModel(followCreatedEventPayload));
+            FollowCreatedEventModel followCreatedEventModel = followCreatedEventPayloadToModel(followCreatedEventPayload);
+            if(followCreatedEventPayload.getOp().equals("C")) {
+                followCreatedMessageListener.followCreated(followCreatedEventModel);
+            } else if(followCreatedEventPayload.getOp().equals("D")) {
+                followCreatedMessageListener.followDeleted(followCreatedEventModel);
+            }
         });
     }
 

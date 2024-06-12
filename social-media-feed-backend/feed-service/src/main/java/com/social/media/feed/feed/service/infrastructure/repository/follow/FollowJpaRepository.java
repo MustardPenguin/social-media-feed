@@ -11,4 +11,5 @@ public interface FollowJpaRepository extends JpaRepository<FollowEntity, UUID> {
 
     Optional<FollowEntity> findFollowEntityByFollowerIdAndAndFolloweeId(UUID followerId, UUID followeeId);
 
+    void deleteFollowEntityByFollowerIdAndFolloweeId(UUID followerId, UUID followeeId);
 }

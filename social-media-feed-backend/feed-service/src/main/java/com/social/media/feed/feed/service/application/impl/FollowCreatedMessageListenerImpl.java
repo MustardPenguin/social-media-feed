@@ -23,4 +23,11 @@ public class FollowCreatedMessageListenerImpl implements FollowCreatedMessageLis
         FollowCreatedEventModel response = followRepository.saveFollow(followCreatedEventModel);
         log.info("Follow saved successfully of id {}", response.getFollowId());
     }
+
+    @Override
+    @Transactional
+    public void followDeleted(FollowCreatedEventModel followCreatedEventModel) {
+        followRepository.deleteFollow(followCreatedEventModel);
+        log.info("Follow deleted successfully of id {}", followCreatedEventModel.getFollowId());
+    }
 }

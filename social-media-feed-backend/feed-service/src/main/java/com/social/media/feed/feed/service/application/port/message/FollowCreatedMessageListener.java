@@ -5,4 +5,6 @@ import com.social.media.feed.feed.service.application.dto.FollowCreatedEventMode
 public interface FollowCreatedMessageListener {
 
     void followCreated(FollowCreatedEventModel followCreatedEventModel);
+
+    void followDeleted(FollowCreatedEventModel followCreatedEventModel);
 }

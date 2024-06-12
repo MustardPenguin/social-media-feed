@@ -24,16 +24,13 @@ public class FollowServiceImpl implements FollowService {
 
     private final FollowCreatedEventRepository followCreatedEventRepository;
     private final AccountServiceUtil accountServiceUtil;
-    private final AccountRepository accountRepository;
     private final FollowRepository followRepository;
 
     public FollowServiceImpl(FollowCreatedEventRepository followCreatedEventRepository,
                              AccountServiceUtil accountServiceUtil,
-                             AccountRepository accountRepository,
                              FollowRepository followRepository) {
         this.followCreatedEventRepository = followCreatedEventRepository;
         this.accountServiceUtil = accountServiceUtil;
-        this.accountRepository = accountRepository;
         this.followRepository = followRepository;
     }
 
@@ -51,7 +48,7 @@ public class FollowServiceImpl implements FollowService {
             throw new AccountDomainException("Already following the account with accountId " + followeeId);
         }
         Follow response = followRepository.saveFollow(follow);
-        FollowCreatedEvent followCreatedEvent = new FollowCreatedEvent(response, LocalDateTime.now());
+        FollowCreatedEvent followCreatedEvent = new FollowCreatedEvent(response, LocalDateTime.now(), "C");
         followCreatedEventRepository.saveFollowCreatedEvent(followCreatedEvent);
 
         return response;
@@ -68,6 +65,8 @@ public class FollowServiceImpl implements FollowService {
             throw new AccountDomainException("Not following the account with accountId " + followeeId + "!");
         }
         followRepository.deleteFollow(follow);
+        FollowCreatedEvent followCreatedEvent = new FollowCreatedEvent(follow, LocalDateTime.now(), "D");
+        followCreatedEventRepository.saveFollowCreatedEvent(followCreatedEvent);
         return follow;
     }
 

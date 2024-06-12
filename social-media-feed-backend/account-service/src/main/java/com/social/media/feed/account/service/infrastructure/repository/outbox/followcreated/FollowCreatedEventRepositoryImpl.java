@@ -38,6 +38,7 @@ public class FollowCreatedEventRepositoryImpl implements FollowCreatedEventRepos
                 .followId(follow.getId().getValue())
                 .followerId(follow.getFollowerId())
                 .followeeId(follow.getFolloweeId())
+                .op(followCreatedEvent.getOp())
                 .build();
         String payload = objectMapperUtil.convertObjectToString(followCreatedEventPayload);
         return FollowCreatedEventEntity.builder()

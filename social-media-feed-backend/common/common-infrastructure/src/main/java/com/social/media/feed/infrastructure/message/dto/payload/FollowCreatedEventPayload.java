@@ -20,4 +20,6 @@ public class FollowCreatedEventPayload {
     private UUID followerId;
     @JsonProperty
     private UUID followeeId;
+    @JsonProperty
+    private String op;
 }
