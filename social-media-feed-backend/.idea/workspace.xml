@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/repository/follow/FollowCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/739dff82-06a2-4655-8211-699615db51b6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/739dff82-06a2-4655-8211-699615db51b6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/account.LYrTuQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/account.LYrTuQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/feed.nuUvAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/feed.nuUvAA.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/post.oJg0AA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/post.oJg0AA.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feed-service/src/test/java/com/social/media/feed/feed/service/BaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feed-service/src/test/java/com/social/media/feed/feed/service/FeedServiceApplicationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/impl/FollowServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/impl/FollowServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/domain/event/FollowCreatedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/domain/event/FollowCreatedEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/outbox/followcreated/FollowCreatedEventRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/infrastructure/repository/outbox/followcreated/FollowCreatedEventRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common-infrastructure/src/main/java/com/social/media/feed/infrastructure/message/dto/payload/FollowCreatedEventPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-infrastructure/src/main/java/com/social/media/feed/infrastructure/message/dto/payload/FollowCreatedEventPayload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/application/impl/FollowCreatedMessageListenerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/application/impl/FollowCreatedMessageListenerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/application/port/message/FollowCreatedMessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/application/port/message/FollowCreatedMessageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/application/port/repository/FollowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/application/port/repository/FollowRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/message/FollowCreatedKafkaListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/message/FollowCreatedKafkaListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/repository/follow/FollowJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/repository/follow/FollowJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/repository/follow/FollowRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/infrastructure/repository/follow/FollowRepositoryImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,48 +50,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.AccountApplicationServiceTest and 1 more.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.AccountApplicationServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AccountApplicationServiceTest.testAuthentication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AccountApplicationServiceTest.testFollowService.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FollowServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FollowServiceTest.testFollowService.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PostApplicationServiceTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.PostApplicationServiceTest.testPostService.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.AccountApplicationService.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ApiGatewayServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.EurekaServerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.FeedApplicationService.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.PostApplicationService.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mustardpenguin/repos/social-media-feed/social-media-feed-backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.AccountApplicationServiceTest and 1 more.executor": "Coverage",
+    "JUnit.AccountApplicationServiceTest.executor": "Run",
+    "JUnit.AccountApplicationServiceTest.testAuthentication.executor": "Run",
+    "JUnit.AccountApplicationServiceTest.testFollowService.executor": "Run",
+    "JUnit.FeedServiceApplicationTest (1).executor": "Coverage",
+    "JUnit.FeedServiceApplicationTest.executor": "Run",
+    "JUnit.FeedServiceApplicationTest.feedServiceTest (1).executor": "Run",
+    "JUnit.FeedServiceApplicationTest.feedServiceTest.executor": "Run",
+    "JUnit.FollowServiceTest.executor": "Run",
+    "JUnit.FollowServiceTest.testFollowService.executor": "Run",
+    "JUnit.PostApplicationServiceTest.executor": "Coverage",
+    "JUnit.PostApplicationServiceTest.testPostService.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.AccountApplicationService.executor": "Run",
+    "Spring Boot.ApiGatewayServiceApplication.executor": "Run",
+    "Spring Boot.EurekaServerApplication.executor": "Run",
+    "Spring Boot.FeedApplicationService.executor": "Run",
+    "Spring Boot.PostApplicationService.executor": "Run",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/mustardpenguin/repos/social-media-feed/social-media-feed-backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;,
-      &quot;redis&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql",
+      "redis"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -144,79 +135,91 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.FeedApplicationService">
-    <configuration name="AccountApplicationService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.FeedServiceApplicationTest (1)">
+    <configuration name="AccountApplicationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="account-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.social.media.feed.account.service.AccountApplicationService" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.social.media.feed.account.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.social.media.feed.account.service" />
+      <option name="MAIN_CLASS_NAME" value="com.social.media.feed.account.service.AccountApplicationServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ApiGatewayServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="api-gateway-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.social.media.feed.api.gateway.ApiGatewayServiceApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.social.media.feed.api.gateway.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="eureka-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.social.media.feed.eureka.service.EurekaServerApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.social.media.feed.eureka.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FeedApplicationService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="FeedServiceApplicationTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="feed-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.social.media.feed.feed.service.FeedApplicationService" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.social.media.feed.feed.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.social.media.feed.feed.service" />
+      <option name="MAIN_CLASS_NAME" value="com.social.media.feed.feed.service.FeedServiceApplicationTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PostApplicationService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="post-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.social.media.feed.post.service.PostApplicationService" />
+    <configuration name="FeedServiceApplicationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="feed-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.social.media.feed.post.service.*" />
+          <option name="PATTERN" value="com.social.meda.feed.feed.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.social.meda.feed.feed.service" />
+      <option name="MAIN_CLASS_NAME" value="com.social.meda.feed.feed.service.FeedServiceApplicationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FeedServiceApplicationTest.feedServiceTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="feed-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.social.media.feed.feed.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.social.media.feed.feed.service" />
+      <option name="MAIN_CLASS_NAME" value="com.social.media.feed.feed.service.FeedServiceApplicationTest" />
+      <option name="METHOD_NAME" value="feedServiceTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FeedServiceApplicationTest.feedServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="feed-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.social.meda.feed.feed.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.social.meda.feed.feed.service" />
+      <option name="MAIN_CLASS_NAME" value="com.social.meda.feed.feed.service.FeedServiceApplicationTest" />
+      <option name="METHOD_NAME" value="feedServiceTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.FeedApplicationService" />
-        <item itemvalue="Spring Boot.AccountApplicationService" />
-        <item itemvalue="Spring Boot.PostApplicationService" />
-        <item itemvalue="Spring Boot.EurekaServerApplication" />
-        <item itemvalue="Spring Boot.ApiGatewayServiceApplication" />
+        <item itemvalue="JUnit.FeedServiceApplicationTest (1)" />
+        <item itemvalue="JUnit.AccountApplicationServiceTest" />
+        <item itemvalue="JUnit.FeedServiceApplicationTest.feedServiceTest (1)" />
+        <item itemvalue="JUnit.FeedServiceApplicationTest" />
+        <item itemvalue="JUnit.FeedServiceApplicationTest.feedServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -267,7 +270,7 @@
       <workItem from="1717461947729" duration="24093000" />
       <workItem from="1717900960243" duration="51000" />
       <workItem from="1717901017406" duration="12583000" />
-      <workItem from="1718223176637" duration="4012000" />
+      <workItem from="1718223176637" duration="9467000" />
     </task>
     <servers />
   </component>
@@ -294,6 +297,9 @@
       <FILTER>com.social.media.feed.account.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/social_media_feed_backend$AccountApplicationServiceTest_and_1_more.ic" NAME="AccountApplicationServiceTest and 1 more Coverage Results" MODIFIED="1717814241450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/social_media_feed_backend$FeedServiceApplicationTest__1_.ic" NAME="FeedServiceApplicationTest (1) Coverage Results" MODIFIED="1718233576988" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.social.media.feed.feed.service.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/social_media_feed_backend$PostApplicationServiceTest.ic" NAME="PostApplicationServiceTest Coverage Results" MODIFIED="1717814137683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.social.media.feed.post.service.*</FILTER>
     </SUITE>

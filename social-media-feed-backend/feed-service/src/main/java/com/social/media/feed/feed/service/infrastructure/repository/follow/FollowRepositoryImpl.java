@@ -7,6 +7,7 @@ import com.social.media.feed.feed.service.domain.exception.FeedDomainException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -39,6 +40,7 @@ public class FollowRepositoryImpl implements FollowRepository {
     }
 
     @Override
+    @Transactional
     public void deleteFollow(FollowCreatedEventModel followCreatedEventModel) {
         try {
             followJpaRepository.deleteFollowEntityByFollowerIdAndFolloweeId(followCreatedEventModel.getFollowerId(), followCreatedEventModel.getFolloweeId());
