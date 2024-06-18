@@ -17,6 +17,11 @@
     box-shadow: 1px 1px 1px 1px;
 }
 
+.feed {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 .line-divider {
     display: flex;
     justify-content: center;

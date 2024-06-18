@@ -10,6 +10,7 @@ import { MatTooltipModule } from '@angular/material/tooltip'
 interface PostReceivedEvent {
   accountId: string;
   postId: string;
+  createdAt: string;
 }
 
 @Component({
@@ -22,7 +23,7 @@ interface PostReceivedEvent {
 export class FeedComponent {
   private subscription: Subscription | null = null;
   posts: PostData[] = [
-    { accountId: '1', title: 'Post 1', description: 'Content 1', postId: "1", username: 'Author 1', createdAt: "2024-06-07T02:18:11.927642" },
+    // { accountId: '1', title: 'Post 1', description: 'Content 1', postId: "1", username: 'Author 1', createdAt: "2024-06-07T02:18:11.927642" },
   ];
 
   constructor(private postService: PostService, private changeDetectorRef: ChangeDetectorRef,
@@ -30,6 +31,12 @@ export class FeedComponent {
 
   async ngOnInit(): Promise<void> {
     this.feedService.createEventSource();
+
+    const response: HttpResponseData<PostReceivedEvent[]> = await this.postService.getInitialFeed();
+    let initialPosts: PostReceivedEvent[] = response.body;
+    console.log(initialPosts);
+
+    initialPosts.forEach(postEvent => this.onPostReceived(postEvent));
 
     this.subscription = this.feedService.getEventSubject()
       .subscribe((postReceivedEvent: PostReceivedEvent) => this.onPostReceived(postReceivedEvent));

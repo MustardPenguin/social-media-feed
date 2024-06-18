@@ -58,9 +58,6 @@ public class FeedServiceImpl implements FeedService {
     public List<PostCreatedEventModel> generateInitialFeed(UUID accountId) {
         List<Follow> followees = followRepository.getFolloweesByFollowerId(accountId);
         log.info("Fetched followees of size: {}", followees.size());
-        for(Follow follow : followees) {
-            log.info("Followee: {}", follow.getFolloweeId());
-        }
         List<PostCreatedEventModel> postCreatedEventModels = postRepository
                 .getRelevantPostsByAccountIds(followees.stream().map(Follow::getFolloweeId).toList());
         return postCreatedEventModels;
