@@ -9,8 +9,10 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Component
@@ -63,5 +65,11 @@ public class FollowRepositoryImpl implements FollowRepository {
             followCache.saveFollowToCache(follow);
         }
         return follow;
+    }
+
+    @Override
+    public List<Follow> getFolloweesByFollowerId(UUID followerId) {
+        return followJpaRepository.findFollowEntitiesByFollowerId(followerId)
+                .stream().map(followRepositoryMapper::followEntityToFollow).collect(Collectors.toList());
     }
 }

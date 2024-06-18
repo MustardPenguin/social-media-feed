@@ -1,5 +1,6 @@
 package com.social.media.feed.feed.service.application.rest.controller;
 
+import com.social.media.feed.feed.service.application.dto.PostCreatedEventModel;
 import com.social.media.feed.feed.service.application.dto.PostCreatedResponse;
 import com.social.media.feed.feed.service.application.port.service.FeedService;
 import org.springframework.http.MediaType;
@@ -14,6 +15,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Sinks;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -29,5 +31,10 @@ public class FeedController {
     @GetMapping(value = "/{accountId}", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<ServerSentEvent<PostCreatedResponse>> streamEvents(@PathVariable UUID accountId) {
         return feedService.subscribeToFeed(accountId);
+    }
+
+    @GetMapping(value = "/{accountId}/posts")
+    public List<PostCreatedEventModel> generateInitialFeed(@PathVariable UUID accountId) {
+        return feedService.generateInitialFeed(accountId);
     }
 }

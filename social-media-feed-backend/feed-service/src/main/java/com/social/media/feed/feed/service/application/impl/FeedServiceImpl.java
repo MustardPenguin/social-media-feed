@@ -1,7 +1,9 @@
 package com.social.media.feed.feed.service.application.impl;
 
+import com.social.media.feed.feed.service.application.dto.PostCreatedEventModel;
 import com.social.media.feed.feed.service.application.dto.PostCreatedResponse;
 import com.social.media.feed.feed.service.application.port.repository.FollowRepository;
+import com.social.media.feed.feed.service.application.port.repository.PostRepository;
 import com.social.media.feed.feed.service.application.port.service.FeedService;
 import com.social.media.feed.feed.service.domain.entity.Follow;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +16,7 @@ import reactor.core.publisher.Sinks;
 
 import java.time.Duration;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -22,11 +25,14 @@ import java.util.concurrent.atomic.AtomicLong;
 public class FeedServiceImpl implements FeedService {
 
     private final FollowRepository followRepository;
+    private final PostRepository postRepository;
     private final Sinks.Many<PostCreatedResponse> eventSink;
 
     public FeedServiceImpl(FollowRepository followRepository,
+                           PostRepository postRepository,
                            Sinks.Many<PostCreatedResponse> eventSink) {
         this.followRepository = followRepository;
+        this.postRepository = postRepository;
         this.eventSink = eventSink;
     }
 
@@ -46,5 +52,17 @@ public class FeedServiceImpl implements FeedService {
                    .id(counter.incrementAndGet() + "")
                    .build();
         });
+    }
+
+    @Override
+    public List<PostCreatedEventModel> generateInitialFeed(UUID accountId) {
+        List<Follow> followees = followRepository.getFolloweesByFollowerId(accountId);
+        log.info("Fetched followees of size: {}", followees.size());
+        for(Follow follow : followees) {
+            log.info("Followee: {}", follow.getFolloweeId());
+        }
+        List<PostCreatedEventModel> postCreatedEventModels = postRepository
+                .getRelevantPostsByAccountIds(followees.stream().map(Follow::getFolloweeId).toList());
+        return postCreatedEventModels;
     }
 }
