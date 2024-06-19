@@ -25,6 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @SpringBootTest(properties = {
         // Disables Kafka
         "spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.kafka.KafkaAutoConfiguration",
+        "spring.datasource.hikari.max-life = 600000",
         "eureka.client.enabled=false"})
 public class FeedServiceApplicationTest extends BaseTest {
 

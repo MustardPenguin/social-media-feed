@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/post-service/src/test/java/com/social/media/feed/post/service/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/application/impl/FeedServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/social/media/feed/feed/service/application/impl/FeedServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/AccountApplicationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/AccountApplicationServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/FollowServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/FollowServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/src/test/java/com/social/media/feed/feed/service/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/test/java/com/social/media/feed/feed/service/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/src/test/java/com/social/media/feed/feed/service/FeedServiceApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/test/java/com/social/media/feed/feed/service/FeedServiceApplicationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/test/java/com/social/media/feed/post/service/PostApplicationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/test/java/com/social/media/feed/post/service/PostApplicationServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +66,7 @@
     "JUnit.FeedServiceApplicationTest.feedServiceTest.executor": "Run",
     "JUnit.FollowServiceTest.executor": "Run",
     "JUnit.FollowServiceTest.testFollowService.executor": "Run",
-    "JUnit.PostApplicationServiceTest.executor": "Coverage",
+    "JUnit.PostApplicationServiceTest.executor": "Run",
     "JUnit.PostApplicationServiceTest.testPostService.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -106,6 +114,7 @@
       <recent name="com.social.media.feed.account.service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.social.media.feed.post.service" />
       <recent name="com.social.media.feed.feed.service.infrastructure.repository.follow" />
     </key>
   </component>
@@ -131,7 +140,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.FollowServiceTest">
+  <component name="RunManager" selected="JUnit.PostApplicationServiceTest">
     <configuration name="AccountApplicationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="account-service" />
       <extension name="coverage">
@@ -157,21 +166,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.social.media.feed.feed.service" />
       <option name="MAIN_CLASS_NAME" value="com.social.media.feed.feed.service.FeedServiceApplicationTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FeedServiceApplicationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="feed-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.social.meda.feed.feed.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.social.meda.feed.feed.service" />
-      <option name="MAIN_CLASS_NAME" value="com.social.meda.feed.feed.service.FeedServiceApplicationTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -208,13 +202,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PostApplicationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="post-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.social.media.feed.post.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.social.media.feed.post.service" />
+      <option name="MAIN_CLASS_NAME" value="com.social.media.feed.post.service.PostApplicationServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FollowServiceTest" />
+        <item itemvalue="JUnit.PostApplicationServiceTest" />
         <item itemvalue="JUnit.AccountApplicationServiceTest" />
+        <item itemvalue="JUnit.FollowServiceTest" />
         <item itemvalue="JUnit.FeedServiceApplicationTest (1)" />
         <item itemvalue="JUnit.FeedServiceApplicationTest.feedServiceTest (1)" />
-        <item itemvalue="JUnit.FeedServiceApplicationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -265,7 +274,7 @@
       <workItem from="1717461947729" duration="24093000" />
       <workItem from="1717900960243" duration="51000" />
       <workItem from="1717901017406" duration="12583000" />
-      <workItem from="1718223176637" duration="22646000" />
+      <workItem from="1718223176637" duration="27950000" />
     </task>
     <servers />
   </component>

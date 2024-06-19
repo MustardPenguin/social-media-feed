@@ -30,7 +30,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest(properties = "eureka.client.enabled=false")
+@SpringBootTest(properties = {"eureka.client.enabled=false", "spring.datasource.hikari.max-life = 600000"})
 public class AccountApplicationServiceTest extends BaseTest {
 
     @Autowired

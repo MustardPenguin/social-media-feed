@@ -21,7 +21,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@SpringBootTest(properties = "eureka.client.enabled=false")
+@SpringBootTest(properties = {"eureka.client.enabled=false"})
 public class FollowServiceTest extends BaseTest {
 
     @Autowired

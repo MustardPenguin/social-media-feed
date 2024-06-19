@@ -1,10 +1,8 @@
-package com.social.media.feed.feed.service;
+package com.social.media.feed.post.service;
 
 import com.redis.testcontainers.RedisContainer;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.cache.CacheProperties;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
@@ -14,7 +12,7 @@ public class BaseTest {
 
     static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:latest")
             .withUrlParam("stringtype", "unspecified")
-            .withUrlParam("currentSchema", "feed")
+            .withUrlParam("currentSchema", "post")
             .withInitScript("init-schema.sql")
             .withReuse(true);
 

@@ -6,14 +6,23 @@ import org.junit.jupiter.api.BeforeAll;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
-public class BaseTest {
+@Testcontainers
+public abstract class BaseTest {
 
-    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:latest")
-            .withUrlParam("stringtype", "unspecified")
-            .withUrlParam("currentSchema", "account")
-            .withInitScript("init-schema.sql")
-            .withReuse(true);
+    @Container
+    static final PostgreSQLContainer<?> postgres;
+
+    static {
+        postgres = new PostgreSQLContainer<>("postgres:latest")
+                .withUrlParam("stringtype", "unspecified")
+                .withUrlParam("currentSchema", "account")
+                .withInitScript("init-schema.sql")
+                .withReuse(true);
+    }
+
 
     @DynamicPropertySource
     static void configureProperties(DynamicPropertyRegistry registry) {
