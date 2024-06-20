@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/docker-compose/jenkins.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/jenkins/jenkins.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/jenkins/jenkins.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/jenkins/jenkins.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +136,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PostApplicationServiceTest">
+  <component name="RunManager" selected="JUnit.AccountApplicationServiceTest">
     <configuration name="AccountApplicationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="account-service" />
       <extension name="coverage">
@@ -216,8 +215,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PostApplicationServiceTest" />
         <item itemvalue="JUnit.AccountApplicationServiceTest" />
+        <item itemvalue="JUnit.PostApplicationServiceTest" />
         <item itemvalue="JUnit.FollowServiceTest" />
         <item itemvalue="JUnit.FeedServiceApplicationTest (1)" />
         <item itemvalue="JUnit.FeedServiceApplicationTest.feedServiceTest (1)" />
@@ -271,7 +270,7 @@
       <workItem from="1717461947729" duration="24093000" />
       <workItem from="1717900960243" duration="51000" />
       <workItem from="1717901017406" duration="12583000" />
-      <workItem from="1718223176637" duration="34331000" />
+      <workItem from="1718223176637" duration="36372000" />
     </task>
     <servers />
   </component>
