@@ -20,6 +20,7 @@ public abstract class BaseTest {
                 .withUrlParam("stringtype", "unspecified")
                 .withUrlParam("currentSchema", "account")
                 .withInitScript("init-schema.sql")
+                .withEnv("TESTCONTAINERS_HOST_OVERRIDE", "host.docker.internal")
                 .withReuse(true);
     }
 

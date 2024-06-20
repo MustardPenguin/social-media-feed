@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/post-service/src/test/java/com/social/media/feed/post/service/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/AccountApplicationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/AccountApplicationServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/FollowServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/FollowServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed-service/src/test/java/com/social/media/feed/feed/service/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/test/java/com/social/media/feed/feed/service/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed-service/src/test/java/com/social/media/feed/feed/service/FeedServiceApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/test/java/com/social/media/feed/feed/service/FeedServiceApplicationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post-service/src/test/java/com/social/media/feed/post/service/PostApplicationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/test/java/com/social/media/feed/post/service/PostApplicationServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/docker-compose/jenkins.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/jenkins/jenkins.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +35,9 @@
   ],
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 6
@@ -108,6 +104,7 @@
       <recent name="$PROJECT_DIR$/deployment/docker-compose" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/deployment/jenkins" />
       <recent name="$PROJECT_DIR$/deployment/docker-compose" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -274,7 +271,7 @@
       <workItem from="1717461947729" duration="24093000" />
       <workItem from="1717900960243" duration="51000" />
       <workItem from="1717901017406" duration="12583000" />
-      <workItem from="1718223176637" duration="27950000" />
+      <workItem from="1718223176637" duration="34331000" />
     </task>
     <servers />
   </component>

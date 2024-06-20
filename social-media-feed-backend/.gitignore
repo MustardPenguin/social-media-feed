@@ -3,7 +3,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-deployment/docker-compose/jenkins-data
+deployment/jenkins/jenkins-data
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
