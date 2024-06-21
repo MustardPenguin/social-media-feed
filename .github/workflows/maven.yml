@@ -31,3 +31,5 @@ jobs:
       run: > 
         cd social-media-feed-backend;
         mvn clean install;
+    - name: Log images
+        docker image ls
