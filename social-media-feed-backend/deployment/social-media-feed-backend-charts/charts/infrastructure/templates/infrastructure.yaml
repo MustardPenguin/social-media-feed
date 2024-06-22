@@ -1,0 +1,37 @@
+---
+{{- $namespace := .Values.namespace }}
+{{- with .Values.eurekaService }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka-service-deployment
+  namespace: {{ $namespace }}
+  labels:
+    app: eureka-service-deployment
+spec:
+  selector:
+    matchLabels:
+      app: eureka-service-deployment
+  template:
+    metadata:
+      labels:
+        app: eureka-service-deployment
+    spec:
+      containers:
+        - name: eureka-service-pod
+          image: {{ .image }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eureka-service
+  namespace: {{ $namespace }}
+  labels:
+    app: eureka-service
+spec:
+  selector:
+    app: eureka-service-deployment
+  ports:
+    - protocol: TCP
+      port: {{ .port }}
+    {{ end }}

@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/deployment/load-images.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/templates/infrastructure.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/test/java/com/social/media/feed/account/service/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -311,7 +306,7 @@
       <workItem from="1717461947729" duration="24093000" />
       <workItem from="1717900960243" duration="51000" />
       <workItem from="1717901017406" duration="12583000" />
-      <workItem from="1718223176637" duration="40257000" />
+      <workItem from="1718223176637" duration="47703000" />
     </task>
     <servers />
   </component>
