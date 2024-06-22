@@ -13,6 +13,8 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -31,3 +33,5 @@ jobs:
       run: > 
         cd social-media-feed-backend;
         mvn clean install;
+    - name: Log images
+      run: docker image ls
