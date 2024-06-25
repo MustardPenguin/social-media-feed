@@ -1,0 +1,37 @@
+
+version: '3.7'
+
+networks:
+  social_media_feed:
+    driver: bridge
+
+services:
+  generate-kafka-cluster-id:
+    image: confluentinc/cp-kafka:latest
+    platform: linux/amd64
+    hostname: generate-kafka-cluster-id
+    container_name: generate-kafka-cluster-id
+    user: root
+    volumes:
+      - ./scripts/generate_cluster_id.sh:/tmp/generate_cluster_id.sh
+      - ./clusterID:/tmp/clusterID
+    command: "bash -c '/tmp/generate_cluster_id.sh'"
+#  kafka-broker-1:
+#    image: confluentinc/cp-kafka:latest
+#    platform: linux/amd64
+#    user: root
+#    environment:
+#      KAFKA_BROKER_ID: 1
+#      KAFKA_NODE_ID: 1
+#      KAFKA_LISTENERS: BROKER://kafka-broker-1:9092,EXTERNAL://kafka-broker-1:39094,CONTROLLER://kafka-broker-1:9093
+#      KAFKA_ADVERTISED_LISTENERS: BROKER://kafka-broker-i1:9092,EXTERNAL://kafka-broker-1:39094
+#      KAFKA_INTER_BROKER_LISTENER_NAME: BROKER
+#      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+#      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,BROKER:PLAINTEXT,EXTERNAL:PLAINTEXT
+#      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+#      KAFKA_PROCESS_ROLES: 'controller,broker'
+#      KAFKA_CONTROLLER_QUORUM_VOTERS: '1@server-1:9093'
+#    volumes:
+#      - ./scripts/generate_cluster_id.sh:/tmp/generate_cluster_id.sh
+#      - ./clusterID:/tmp/clusterID
+#    command: "bash -c '/tmp/generate_cluster_id.sh && /etc/confluent/docker/run'"

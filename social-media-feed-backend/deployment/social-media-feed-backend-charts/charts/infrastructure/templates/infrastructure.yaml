@@ -6,19 +6,18 @@ kind: Deployment
 metadata:
   name: eureka-service-deployment
   namespace: {{ $namespace }}
-  labels:
-    app: eureka-service-deployment
 spec:
+  replicas: {{ .replicas }}
   selector:
     matchLabels:
-      app: eureka-service-deployment
+      app: eureka-service
   template:
     metadata:
       labels:
-        app: eureka-service-deployment
+        app: eureka-service
     spec:
       containers:
-        - name: eureka-service-pod
+        - name: eureka-service-container
           image: {{ .image }}
 ---
 apiVersion: v1
@@ -26,12 +25,126 @@ kind: Service
 metadata:
   name: eureka-service
   namespace: {{ $namespace }}
-  labels:
-    app: eureka-service
 spec:
   selector:
-    app: eureka-service-deployment
+    app: eureka-service
   ports:
     - protocol: TCP
       port: {{ .port }}
     {{ end }}
+---
+{{- with .Values.apiGatewayService }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gateway-service-deployment
+  namespace: {{ $namespace }}
+spec:
+  replicas: {{ .replicas }}
+  selector:
+    matchLabels:
+      app: api-gateway-service
+  template:
+    metadata:
+      labels:
+        app: api-gateway-service
+    spec:
+      containers:
+        - name: api-gateway-service-container
+          image: {{ .image }}
+          env:
+            {{- range .env }}
+            - name: {{ .name }}
+              value: {{ .value | quote }}
+            {{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-gateway-service
+  namespace: {{ $namespace }}
+spec:
+  selector:
+    app: api-gateway-service
+  ports:
+    - protocol: TCP
+      port: {{ .port }}
+{{- end }}
+---
+{{- with .Values.zookeeper }}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: zookeeper
+  namespace: {{ $namespace }}
+spec:
+  replicas: {{ .replicas }}
+  selector:
+    matchLabels:
+      app: zookeeper
+  template:
+    metadata:
+      labels:
+        app: zookeeper
+    spec:
+      containers:
+        - name: zookeeper-container
+          image: {{ .image }}
+          env:
+            {{- range .env }}
+            - name: {{ .name }}
+              value: {{ .value | quote }}
+            {{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zookeeper-service
+  namespace: {{ $namespace }}
+spec:
+  selector:
+    app: zookeeper
+  ports:
+    - protocol: TCP
+      port: {{ .port }}
+{{- end }}
+---
+{{- with .Values.kafka }}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: kafka-broker
+  namespace: {{ $namespace }}
+spec:
+  replicas: {{ .replicas }}
+  selector:
+    matchLabels:
+      app: kafka-broker
+  template:
+    metadata:
+      labels:
+        app: kafka-broker
+    spec:
+      containers:
+        - name: kafka-broker-container
+          image: {{ .image }}
+          ports:
+            - containerPort: {{ .port }}
+          env:
+            {{- range .env }}
+            - name: {{ .name }}
+              value: {{ .value | quote }}
+            {{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka-broker-service
+  namespace: {{ $namespace }}
+spec:
+  selector:
+    app: kafka-broker
+  ports:
+    - protocol: TCP
+      port: {{ .port }}
+  {{- end }}

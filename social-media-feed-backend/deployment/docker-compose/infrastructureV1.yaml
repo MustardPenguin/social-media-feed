@@ -1,4 +1,6 @@
 
+# Infrastructure that uses zookeeper
+
 version: '3.7'
 
 networks:
