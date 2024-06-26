@@ -1,6 +1,4 @@
 
-# Infrastructure with Kafka Kraft, no Zookeeper
-
 version: '3.7'
 
 networks:
@@ -8,7 +6,68 @@ networks:
     driver: bridge
 
 services:
-  # Schema Registry
+  # Generates cluster id and stores it in ./clusterID
+  generate-kafka-cluster-id:
+    image: confluentinc/cp-kafka:latest
+    platform: linux/amd64
+    hostname: generate-kafka-cluster-id
+    container_name: generate-kafka-cluster-id
+    user: root
+    volumes:
+      - ./scripts/generate-cluster-id.sh:/tmp/generate-cluster-id.sh
+      - ./clusterID:/tmp/clusterID
+    command: "bash -c '/tmp/generate-cluster-id.sh'"
+  kafka-broker-1:
+    image: confluentinc/cp-kafka:latest
+    platform: linux/amd64
+    ports:
+      - "19092:19092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_NODE_ID: 1
+      KAFKA_LISTENERS: BROKER://kafka-broker-1:9092,EXTERNAL://kafka-broker-1:39094,CONTROLLER://kafka-broker-1:9093,LOCALHOST://0.0.0.0:19092
+      KAFKA_ADVERTISED_LISTENERS: BROKER://kafka-broker-1:9092,EXTERNAL://kafka-broker-1:39094,LOCALHOST://localhost:19092
+      KAFKA_INTER_BROKER_LISTENER_NAME: BROKER
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,BROKER:PLAINTEXT,EXTERNAL:PLAINTEXT,LOCALHOST:PLAINTEXT
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_PROCESS_ROLES: 'controller,broker'
+      KAFKA_CONTROLLER_QUORUM_VOTERS: '1@kafka-broker-1:9093,2@kafka-broker-2:9093,3@kafka-broker-3:9093'
+      CLUSTER_ID: f1p7ULGbT_qGDINRRLoz7g
+  kafka-broker-2:
+    image: confluentinc/cp-kafka:latest
+    platform: linux/amd64
+    ports:
+      - "29092:29092"
+    environment:
+      KAFKA_BROKER_ID: 2
+      KAFKA_NODE_ID: 2
+      KAFKA_LISTENERS: BROKER://kafka-broker-2:9092,EXTERNAL://kafka-broker-2:39094,CONTROLLER://kafka-broker-2:9093,LOCALHOST://0.0.0.0:29092
+      KAFKA_ADVERTISED_LISTENERS: BROKER://kafka-broker-2:9092,EXTERNAL://kafka-broker-2:39094,LOCALHOST://localhost:29092
+      KAFKA_INTER_BROKER_LISTENER_NAME: BROKER
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,BROKER:PLAINTEXT,EXTERNAL:PLAINTEXT,LOCALHOST:PLAINTEXT
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_PROCESS_ROLES: 'controller,broker'
+      KAFKA_CONTROLLER_QUORUM_VOTERS: '1@kafka-broker-1:9093,2@kafka-broker-2:9093,3@kafka-broker-3:9093'
+      CLUSTER_ID: f1p7ULGbT_qGDINRRLoz7g
+  kafka-broker-3:
+    image: confluentinc/cp-kafka:latest
+    platform: linux/amd64
+    ports:
+      - "39092:39092"
+    environment:
+      KAFKA_BROKER_ID: 3
+      KAFKA_NODE_ID: 3
+      KAFKA_LISTENERS: BROKER://kafka-broker-3:9092,EXTERNAL://kafka-broker-3:39094,CONTROLLER://kafka-broker-3:9093,LOCALHOST://0.0.0.0:39092
+      KAFKA_ADVERTISED_LISTENERS: BROKER://kafka-broker-3:9092,EXTERNAL://kafka-broker-3:39094,LOCALHOST://localhost:39092
+      KAFKA_INTER_BROKER_LISTENER_NAME: BROKER
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,BROKER:PLAINTEXT,EXTERNAL:PLAINTEXT,LOCALHOST:PLAINTEXT
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_PROCESS_ROLES: 'controller,broker'
+      KAFKA_CONTROLLER_QUORUM_VOTERS: '1@kafka-broker-1:9093,2@kafka-broker-2:9093,3@kafka-broker-3:9093'
+      CLUSTER_ID: f1p7ULGbT_qGDINRRLoz7g
   schema-registry:
     image: confluentinc/cp-schema-registry:latest
     platform: linux/amd64
@@ -17,63 +76,13 @@ services:
       - kafka-broker-1
       - kafka-broker-2
       - kafka-broker-3
-      - zookeeper
     ports:
       - "8081:8081"
     environment:
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
-#      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: zookeeper:2181
       SCHEMA_REGISTRY_LISTENERS: http://schema-registry:8081
       SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: kafka-broker-1:9092,kafka-broker-2:9092,kafka-broker-3:9092
       SCHEMA_REGISTRY_DEBUG: 'true'
-  # Kafka
-  kafka-broker-1:
-    image: confluentinc/cp-kafka:latest
-    platform: linux/amd64
-    hostname: kafka-broker-1
-    container_name: kafka-broker-1
-    ports:
-      - "19092:19092"
-    user: root
-    environment:
-      KAFKA_BROKER_ID: 1
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-broker-1:9092,PLAINTEXT_HOST://localhost:19092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_PORT_NAME: PLAINTEXT
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
-      KAFKA_COMPRESSION_TYPE: producer
-  kafka-broker-2:
-    image: confluentinc/cp-kafka:latest
-    platform: linux/amd64
-    hostname: kafka-broker-2
-    container_name: kafka-broker-2
-    ports:
-      - "29092:29092"
-    user: root
-    environment:
-      KAFKA_BROKER_ID: 2
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-broker-2:9092,PLAINTEXT_HOST://localhost:29092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_PORT_NAME: PLAINTEXT
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
-      KAFKA_COMPRESSION_TYPE: producer
-  kafka-broker-3:
-    image: confluentinc/cp-kafka:latest
-    platform: linux/amd64
-    hostname: kafka-broker-3
-    container_name: kafka-broker-3
-    ports:
-      - "39092:39092"
-    user: root
-    environment:
-      KAFKA_BROKER_ID: 3
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-broker-3:9092,PLAINTEXT_HOST://localhost:39092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_PORT_NAME: PLAINTEXT
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
-      KAFKA_COMPRESSION_TYPE: producer
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
     platform: linux/amd64
@@ -81,7 +90,6 @@ services:
     ports:
       - "9000:8080"
     environment:
-      ZK_HOST: zookeeper:2181
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka-broker-1:9092,kafka-broker-2:9092,kafka-broker-3:9092
       KAFKA_CLUSTERS_0_SCHEMA_REGISTRY: http://schema-registry:8081
@@ -111,16 +119,6 @@ services:
       VALUE_CONVERTER: io.confluent.connect.avro.AvroConverter
       CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
       CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
-  # Database
-  redis:
-    image: redis:7.2
-    platform: linux/amd64
-    container_name: redis
-    hostname: redis
-    ports:
-      - "6379:6379"
-    environment:
-      REDIS_PASSWORD: admin
   postgres-cdc:
     image: debezium/postgres:16
     platform: linux/amd64
@@ -139,3 +137,12 @@ services:
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: admin
+  redis:
+    image: redis:7.2
+    platform: linux/amd64
+    container_name: redis
+    hostname: redis
+    ports:
+      - "6379:6379"
+    environment:
+      REDIS_PASSWORD: admin

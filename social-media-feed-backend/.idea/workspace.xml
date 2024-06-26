@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/deployment/docker-compose/infrastructureV2.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/docker-compose/kafka-kraft-sandbox.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/docker-compose/scripts/format-clusters.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/docker-compose/scripts/generate_cluster_id.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/docker-compose/infrastructure.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/docker-compose/infrastructureV1.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/docker-compose/init-connectors.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/docker-compose/scripts/init-connectors.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/templates/infrastructure.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/templates/infrastructure.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/values.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/docker-compose/clusterID/clusterID" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/docker-compose/infrastructureV2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/docker-compose/infrastructureV2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/docker-compose/kafka-kraft-sandbox.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/docker-compose/kafka-kraft-sandbox.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/docker-compose/scripts/format-clusters.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/docker-compose/scripts/generate_cluster_id.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/docker-compose/scripts/generate-cluster-id.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -313,7 +311,7 @@
       <workItem from="1717461947729" duration="24093000" />
       <workItem from="1717900960243" duration="51000" />
       <workItem from="1717901017406" duration="12583000" />
-      <workItem from="1718223176637" duration="71519000" />
+      <workItem from="1718223176637" duration="88162000" />
     </task>
     <servers />
   </component>
