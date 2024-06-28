@@ -71,44 +71,6 @@ spec:
       port: {{ .port }}
 {{- end }}
 ---
-{{- with .Values.zookeeper }}
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  name: zookeeper
-  namespace: {{ $namespace }}
-spec:
-  replicas: {{ .replicas }}
-  selector:
-    matchLabels:
-      app: zookeeper
-  template:
-    metadata:
-      labels:
-        app: zookeeper
-    spec:
-      containers:
-        - name: zookeeper-container
-          image: {{ .image }}
-          env:
-            {{- range .env }}
-            - name: {{ .name }}
-              value: {{ .value | quote }}
-            {{- end }}
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: zookeeper-service
-  namespace: {{ $namespace }}
-spec:
-  selector:
-    app: zookeeper
-  ports:
-    - protocol: TCP
-      port: {{ .port }}
-{{- end }}
----
 {{- with .Values.kafka }}
 apiVersion: apps/v1
 kind: StatefulSet
@@ -117,6 +79,7 @@ metadata:
   namespace: {{ $namespace }}
 spec:
   replicas: {{ .replicas }}
+  serviceName: kafka-broker-service
   selector:
     matchLabels:
       app: kafka-broker
@@ -130,11 +93,25 @@ spec:
           image: {{ .image }}
           ports:
             - containerPort: {{ .port }}
+          command: ["sh", "-exc"]
+          args: ["export KAFKA_NODE_ID=${HOSTNAME##*-} &&
+          export KAFKA_ADVERTISED_LISTENERS=BROKER://${POD_NAME}.kafka-broker-service.${POD_NAMESPACE}.svc.cluster.local:9092 &&
+          export KAFKA_CONTROLLER_QUORUM_VOTERS=0@kafka-broker-0.kafka-broker-service.${POD_NAMESPACE}.svc.cluster.local:9093,1@kafka-broker-1.kafka-broker-service.${POD_NAMESPACE}.svc.cluster.local:9093,2@kafka-broker-2.kafka-broker-service.${POD_NAMESPACE}.svc.cluster.local:9093 &&
+
+          exec /etc/confluent/docker/run
+          "]
           env:
             {{- range .env }}
             - name: {{ .name }}
               value: {{ .value | quote }}
             {{- end }}
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              value: {{ $namespace }}
 ---
 apiVersion: v1
 kind: Service
@@ -142,9 +119,24 @@ metadata:
   name: kafka-broker-service
   namespace: {{ $namespace }}
 spec:
+  clusterIP: None
+  clusterIPs:
+    - None
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+    - name: tcp-kafka-int
+      port: {{ .port }}
+      protocol: TCP
+      targetPort: tcp-kafka-int
+    - name: tcp-kafka-ctrl
+      port: 9093
+      protocol: TCP
+      targetPort: tcp-kafka-ctrl
   selector:
     app: kafka-broker
-  ports:
-    - protocol: TCP
-      port: {{ .port }}
+  sessionAffinity: None
+  type: ClusterIP
   {{- end }}

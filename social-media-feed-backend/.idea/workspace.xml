@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/739dff82-06a2-4655-8211-699615db51b6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/739dff82-06a2-4655-8211-699615db51b6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/docker-compose/clusterID/clusterID" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/docker-compose/infrastructureV2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/docker-compose/infrastructureV2.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/docker-compose/kafka-kraft-sandbox.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/docker-compose/kafka-kraft-sandbox.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/docker-compose/scripts/format-clusters.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/docker-compose/scripts/generate_cluster_id.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/docker-compose/scripts/generate-cluster-id.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/templates/infrastructure.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/templates/infrastructure.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/values.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feed-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,12 +31,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="KubernetesApiProvider">{
-  &quot;configuredContexts&quot;: [
-    {
-      &quot;name&quot;: &quot;kind-kind&quot;,
-      &quot;kubeConfigUrl&quot;: &quot;file:///home/mustardpenguin/.kube/config&quot;
-    }
-  ],
   &quot;isMigrated&quot;: true
 }</component>
   <component name="MarkdownSettingsMigration">
@@ -54,52 +48,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.AccountApplicationServiceTest and 1 more.executor": "Coverage",
-    "JUnit.AccountApplicationServiceTest.executor": "Run",
-    "JUnit.AccountApplicationServiceTest.testAuthentication.executor": "Run",
-    "JUnit.AccountApplicationServiceTest.testFollowService.executor": "Run",
-    "JUnit.FeedServiceApplicationTest (1).executor": "Coverage",
-    "JUnit.FeedServiceApplicationTest.executor": "Run",
-    "JUnit.FeedServiceApplicationTest.feedServiceTest (1).executor": "Run",
-    "JUnit.FeedServiceApplicationTest.feedServiceTest.executor": "Run",
-    "JUnit.FollowServiceTest.executor": "Run",
-    "JUnit.FollowServiceTest.testFollowService.executor": "Run",
-    "JUnit.PostApplicationServiceTest.executor": "Run",
-    "JUnit.PostApplicationServiceTest.testPostService.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.AccountApplicationService.executor": "Run",
-    "Spring Boot.ApiGatewayServiceApplication.executor": "Run",
-    "Spring Boot.EurekaServerApplication.executor": "Run",
-    "Spring Boot.FeedApplicationService.executor": "Run",
-    "Spring Boot.PostApplicationService.executor": "Run",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "17",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/mustardpenguin/repos/social-media-feed/social-media-feed-backend/deployment/docker-compose",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.AccountApplicationServiceTest and 1 more.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.AccountApplicationServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AccountApplicationServiceTest.testAuthentication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AccountApplicationServiceTest.testFollowService.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FeedServiceApplicationTest (1).executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.FeedServiceApplicationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FeedServiceApplicationTest.feedServiceTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FeedServiceApplicationTest.feedServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FollowServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FollowServiceTest.testFollowService.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PostApplicationServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PostApplicationServiceTest.testPostService.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AccountApplicationService.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ApiGatewayServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.EurekaServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.FeedApplicationService.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.PostApplicationService.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mustardpenguin/repos/social-media-feed/social-media-feed-backend/deployment/docker-compose&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql",
-      "redis"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;,
+      &quot;redis&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -267,7 +261,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-20.0.2-azul-20.0.2-4caba194b151-895bf479" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
       </set>
     </attachedChunks>
   </component>
@@ -311,7 +306,9 @@
       <workItem from="1717461947729" duration="24093000" />
       <workItem from="1717900960243" duration="51000" />
       <workItem from="1717901017406" duration="12583000" />
-      <workItem from="1718223176637" duration="88162000" />
+      <workItem from="1718223176637" duration="104154000" />
+      <workItem from="1719524216999" duration="106000" />
+      <workItem from="1719524330096" duration="2145000" />
     </task>
     <servers />
   </component>

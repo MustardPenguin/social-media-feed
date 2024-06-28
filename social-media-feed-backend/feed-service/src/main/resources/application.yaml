@@ -44,7 +44,6 @@ spring:
 # Kafka config
 kafka-config-data:
   bootstrap-server: ${BOOTSTRAP_SERVERS:localhost:19092,localhost:29092,localhost:39092}
-#  bootstrap-server: ${KAFKA_BROKER_1_HOST:localhost}:${KAFKA_BROKER_PORT:19092}, ${KAFKA_BROKER_2_HOST:localhost}:${KAFKA_BROKER_PORT:29092}, ${KAFKA_BROKER_3_HOST:localhost}:${KAFKA_BROKER_PORT:39092}
   schema-registry-url: ${SCHEMA_REGISTRY_HOST:http://localhost}:8081
   schema-registry-url-key: schema.registry.url
   key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
