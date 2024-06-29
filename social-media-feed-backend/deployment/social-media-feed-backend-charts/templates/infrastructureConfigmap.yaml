@@ -1,0 +1,14 @@
+{{ $namespace := .Values.global.infrastructureNamespace }}
+---
+{{ with .Values }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $.Values.global.infrastructureConfigMapName }}
+  namespace: {{ $namespace }}
+data:
+  {{- range .infrastructureConfigMapData }}
+  {{ .name | quote }}: {{ .value | quote }}
+  {{- end }}
+  {{- end }}
+---

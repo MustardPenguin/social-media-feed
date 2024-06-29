@@ -4,7 +4,20 @@
 
 replicaCount: 1
 
+# Global values for other child helm charts
+global:
+  infrastructureConfigMapName: infrastructure-configmap
+  infrastructureNamespace: default
 
+# Values only for the umbrella chart
+
+# Defines config map values at ./infrastructureConfigmap.yaml
+infrastructureConfigMapData:
+    # Kafka bootstrap server is composed of {pod-name}.{service-name}.{namespace}.svc.cluster.local:{port}
+    - name: KAFKA_BOOTSTRAP_SERVERS
+      value: kafka-broker-0.kafka-broker-service.default.svc.cluster.local:9092,kafka-broker-1.kafka-broker-service.default.svc.cluster.local:9092,kafka-broker-2.kafka-broker-service.default.svc.cluster.local:9092
+    - name: EUREKA_HOST
+      value: http://eureka-service
 
 image:
   repository: nginx

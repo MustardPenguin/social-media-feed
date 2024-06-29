@@ -1,0 +1,55 @@
+{{- $namespace := .Values.global.infrastructureNamespace }}
+{{- with .Values.kafkaUI }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-ui-deployment
+  namespace: {{ $namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: kafka-ui
+  template:
+    metadata:
+      labels:
+        app: kafka-ui
+    spec:
+      containers:
+        - name: kafka-ui-container
+          image: {{ .image }}
+          ports:
+            - containerPort: {{ .port }}
+{{/*          command: ["sh", "-exc"]*/}}
+{{/*          args: ["*/}}
+{{/*          export KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka-broker-0.kafka-broker-service.${POD_NAMESPACE}.svc.cluster.local:9092,kafka-broker-1.kafka-broker-service.${POD_NAMESPACE}.svc.cluster.local:9092,kafka-broker-2.kafka-broker-service.${POD_NAMESPACE}.svc.cluster.local:9092*/}}
+
+
+{{/*          "]*/}}
+          env:
+            {{- range .env }}
+            - name: {{ .name }}
+              value: {{ .value | quote }}
+            {{- end }}
+            - name: POD_NAMESPACE
+              value: {{ $namespace }}
+            - name: SERVER_PORT
+              value: {{ .port | quote }}
+            - name: KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ $.Values.global.infrastructureConfigMapName }}
+                  key: KAFKA_BOOTSTRAP_SERVERS
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka-ui-service
+  namespace: {{ $namespace }}
+spec:
+  selector:
+    app: kafka-ui
+  ports:
+    - protocol: TCP
+      port: {{ .port }}
+---
+{{- end }}

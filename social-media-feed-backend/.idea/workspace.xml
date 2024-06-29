@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/739dff82-06a2-4655-8211-699615db51b6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/739dff82-06a2-4655-8211-699615db51b6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7682fa1-f2f0-458a-be54-3374cd3a434a.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/templates/monitoring.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/templates/infrastructureConfigmap.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/templates/infrastructure.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/templates/infrastructure.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/values.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/values.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -308,7 +307,7 @@
       <workItem from="1717901017406" duration="12583000" />
       <workItem from="1718223176637" duration="104154000" />
       <workItem from="1719524216999" duration="106000" />
-      <workItem from="1719524330096" duration="2145000" />
+      <workItem from="1719524330096" duration="19775000" />
     </task>
     <servers />
   </component>

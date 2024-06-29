@@ -1,5 +1,5 @@
 ---
-{{- $namespace := .Values.namespace }}
+{{- $namespace := .Values.global.infrastructureNamespace }}
 {{- with .Values.eurekaService }}
 apiVersion: apps/v1
 kind: Deployment
@@ -140,3 +140,57 @@ spec:
   sessionAffinity: None
   type: ClusterIP
   {{- end }}
+---
+{{- with .Values.schemaRegistry }}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: schema-registry-deployment
+  namespace: {{ $namespace }}
+spec:
+  replicas: {{ .replicas }}
+  selector:
+    matchLabels:
+      app: schema-registry
+  template:
+    metadata:
+      labels:
+        app: schema-registry
+    spec:
+      containers:
+        - name: schema-registry-container
+          image: {{ .image }}
+          ports:
+            - containerPort: {{ .port }}
+{{/*          command: ["sh", "-exc"]*/}}
+{{/*          args: ["*/}}
+{{/*          export SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS=kafka-broker-0.kafka-broker-service.${POD_NAMESPACE}.svc.cluster.local:9092,kafka-broker-1.kafka-broker-service.${POD_NAMESPACE}.svc.cluster.local:9092,kafka-broker-2.kafka-broker-service.${POD_NAMESPACE}.svc.cluster.local:9092*/}}
+
+{{/*          exec /etc/confluent/docker/run*/}}
+{{/*          "]*/}}
+          env:
+            {{- range .env }}
+            - name: {{ .name }}
+              value: {{ .value | quote }}
+            {{- end}}
+            - name: POD_NAMESPACE
+              value: {{ $namespace }}
+            - name: SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ $.Values.global.infrastructureConfigMapName }}
+                  key: KAFKA_BOOTSTRAP_SERVERS
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: schema-registry-service
+  namespace: {{ $namespace }}
+spec:
+  selector:
+    app: schema-registry
+  ports:
+    - protocol: TCP
+      port: {{ .port }}
+      {{- end }}
+---
