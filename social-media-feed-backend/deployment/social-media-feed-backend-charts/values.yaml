@@ -18,6 +18,8 @@ infrastructureConfigMapData:
       value: kafka-broker-0.kafka-broker-service.default.svc.cluster.local:9092,kafka-broker-1.kafka-broker-service.default.svc.cluster.local:9092,kafka-broker-2.kafka-broker-service.default.svc.cluster.local:9092
     - name: EUREKA_HOST
       value: http://eureka-service
+    - name: SCHEMA_REGISTRY_HOST
+      value: http://schema-registry:8081
 
 image:
   repository: nginx

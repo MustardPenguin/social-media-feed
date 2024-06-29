@@ -51,18 +51,37 @@ schemaRegistry:
     - name: SCHEMA_REGISTRY_DEBUG
       value: 'true'
 
+debezium:
+  # The debezium docker file for this image should be available in the deployment/docker-compose directory
+  image: com.social.media.feed/debezium-connect:1.0-SNAPSHOT
+  port: 8083
+  env:
+    - name: GROUP_ID
+      value: 1
+    - name: CONFIG_STORAGE_TOPIC
+      value: "connect-config"
+    - name: OFFSET_STORAGE_TOPIC
+      value: "connect-offsets"
+    - name: STATUS_STORAGE_TOPIC
+      value: "connect-status"
+    - name: CONNECT_SCHEMA_NAME_ADJUSTMENT_MODE
+      value: avro
+    - name: KEY_CONVERTER
+      value: io.confluent.connect.avro.AvroConverter
+    - name: VALUE_CONVERTER
+      value: io.confluent.connect.avro.AvroConverter
+    - name: CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL
+      value: http://schema-registry:8081
+    - name: CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL
+      value: http://schema-registry:8081
+
 kafkaUI:
   image: provectuslabs/kafka-ui:latest
   port: 8080
   env:
     - name: KAFKA_CLUSTERS_0_NAME
       value: cluster
-    - name: KAFKA_CLUSTERS_0_SCHEMA_REGISTRY
-      value: http://schema-registry-service:8081
 
-debezium:
-  image: debezium/connect:2.5
-  port: 8083
 
 image:
   repository: nginx

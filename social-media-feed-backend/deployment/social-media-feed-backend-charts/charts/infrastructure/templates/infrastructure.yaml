@@ -162,12 +162,6 @@ spec:
           image: {{ .image }}
           ports:
             - containerPort: {{ .port }}
-{{/*          command: ["sh", "-exc"]*/}}
-{{/*          args: ["*/}}
-{{/*          export SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS=kafka-broker-0.kafka-broker-service.${POD_NAMESPACE}.svc.cluster.local:9092,kafka-broker-1.kafka-broker-service.${POD_NAMESPACE}.svc.cluster.local:9092,kafka-broker-2.kafka-broker-service.${POD_NAMESPACE}.svc.cluster.local:9092*/}}
-
-{{/*          exec /etc/confluent/docker/run*/}}
-{{/*          "]*/}}
           env:
             {{- range .env }}
             - name: {{ .name }}
@@ -180,6 +174,11 @@ spec:
                 configMapKeyRef:
                   name: {{ $.Values.global.infrastructureConfigMapName }}
                   key: KAFKA_BOOTSTRAP_SERVERS
+            - name: KAFKA_CLUSTERS_0_SCHEMA_REGISTRY
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ $.Values.global.infrastructureConfigMapName }}
+                  key: SCHEMA_REGISTRY_HOST
 ---
 apiVersion: v1
 kind: Service
@@ -194,3 +193,57 @@ spec:
       port: {{ .port }}
       {{- end }}
 ---
+{{- with .Values.debezium }}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: debezium-deployment
+  namespace: {{ $namespace }}
+spec:
+  serviceName: debezium-service
+  selector:
+    matchLabels:
+      app: debezium
+  template:
+    metadata:
+      labels:
+        app: debezium
+    spec:
+      containers:
+        - name: debezium-container
+          image: {{ .image }}
+          ports:
+            - containerPort: {{ .port }}
+          env:
+            {{- range .env }}
+            - name: {{ .name }}
+              value: {{ .value | quote }}
+            {{- end }}
+            - name: BOOTSTRAP_SERVERS
+              valueFrom:
+                  configMapKeyRef:
+                    name: {{ $.Values.global.infrastructureConfigMapName }}
+                    key: KAFKA_BOOTSTRAP_SERVERS
+            - name: CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ $.Values.global.infrastructureConfigMapName }}
+                  key: SCHEMA_REGISTRY_HOST
+            - name: CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ $.Values.global.infrastructureConfigMapName }}
+                  key: SCHEMA_REGISTRY_HOST
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: debezium-service
+  namespace: {{ $namespace }}
+spec:
+  selector:
+    app: debezium
+  ports:
+    - protocol: TCP
+      port: {{ .port }}
+{{- end }}

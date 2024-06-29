@@ -19,12 +19,6 @@ spec:
           image: {{ .image }}
           ports:
             - containerPort: {{ .port }}
-{{/*          command: ["sh", "-exc"]*/}}
-{{/*          args: ["*/}}
-{{/*          export KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka-broker-0.kafka-broker-service.${POD_NAMESPACE}.svc.cluster.local:9092,kafka-broker-1.kafka-broker-service.${POD_NAMESPACE}.svc.cluster.local:9092,kafka-broker-2.kafka-broker-service.${POD_NAMESPACE}.svc.cluster.local:9092*/}}
-
-
-{{/*          "]*/}}
           env:
             {{- range .env }}
             - name: {{ .name }}
