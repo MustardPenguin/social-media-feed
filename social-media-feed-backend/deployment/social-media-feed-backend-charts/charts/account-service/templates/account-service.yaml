@@ -1,0 +1,74 @@
+{{- $global := .Values.global }}
+{{- $namespace := $global.microservicesNamespace }}
+---
+{{- with .Values }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: account-service-deployment
+  namespace: {{ $namespace }}
+spec:
+  replicas: {{ .replicaCount }}
+  selector:
+    matchLabels:
+      app: account-service
+  template:
+    metadata:
+      labels:
+        app: account-service
+    spec:
+      containers:
+        - name: account-service-container
+          image: {{ .podImage }}
+          ports:
+            - containerPort: {{ .servicePort }}
+          env:
+            {{- range .env }}
+            - name: {{ .name }}
+              value: {{ .value }}
+            {{- end }}
+            - name: EUREKA_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ $.Values.global.infrastructureConfigMapName }}
+                  key: EUREKA_HOST
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: account-service
+  namespace: {{ $namespace }}
+spec:
+  selector:
+    app: account-service
+  ports:
+    - protocol: TCP
+      port: {{ .servicePort }}
+{{- end }}
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: account-postgres
+  namespace: {{ $namespace }}
+spec:
+  serviceName: postgres-headless
+  selector:
+    matchLabels:
+      app: account-postgres
+  template:
+    metadata:
+      labels:
+        app: account-postgres
+        database: postgres
+    spec:
+      containers:
+        - name: account-postgres-container
+          image: {{ $global.postgresImage }}
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: user
+            - name: POSTGRES_PASSWORD
+              value: admin
