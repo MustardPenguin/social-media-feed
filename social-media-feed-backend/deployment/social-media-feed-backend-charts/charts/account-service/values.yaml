@@ -5,6 +5,7 @@
 replicaCount: 1
 servicePort: 8181
 podImage: com.social.media.feed/account-service:1.0-SNAPSHOT
+
 env:
   - name: LOGGING_LEVEL
     value: INFO

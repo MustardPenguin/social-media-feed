@@ -1,24 +1,22 @@
-{{- $global := .Values.global }}
-{{- $namespace := $global.microservicesNamespace }}
----
+{{ $namespace := .Values.global.microservicesNamespace }}
 {{- with .Values }}
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: account-service-deployment
+  name: post-service-deployment
   namespace: {{ $namespace }}
 spec:
-  replicas: {{ .replicaCount }}
   selector:
     matchLabels:
-      app: account-service
+      app: post-service
   template:
     metadata:
       labels:
-        app: account-service
+        app: post-service
     spec:
       containers:
-        - name: account-service-container
+        - name: post-service-container
           image: {{ .podImage }}
           ports:
             - containerPort: {{ .servicePort }}
@@ -36,11 +34,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: account-service
+  name: post-service
   namespace: {{ $namespace }}
 spec:
   selector:
-    app: account-service
+    app: post-service
   ports:
     - protocol: TCP
       port: {{ .servicePort }}
@@ -48,22 +46,22 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: account-postgres
+  name: post-postgres
   namespace: {{ $namespace }}
 spec:
   serviceName: postgres-headless
   selector:
     matchLabels:
-      app: account-postgres
+      app: post-postgres
   template:
     metadata:
       labels:
-        app: account-postgres
+        app: post-postgres
         database: postgres
     spec:
       containers:
-        - name: account-postgres-container
-          image: {{ $global.postgresImage }}
+        - name: post-postgres-container
+          image: {{ $.Values.global.postgresImage }}
           ports:
             - containerPort: {{ $.Values.global.postgresPort }}
           env:
@@ -71,4 +69,30 @@ spec:
               value: user
             - name: POSTGRES_PASSWORD
               value: admin
-  {{- end }}
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: post-redis
+  namespace: {{ $namespace }}
+spec:
+  serviceName: redis-headless
+  selector:
+    matchLabels:
+      app: post-redis
+  template:
+    metadata:
+      labels:
+        app: post-redis
+        database: redis
+    spec:
+      containers:
+        - name: post-redis-container
+          image: {{ $.Values.global.redisImage }}
+          ports:
+            - containerPort: {{ $.Values.global.redisPort }}
+          env:
+            - name: REDIS_PASSWORD
+              value: {{ .redisPassword }}
+{{- end }}
+---
