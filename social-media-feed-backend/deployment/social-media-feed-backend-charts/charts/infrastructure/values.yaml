@@ -4,6 +4,8 @@
 
 replicaCount: 1
 
+busyboxImage: busybox:1.36.1
+
 eurekaService:
   image: com.social.media.feed/eureka-service:1.0-SNAPSHOT
   port: 8761
@@ -70,10 +72,6 @@ debezium:
       value: io.confluent.connect.avro.AvroConverter
     - name: VALUE_CONVERTER
       value: io.confluent.connect.avro.AvroConverter
-    - name: CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL
-      value: http://schema-registry:8081
-    - name: CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL
-      value: http://schema-registry:8081
 
 kafkaUI:
   image: provectuslabs/kafka-ui:latest

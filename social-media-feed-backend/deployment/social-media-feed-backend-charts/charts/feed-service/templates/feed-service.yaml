@@ -1,22 +1,22 @@
 {{ $namespace := .Values.global.microservicesNamespace }}
-{{- with .Values }}
 ---
+{{ with .Values }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: post-service-deployment
+  name: feed-service-deployment
   namespace: {{ $namespace }}
 spec:
   selector:
     matchLabels:
-      app: post-service
+      app: feed-service
   template:
     metadata:
       labels:
-        app: post-service
+        app: feed-service
     spec:
       containers:
-        - name: post-service-container
+        - name: feed-service-container
           image: {{ .podImage }}
           ports:
             - containerPort: {{ .servicePort }}
@@ -28,17 +28,22 @@ spec:
             - name: EUREKA_HOST
               valueFrom:
                 configMapKeyRef:
-                  name: {{ $.Values.global.infrastructureConfigMapName }}
+                  name: {{ .global.infrastructureConfigMapName }}
                   key: EUREKA_HOST
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .global.infrastructureConfigMapName }}
+                  key: KAFKA_BOOTSTRAP_SERVERS
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: post-service
+  name: feed-service
   namespace: {{ $namespace }}
 spec:
   selector:
-    app: post-service
+    app: feed-service
   ports:
     - protocol: TCP
       port: {{ .servicePort }}
@@ -46,24 +51,24 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: post-postgres
+  name: feed-postgres
   namespace: {{ $namespace }}
 spec:
   serviceName: postgres-headless
   selector:
     matchLabels:
-      app: post-postgres
+      app: feed-postgres
   template:
     metadata:
       labels:
-        app: post-postgres
+        app: feed-postgres
         database: postgres
     spec:
       containers:
-        - name: post-postgres-container
-          image: {{ $.Values.global.postgresImage }}
+        - name: feed-postgres-container
+          image: {{ .global.postgresImage }}
           ports:
-            - containerPort: {{ $.Values.global.postgresPort }}
+            - containerPort: {{ .global.postgresPort }}
           env:
             - name: POSTGRES_USER
               value: user
@@ -73,26 +78,26 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: post-redis
+  name: feed-redis
   namespace: {{ $namespace }}
 spec:
   serviceName: redis-headless
   selector:
     matchLabels:
-      app: post-redis
+      app: feed-redis
   template:
     metadata:
       labels:
-        app: post-redis
+        app: feed-redis
         database: redis
     spec:
       containers:
-        - name: post-redis-container
-          image: {{ $.Values.global.redisImage }}
+        - name: feed-redis-container
+          image: {{ .global.redisImage }}
           ports:
-            - containerPort: {{ $.Values.global.redisPort }}
+            - containerPort: {{ .global.redisPort }}
           env:
             - name: REDIS_PASSWORD
               value: admin
-{{- end }}
 ---
+{{- end }}

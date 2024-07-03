@@ -9,7 +9,6 @@ global:
   infrastructureConfigMapName: infrastructure-configmap
   infrastructureNamespace: default
   microservicesNamespace: default
-  postgresServiceName: postgres-service
   postgresImage: debezium/postgres:16
   redisImage: redis:7.2
   postgresPort: 5432
@@ -25,7 +24,7 @@ infrastructureConfigMapData:
     - name: EUREKA_HOST
       value: http://eureka-service
     - name: SCHEMA_REGISTRY_HOST
-      value: http://schema-registry:8081
+      value: http://schema-registry-service:8081
 
 
 image:

@@ -209,6 +209,21 @@ spec:
       labels:
         app: debezium
     spec:
+      volumes:
+        - name: script-config
+          configMap:
+            name: infrastructure-script-config
+            defaultMode: 0777
+      initContainers:
+        - name: wait-for-account-postgres
+          image: {{ $.Values.busyboxImage }}
+          command: ['sh', '-c', 'until nslookup account-postgres-0.postgres-headless.default.svc.cluster.local; do echo waiting for account postgres; sleep 2; done']
+        - name: wait-for-post-postgres
+          image: {{ $.Values.busyboxImage }}
+          command: ['sh', '-c', 'until nslookup post-postgres-0.postgres-headless.default.svc.cluster.local; do echo waiting for post postgres; sleep 2; done']
+        - name: wait-for-post-kafka
+          image: {{ $.Values.busyboxImage }}
+          command: [ 'sh', '-c', 'until nslookup kafka-broker-0.kafka-broker-service.default.svc.cluster.local; do echo waiting for post postgres; sleep 2; done' ]
       containers:
         - name: debezium-container
           image: {{ .image }}
@@ -234,6 +249,13 @@ spec:
                 configMapKeyRef:
                   name: {{ $.Values.global.infrastructureConfigMapName }}
                   key: SCHEMA_REGISTRY_HOST
+        - name: init-connectors
+          image: curlimages/curl
+          volumeMounts:
+            - name: script-config
+              mountPath: /tmp/init-connectors.sh
+              subPath: init-connectors.sh
+          command: ["/bin/sh", "-c", "while ! nc -z debezium-service 8083; do sleep 1; done; ls /tmp; cat /tmp/init-connectors.sh; sleep 1; /bin/sh /tmp/init-connectors.sh && exit 0"]
 ---
 apiVersion: v1
 kind: Service
@@ -247,3 +269,4 @@ spec:
     - protocol: TCP
       port: {{ .port }}
 {{- end }}
+---

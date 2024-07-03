@@ -3,6 +3,24 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
+servicePort: 8182
+podImage: com.social.media.feed/feed-service:1.0-SNAPSHOT
+
+env:
+  - name: LOGGING_LEVEL
+    value: INFO
+  - name: DATABASE_USER
+    value: user
+  - name: DATABASE_PASSWORD
+    value: admin
+  - name: DATABASE_HOST
+    value: feed-postgres-0.postgres-headless.default.svc.cluster.local
+  - name: REDIS_HOST
+    value: feed-redis-0.redis-headless.default.svc.cluster.local
+  - name: REDIS_PASSWORD
+    value: admin
+  - name: SCHEMA_REGISTRY_HOST
+    value: http://schema-registry-service
 
 image:
   repository: nginx

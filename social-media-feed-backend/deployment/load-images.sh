@@ -16,5 +16,9 @@ CLUSTER_NAME=kind-control-plane
   kind load docker-image $image;
 done
 
+# Image needed in cluster for Debezium
+docker pull curlimages/curl
+kind load docker-image curlimages/curl
+
 printf "\n Getting images from control plane... \n" | xargs
 docker exec -it $CLUSTER_NAME crictl images | grep $GROUP_ID
