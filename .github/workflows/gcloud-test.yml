@@ -11,6 +11,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build with Maven
+    - name: Setup docker credentials gcr
       run: > 
-        pwd;
+        curl -fsSL "https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v2.1.22%7D/docker-credential-gcr_linux_amd64-2.1.22.tar.gz" \
+        | tar xz docker-credential-gcr \
+        && chmod +x docker-credential-gcr && sudo mv docker-credential-gcr /usr/bin;
+        docker-credential-gcr configure-docker --registries=${{ secrets.GCP_ARTIFACT_REGISTRY }};
+        echo
