@@ -1,5 +1,4 @@
-
-name: test-gcloud
+name: Test gcloud
 
 on:
   workflow_dispatch:
@@ -8,9 +7,10 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v4
-    - name: Test
-      run: >
-        echo "Testing!"
+    - name: Build with Maven
+      run: > 
+        pwd;
