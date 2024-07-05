@@ -18,11 +18,13 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
+    - name: Build with Maven, create docker images
       run: > 
-        pwd;
-        ls;
-    #     cd social-media-feed-backend;
-    #     mvn clean install;
-    # - name: Log images
-    #   run: docker image ls
+        cd /home/runner/work/social-media-feed/social-media-feed/social-media-feed-backend;
+        mvn clean install;
+    - name: Build Debezium image
+      run: >
+        cd /home/runner/work/social-media-feed/social-media-feed/social-media-feed-backend/deployment/docker-compose;
+        docker build -t com.social.media.feed/debezium-connect:1.0-SNAPSHOT -f ./debezium.dockerfile .
+    - name: Log images
+      run: docker image ls
