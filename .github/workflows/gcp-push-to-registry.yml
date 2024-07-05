@@ -1,0 +1,31 @@
+
+name: GCP Build maven project, push images into Artifact Registry
+
+on:
+  workflow_dispatch:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      uses: actions/checkout@v4
+      - name: Setup JDK 17
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+        - name: Build with Maven, create images
+          run: > 
+            ls;
+            pwd;
+        #     cd social-media-feed-backend;
+        #     mvn clean install;
+        # - name: Build Debezium connect image
+        #   run: >
+        #     ls;
+        #     cd social-media-feed-backend;
+        #     docker build -t 
+        # - name: Log images
+        #   run: docker image ls
