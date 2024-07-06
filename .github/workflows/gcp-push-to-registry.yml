@@ -19,24 +19,33 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+    # Build Spring project, run integration tests, create images of microservices
     - name: Build with Maven, create docker images
       run: > 
         cd /home/runner/work/social-media-feed/social-media-feed/social-media-feed-backend;
         mvn clean install;
+    # Builds an image of Debezium that is compatible with Confluent Schema Registry
     - name: Build Debezium image
       run: >
         cd /home/runner/work/social-media-feed/social-media-feed/social-media-feed-backend/deployment/docker-compose;
         docker build -t com.social.media.feed/debezium-connect:1.0-SNAPSHOT -f ./debezium.dockerfile .
+    # Logs images
     - name: Log images
       run: docker image ls | grep com.social
     
-    # GCP Stuff
+    # GCP Authentication
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
       with:
         credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v2'
+    - name: 'Use gcloud CLI'
+      run: >
+        gcloud info;
+        gcloud auth configure-docker us-east1-docker.pkg.dev;
+
+    # Push images to registry
     - name: 'Push images'
       run: >
         docker tag com.social.media.feed/account-service:1.0-SNAPSHOT "${{ secrets.GCP_ARTIFACT_REGISTRY }}/account-service:1.0-SNAPSHOT";
