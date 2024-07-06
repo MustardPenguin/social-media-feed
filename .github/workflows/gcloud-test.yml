@@ -31,7 +31,10 @@ jobs:
       uses: 'google-github-actions/setup-gcloud@v2'
 
     - name: 'Use gcloud CLI'
-      run: 'gcloud info'
+      run: >
+        gcloud info;
+        gcloud auth configure-docker us-east1-docker.pkg.dev;
+        gcloud auth print-access-token;
 
     - name: 'Push images'
       run: >
