@@ -11,6 +11,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build Debezium image
+      run: >
+        cd /home/runner/work/social-media-feed/social-media-feed/social-media-feed-backend/deployment/docker-compose;
+        docker build -t com.social.media.feed/debezium-connect:1.0-SNAPSHOT -f ./debezium.dockerfile .
+
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
       with:
@@ -21,3 +32,9 @@ jobs:
 
     - name: 'Use gcloud CLI'
       run: 'gcloud info'
+
+    - name: 'Push images'
+      run: >
+        docker image ls;
+        docker tag com.social.media.feed/debezium-connect:1.0-SNAPSHOT "${{ secrets.GCP_ARTIFACT_REGISTRY }}/debezium-connect:1.0-SNAPSHOT";
+        docker push "${{ secrets.GCP_ARTIFACT_REGISTRY }}/debezium-connect:1.0-SNAPSHOT";
