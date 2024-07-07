@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/feed-service/templates/feed-service.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/init-connectors.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/templates/script-config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/load-images.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/load-images.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/feed-service/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/feed-service/values.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/templates/infrastructure.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/templates/infrastructure.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/infrastructure/values.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/post-service/templates/post-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/post-service/templates/post-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/post-service/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/charts/post-service/values.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/values.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/AccountController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,7 +305,7 @@
       <workItem from="1717901017406" duration="12583000" />
       <workItem from="1718223176637" duration="104154000" />
       <workItem from="1719524216999" duration="106000" />
-      <workItem from="1719524330096" duration="55109000" />
+      <workItem from="1719524330096" duration="57052000" />
     </task>
     <servers />
   </component>

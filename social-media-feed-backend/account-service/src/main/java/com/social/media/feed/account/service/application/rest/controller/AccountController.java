@@ -40,4 +40,9 @@ public class AccountController {
         AccountResponse accountResponse = accountServiceMapper.accountToAccountResponse(account);
         return ResponseEntity.ok(accountResponse);
     }
+
+    @GetMapping("/test")
+    public String test() {
+        return "This is version V1!";
+    }
 }
