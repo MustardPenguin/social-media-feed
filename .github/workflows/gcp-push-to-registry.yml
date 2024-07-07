@@ -48,20 +48,20 @@ jobs:
     # Push images to registry
     - name: 'Push images'
       run: >
-        docker tag com.social.media.feed/account-service:1.0-SNAPSHOT "${{ secrets.GCP_ARTIFACT_REGISTRY }}/account-service:1.0-SNAPSHOT";
-        docker push "${{ secrets.GCP_ARTIFACT_REGISTRY }}/account-service:1.0-SNAPSHOT";
+        docker tag com.social.media.feed/account-service:1.0-SNAPSHOT "${{ secrets.GCP_ARTIFACT_REGISTRY }}/account-service:latest";
+        docker push "${{ secrets.GCP_ARTIFACT_REGISTRY }}/account-service:latest";
 
-        docker tag com.social.media.feed/post-service:1.0-SNAPSHOT "${{ secrets.GCP_ARTIFACT_REGISTRY }}/post-service:1.0-SNAPSHOT";
-        docker push "${{ secrets.GCP_ARTIFACT_REGISTRY }}/post-service:1.0-SNAPSHOT";
+        docker tag com.social.media.feed/post-service:1.0-SNAPSHOT "${{ secrets.GCP_ARTIFACT_REGISTRY }}/post-service:latest";
+        docker push "${{ secrets.GCP_ARTIFACT_REGISTRY }}/post-service:latest";
 
-        docker tag com.social.media.feed/feed-service:1.0-SNAPSHOT "${{ secrets.GCP_ARTIFACT_REGISTRY }}/feed-service:1.0-SNAPSHOT";
-        docker push "${{ secrets.GCP_ARTIFACT_REGISTRY }}/feed-service:1.0-SNAPSHOT";
+        docker tag com.social.media.feed/feed-service:1.0-SNAPSHOT "${{ secrets.GCP_ARTIFACT_REGISTRY }}/feed-service:latest";
+        docker push "${{ secrets.GCP_ARTIFACT_REGISTRY }}/feed-service:latest";
 
-        docker tag com.social.media.feed/api-gateway-service:1.0-SNAPSHOT "${{ secrets.GCP_ARTIFACT_REGISTRY }}/api-gateway-service:1.0-SNAPSHOT";
-        docker push "${{ secrets.GCP_ARTIFACT_REGISTRY }}/api-gateway-service:1.0-SNAPSHOT";
+        docker tag com.social.media.feed/api-gateway-service:1.0-SNAPSHOT "${{ secrets.GCP_ARTIFACT_REGISTRY }}/api-gateway-service:latest";
+        docker push "${{ secrets.GCP_ARTIFACT_REGISTRY }}/api-gateway-service:latest";
 
-        docker tag com.social.media.feed/eureka-service:1.0-SNAPSHOT "${{ secrets.GCP_ARTIFACT_REGISTRY }}/eureka-service:1.0-SNAPSHOT";
-        docker push "${{ secrets.GCP_ARTIFACT_REGISTRY }}/eureka-service:1.0-SNAPSHOT";
+        docker tag com.social.media.feed/eureka-service:1.0-SNAPSHOT "${{ secrets.GCP_ARTIFACT_REGISTRY }}/eureka-service:latest";
+        docker push "${{ secrets.GCP_ARTIFACT_REGISTRY }}/eureka-service:latest";
 
-        docker tag com.social.media.feed/debezium-connect:1.0-SNAPSHOT "${{ secrets.GCP_ARTIFACT_REGISTRY }}/debezium-connect:1.0-SNAPSHOT";
-        docker push "${{ secrets.GCP_ARTIFACT_REGISTRY }}/debezium-connect:1.0-SNAPSHOT";
+        docker tag com.social.media.feed/debezium-connect:1.0-SNAPSHOT "${{ secrets.GCP_ARTIFACT_REGISTRY }}/debezium-connect:latest";
+        docker push "${{ secrets.GCP_ARTIFACT_REGISTRY }}/debezium-connect:latest";
