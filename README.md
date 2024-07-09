@@ -4,11 +4,11 @@ A real-time social media feed designed as event-driven microservices.
 
 <h2>Table of contents</h2>
 
- * [Running locally](https://github.com/MustardPenguin/social-media-feed#Running-locally-for-development)
- * [Running with Helm charts](https://github.com/MustardPenguin/social-media-feed#Running-locally-for-development#Running-with-Helm-charts)
+ * [Running locally for development](#running-locally-for-development)
+ * [Running with Helm charts](#running-locally-with-helm-charts)
 
 
-<h2>Running locally for development</h2>
+## Running locally for development
 
 This project was tested and developed on Mac and Linux, thus the instructions may not work on other operating systems.
 
@@ -38,4 +38,4 @@ Finally, run all the microservices in any order -
 
 The microservices should register itself with Eureka once it is finished, and the application is now ready for development.
 
-<h2>Running with Helm charts</h2>
+## Running locally with Helm charts
