@@ -35,6 +35,7 @@ metadata:
   name: redis-headless
   namespace: {{ $namespace }}
 spec:
+  clusterIP: None
   selector:
     database: redis
   ports:

@@ -7,6 +7,9 @@
     <list default="true" id="37a50084-30f2-48b1-9df2-1319be8ce3f0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/social/media/feed/account/service/application/rest/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/templates/service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/social-media-feed-backend-charts/templates/service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/core/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/app/core/authentication.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../social-media-feed-frontend/src/environments/environment.development.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../social-media-feed-frontend/src/environments/environment.development.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -305,7 +308,7 @@
       <workItem from="1717901017406" duration="12583000" />
       <workItem from="1718223176637" duration="104154000" />
       <workItem from="1719524216999" duration="106000" />
-      <workItem from="1719524330096" duration="57052000" />
+      <workItem from="1719524330096" duration="62396000" />
     </task>
     <servers />
   </component>

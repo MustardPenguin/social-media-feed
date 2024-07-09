@@ -43,6 +43,6 @@ public class AccountController {
 
     @GetMapping("/test")
     public String test() {
-        return "This is version V1!";
+        return "This is version V2!";
     }
 }
