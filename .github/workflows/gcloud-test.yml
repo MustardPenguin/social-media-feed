@@ -36,9 +36,10 @@ jobs:
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v2'
 
-    - name: 'Use gcloud CLI'
+    - name: 'Use gcloud CLI, install plugin'
       run: >
         gcloud info;
+        gcloud components install gke-gcloud-auth-plugin;
 
     - name: 'Connect to cluster'
       run: >
