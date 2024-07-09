@@ -42,6 +42,6 @@ jobs:
 
     - name: 'Connect to cluster'
       run: >
-        gcloud container clusters get-credentials my-first-cluster-1 --zone us-east1-b --project {{ secrets.GCP_PROJECT_NAME }}
+        gcloud container clusters get-credentials my-first-cluster-1 --zone us-east1-b --project the-delight-409622;
         kubectl get pods;
         helm list;
