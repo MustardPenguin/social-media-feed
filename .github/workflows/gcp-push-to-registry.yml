@@ -44,7 +44,6 @@ jobs:
       run: >
         gcloud info;
         gcloud auth configure-docker us-east1-docker.pkg.dev;
-        gcloud components install gke-gcloud-auth-plugin;
 
     # Push images to registry
     - name: 'Push images'
@@ -66,8 +65,4 @@ jobs:
 
         docker tag com.social.media.feed/debezium-connect:1.0-SNAPSHOT "${{ secrets.GCP_ARTIFACT_REGISTRY }}/debezium-connect:latest";
         docker push "${{ secrets.GCP_ARTIFACT_REGISTRY }}/debezium-connect:latest";
-    
-    - name: 'Update deployment'
-      run: >
-        gcloud container clusters get-credentials my-first-cluster-1 --zone us-east1-b --project the-delight-409622;
-        
+
