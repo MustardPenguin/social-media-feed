@@ -17,15 +17,21 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build Debezium image
-      run: >
-        cd /home/runner/work/social-media-feed/social-media-feed/social-media-feed-backend/deployment/docker-compose;
-        docker build -t com.social.media.feed/debezium-connect:1.0-SNAPSHOT -f ./debezium.dockerfile .
 
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
       with:
         credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
+    - name: Set up kubectl
+        uses: azure/setup-kubectl@v1
+        with:
+          version: 'latest'
+
+    - name: Set up Helm
+      uses: azure/setup-helm@v1
+      with:
+        version: 'latest'
 
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v2'
@@ -33,10 +39,9 @@ jobs:
     - name: 'Use gcloud CLI'
       run: >
         gcloud info;
-        gcloud auth configure-docker us-east1-docker.pkg.dev;
 
-    - name: 'Push images'
+    - name: 'Connect to cluster'
       run: >
-        docker image ls;
-        docker tag com.social.media.feed/debezium-connect:1.0-SNAPSHOT "${{ secrets.GCP_ARTIFACT_REGISTRY }}/debezium-connect:1.0-SNAPSHOT";
-        docker push "${{ secrets.GCP_ARTIFACT_REGISTRY }}/debezium-connect:1.0-SNAPSHOT";
+        gcloud container clusters get-credentials my-first-cluster-1 --zone us-east1-b --project {{ secrets.GCP_PROJECT_NAME }}
+        kubectl get pods;
+        helm list;
