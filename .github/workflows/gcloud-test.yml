@@ -11,13 +11,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
-
+    
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
       with:
@@ -46,3 +40,4 @@ jobs:
         gcloud container clusters get-credentials my-first-cluster-1 --zone us-east1-b --project the-delight-409622;
         kubectl get pods;
         helm list;
+        ls;
